@@ -1,4 +1,5 @@
 import styles from './Form.module.scss';
+import {Input} from "@/components/form/input/Input";
 export const Form = () => {
-    return <h1>Form</h1>
+    return <Input type="text" required label="LAbel" errorMessage="Error" />
 }
