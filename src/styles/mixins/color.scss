@@ -1,0 +1,19 @@
+@mixin black {
+  color: var(--color-black);
+}
+
+@mixin white {
+  color: var(--color-white);
+}
+
+@mixin gray {
+  color: var(--color-gray);
+}
+
+@mixin yellow {
+  color: var(--color-yellow-100);
+}
+
+@mixin red {
+  color: var(--color-red);
+}

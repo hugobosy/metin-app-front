@@ -1,8 +1,11 @@
-import styles from './Form.module.scss';
-import {Input} from "@/components/form/input/Input";
+import styles from "./Form.module.scss";
+import { Text } from "@/components/base/text/Text";
+import { Input } from "@/components/form/input/Input";
 export const Form = () => {
-    return <div className={styles.wrapper}>
-        <h1>Login</h1>
-        <Input label="Label" errorMessage="Error" />
-    </div>
-}
+  return (
+    <>
+      <Input label="Label" />
+      <Text tag="h1" text="Text" weight="300" fontSize="xxl" />
+    </>
+  );
+};

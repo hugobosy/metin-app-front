@@ -1,0 +1,74 @@
+@import "@/styles/common";
+.weight {
+  &-300 {
+    @include thin;
+  }
+  &-400 {
+    @include normal;
+  }
+  &-500 {
+    @include semi-bold;
+  }
+  &-600 {
+    @include bold;
+  }
+  &-700 {
+    @include extra-bold;
+  }
+}
+
+.size {
+  &-xxs {
+    @include xxs;
+  }
+
+  &-xs {
+    @include xs;
+  }
+
+  &-sm {
+    @include sm;
+  }
+
+  &-base {
+    @include base;
+  }
+
+  &-md {
+    @include md;
+  }
+
+  &-lg {
+    @include lg;
+  }
+
+  &-xl {
+    @include xl;
+  }
+
+  &-xxl {
+    @include xxl;
+  }
+}
+
+.color {
+  &-black {
+    @include black;
+  }
+
+  &-white {
+    @include white;
+  }
+
+  &-gray {
+    @include gray;
+  }
+
+  &-yellow {
+    @include yellow;
+  }
+
+  &-red {
+    @include red;
+  }
+}
