@@ -1,4 +1,7 @@
 import styles from './Form.module.scss';
+import {Text} from "@/components/base/text/Text";
 export const Form = () => {
-    return <h1>Form</h1>
+    return <>
+        <Text tag="h1" text="Text" />
+    </>
 }
