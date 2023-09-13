@@ -1,0 +1,55 @@
+//WEIGHT
+
+@mixin thin {
+  font-weight: 300;
+}
+
+@mixin normal {
+  font-weight: 400;
+}
+
+@mixin semi-bold {
+  font-weight: 500;
+}
+
+@mixin bold {
+  font-weight: 600;
+}
+
+@mixin extra-bold {
+  font-weight: 700;
+}
+
+//SIZE
+
+@mixin xxs {
+  font-size: 10px;
+}
+
+@mixin xs {
+  font-size: 12px;
+}
+
+@mixin sm {
+  font-size: 14px;
+}
+
+@mixin base {
+  font-size: 16px;
+}
+
+@mixin md {
+  font-size: 20px;
+}
+
+@mixin lg {
+  font-size: 24px;
+}
+
+@mixin xl {
+  font-size: 32px;
+}
+
+@mixin xxl {
+  font-size: 48px;
+}
