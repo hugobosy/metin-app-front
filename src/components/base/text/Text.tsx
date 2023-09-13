@@ -9,14 +9,16 @@ export interface TextProps extends HTMLProps<HTMLParagraphElement> {
   className?: string;
   weight?: "300" | "400" | "500" | "600" | "700";
   fontSize?: "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+  color?: "white" | "black" | "red" | "yellow" | "gray";
 }
 
 export const Text: FC<TextProps> = ({
-  tag,
+  tag = "p",
   text,
   className,
-  weight,
-  fontSize,
+  weight = "400",
+  fontSize = "base",
+  color = "black",
   ...rest
 }) => {
   const T = tag;
@@ -28,6 +30,7 @@ export const Text: FC<TextProps> = ({
         className,
         styles[`weight-${weight}`],
         styles[`size-${fontSize}`],
+        styles[`color-${color}`],
       )}
     >
       {text}

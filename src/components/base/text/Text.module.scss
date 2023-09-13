@@ -50,3 +50,25 @@
     @include xxl;
   }
 }
+
+.color {
+  &-black {
+    @include black;
+  }
+
+  &-white {
+    @include white;
+  }
+
+  &-gray {
+    @include gray;
+  }
+
+  &-yellow {
+    @include yellow;
+  }
+
+  &-red {
+    @include red;
+  }
+}
