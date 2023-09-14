@@ -1,0 +1,30 @@
+@mixin danger {
+  background-color: var(--color-red-100);
+  border: 2px solid var(--color-red-200);
+  color: var(--color-white);
+
+  &:hover {
+    background-color: var(--color-red-200);
+  }
+}
+
+@mixin success {
+  background-color: var(--color-green-100);
+  border: 2px solid var(--color-green-200);
+  color: var(--color-white);
+
+  &:hover {
+    background-color: var(--color-green-200);
+  }
+}
+
+@mixin base {
+  background-color: var(--color-gray-100);
+  border: 2px solid var(--color-gray-200);
+  color: var(--color-black);
+
+  &:hover {
+    background-color: var(--color-gray-200);
+    color: var(--color-white);
+  }
+}

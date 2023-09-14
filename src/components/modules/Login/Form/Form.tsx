@@ -8,7 +8,7 @@ export const Form = () => {
       <Input label="Label" />
       <Text tag="h1" text="Text" weight="300" fontSize="xxl" />
       <div>
-        <Button />
+        <Button type="button" text="Hehe" size="lg" variant="base" />
       </div>
     </>
   );
