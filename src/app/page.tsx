@@ -1,8 +1,5 @@
-import {HomePage} from "@/components/templates/HomePage/HomePage";
-import '@/styles/main.scss'
+import { redirect } from "next/navigation";
 
-export default function Home() {
-  return (
-    <HomePage />
-  )
+export default function RootPage() {
+  redirect("/pl");
 }
