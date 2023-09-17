@@ -72,3 +72,17 @@
     @include red;
   }
 }
+
+.fontFamily {
+  &-montserrat {
+    font-family: var(--font-montserrat);
+  }
+
+  &-inter {
+    font-family: var(--font-inter);
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+}

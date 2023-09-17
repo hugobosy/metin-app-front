@@ -10,6 +10,8 @@ export interface TextProps extends HTMLProps<HTMLParagraphElement> {
   weight?: "300" | "400" | "500" | "600" | "700";
   fontSize?: "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   color?: "white" | "black" | "red" | "yellow" | "gray";
+  isUppercase?: boolean;
+  fontFamily?: "montserrat" | "inter";
 }
 
 export const Text: FC<TextProps> = ({
@@ -19,6 +21,8 @@ export const Text: FC<TextProps> = ({
   weight = "400",
   fontSize = "base",
   color = "black",
+  isUppercase,
+  fontFamily = "montserrat",
   ...rest
 }) => {
   const T = tag;
@@ -31,6 +35,8 @@ export const Text: FC<TextProps> = ({
         styles[`weight-${weight}`],
         styles[`size-${fontSize}`],
         styles[`color-${color}`],
+        styles[`fontFamily-${fontFamily}`],
+        isUppercase && styles.uppercase,
       )}
     >
       {text}

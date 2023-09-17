@@ -1,5 +1,10 @@
 {
   "HomePage": {
     "title": "Czesc tlumaczenia!"
+  },
+
+  "RegisterPage": {
+    "create-account": "Stwórz konto"
+
   }
 }

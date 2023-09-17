@@ -1,0 +1,9 @@
+{
+  "HomePage": {
+    "title": "Hello World"
+  },
+
+  "RegisterPage": {
+    "register": "Register"
+  }
+}
