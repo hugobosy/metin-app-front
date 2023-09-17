@@ -33,7 +33,7 @@ export const Text: FC<TextProps> = ({
       className={classNames(
         className,
         styles[`weight-${weight}`],
-        styles[`size-${fontSize}`],
+        styles[`fontSize-${fontSize}`],
         styles[`color-${color}`],
         styles[`fontFamily-${fontFamily}`],
         isUppercase && styles.uppercase,

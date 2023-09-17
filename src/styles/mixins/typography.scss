@@ -22,15 +22,15 @@
 
 //SIZE
 
-@mixin xxs {
+@mixin xxs-text {
   font-size: 10px;
 }
 
-@mixin xs {
+@mixin xs-text {
   font-size: 12px;
 }
 
-@mixin sm {
+@mixin sm-text {
   font-size: 14px;
 }
 
@@ -38,18 +38,26 @@
   font-size: 16px;
 }
 
-@mixin md {
+@mixin md-text {
   font-size: 20px;
 }
 
-@mixin lg {
+@mixin lg-text {
   font-size: 24px;
 }
 
-@mixin xl {
+@mixin xl-text {
   font-size: 32px;
 }
 
-@mixin xxl {
+@mixin xxl-text {
   font-size: 48px;
+}
+
+@mixin family-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+@mixin family-inter {
+  font-family: "Inter", sans-serif;
 }

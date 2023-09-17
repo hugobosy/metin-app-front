@@ -17,17 +17,17 @@
   }
 }
 
-.size {
+.fontSize {
   &-xxs {
-    @include xxs;
+    @include xxs-text;
   }
 
   &-xs {
-    @include xs;
+    @include xs-text;
   }
 
   &-sm {
-    @include sm;
+    @include sm-text;
   }
 
   &-base {
@@ -35,19 +35,19 @@
   }
 
   &-md {
-    @include md;
+    @include md-text;
   }
 
   &-lg {
-    @include lg;
+    @include lg-text;
   }
 
   &-xl {
-    @include xl;
+    @include xl-text;
   }
 
   &-xxl {
-    @include xxl;
+    @include xxl-text;
   }
 }
 
@@ -75,11 +75,11 @@
 
 .fontFamily {
   &-montserrat {
-    font-family: "Montserrat", sans-serif;
+    @include family-montserrat;
   }
 
   &-inter {
-    font-family: "Inter", sans-serif;
+    @include family-inter;
   }
 }
 
