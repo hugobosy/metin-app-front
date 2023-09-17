@@ -8,6 +8,9 @@
     "your-name": "Twoje imię",
     "your-email": "Twój email",
     "password": "Hasło",
-    "repeat-your-password": "Powtórz hasło"
+    "repeat-your-password": "Powtórz hasło",
+    "sign-up": "Zarejestruj się",
+    "have-already-an-account": "Posiadasz już konto?",
+    "login-here": "Zaloguj się"
   }
 }
