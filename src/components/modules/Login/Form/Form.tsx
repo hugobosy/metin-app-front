@@ -2,7 +2,6 @@ import styles from "./Form.module.scss";
 import { Text } from "@/components/base/text/Text";
 import { Input } from "@/components/form/input/Input";
 import { Button } from "@/components/base/button/Button";
-import { useTranslation } from "next-i18next";
 export const Form = () => {
   return (
     <>
