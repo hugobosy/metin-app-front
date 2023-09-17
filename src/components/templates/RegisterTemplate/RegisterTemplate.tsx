@@ -5,7 +5,6 @@ import { Text } from "@/components/base/text/Text";
 import { Input } from "@/components/form/input/Input";
 import { Checkbox } from "@/components/form/checkbox/Checkbox";
 import { Button } from "@/components/base/button/Button";
-import Link from "next/link";
 import { projectURL } from "@/const/projectURL";
 export const RegisterTemplate = () => {
   const t = useTranslations("RegisterPage");
@@ -29,7 +28,7 @@ export const RegisterTemplate = () => {
             required
             placeholder={t("repeat-your-password")}
           />
-          <Checkbox />
+          <Checkbox label={t("i-agree-all-statements-in")} color="green" />
           <Button type="submit" text={t("sign-up")} className={styles.button} />
         </form>
 
