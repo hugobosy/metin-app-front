@@ -4,7 +4,10 @@
   },
 
   "RegisterPage": {
-    "create-account": "Stwórz konto"
-
+    "create-account": "Stwórz konto",
+    "your-name": "Twoje imię",
+    "your-email": "Twój email",
+    "password": "Hasło",
+    "repeat-your-password": "Powtórz hasło"
   }
 }
