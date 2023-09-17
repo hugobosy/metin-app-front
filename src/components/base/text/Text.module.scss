@@ -17,37 +17,37 @@
   }
 }
 
-.size {
+.fontSize {
   &-xxs {
-    @include xxs;
+    @include xxs-text;
   }
 
   &-xs {
-    @include xs;
+    @include xs-text;
   }
 
   &-sm {
-    @include sm;
+    @include sm-text;
   }
 
   &-base {
-    @include base;
+    @include base-text;
   }
 
   &-md {
-    @include md;
+    @include md-text;
   }
 
   &-lg {
-    @include lg;
+    @include lg-text;
   }
 
   &-xl {
-    @include xl;
+    @include xl-text;
   }
 
   &-xxl {
-    @include xxl;
+    @include xxl-text;
   }
 }
 
@@ -71,4 +71,18 @@
   &-red {
     @include red;
   }
+}
+
+.fontFamily {
+  &-montserrat {
+    @include family-montserrat;
+  }
+
+  &-inter {
+    @include family-inter;
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
 }

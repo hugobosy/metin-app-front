@@ -33,3 +33,71 @@
     padding: 12px 24px;
   }
 }
+
+.fontFamily {
+  &-montserrat {
+    @include family-montserrat;
+  }
+
+  &-inter {
+    @include family-inter;
+  }
+}
+
+.fontSize {
+  &-xxs {
+    @include xxs-text;
+  }
+
+  &-xs {
+    @include xs-text;
+  }
+
+  &-sm {
+    @include sm-text;
+  }
+
+  &-base {
+    @include base-text;
+  }
+
+  &-md {
+    @include md-text;
+  }
+
+  &-lg {
+    @include lg-text;
+  }
+
+  &-xl {
+    @include xl-text;
+  }
+
+  &-xxl {
+    @include xxl-text;
+  }
+}
+
+.fontColor {
+  &-black {
+    @include black;
+  }
+}
+
+.weight {
+  &-300 {
+    @include thin;
+  }
+  &-400 {
+    @include normal;
+  }
+  &-500 {
+    @include semi-bold;
+  }
+  &-600 {
+    @include bold;
+  }
+  &-700 {
+    @include extra-bold;
+  }
+}

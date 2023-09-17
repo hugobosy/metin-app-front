@@ -1,5 +1,17 @@
 {
-  "Index": {
+  "HomePage": {
     "title": "Czesc tlumaczenia!"
+  },
+
+  "RegisterPage": {
+    "create-account": "Stwórz konto",
+    "your-name": "Twoje imię",
+    "your-email": "Twój email",
+    "password": "Hasło",
+    "repeat-your-password": "Powtórz hasło",
+    "sign-up": "Zarejestruj się",
+    "i-agree-all-statements-in": "Zgadzam się na wszystkie warunki zawarte w",
+    "have-already-an-account": "Posiadasz już konto?",
+    "login-here": "Zaloguj się"
   }
 }
