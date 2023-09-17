@@ -13,6 +13,7 @@ export const RegisterTemplate = () => {
           fontSize="xxl"
           isUppercase
           weight="700"
+          fontFamily="inter"
         />
       </div>
     </div>

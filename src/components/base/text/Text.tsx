@@ -22,7 +22,7 @@ export const Text: FC<TextProps> = ({
   fontSize = "base",
   color = "black",
   isUppercase,
-  fontFamily = "montserrat",
+  fontFamily,
   ...rest
 }) => {
   const T = tag;
