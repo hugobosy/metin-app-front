@@ -18,6 +18,7 @@ export const RegisterTemplate = () => {
           isUppercase
           weight="700"
           fontFamily="inter"
+          className={styles.header}
         />
         <form className={styles["form-inner"]}>
           <div>
