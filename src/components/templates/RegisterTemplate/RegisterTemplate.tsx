@@ -6,8 +6,19 @@ import { Input } from "@/components/form/input/Input";
 import { Checkbox } from "@/components/form/checkbox/Checkbox";
 import { Button } from "@/components/base/button/Button";
 import { projectURL } from "@/const/projectURL";
+import { useFormik } from "formik";
 export const RegisterTemplate = () => {
   const t = useTranslations("RegisterPage");
+
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      password: "",
+    },
+    onSubmit: () => {},
+  });
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.form}>
@@ -22,9 +33,24 @@ export const RegisterTemplate = () => {
         />
         <form className={styles["form-inner"]}>
           <div>
-            <Input type="text" required placeholder={t("your-name")} />
-            <Input type="text" required placeholder={t("your-email")} />
-            <Input type="password" required placeholder={t("password")} />
+            <Input
+              type="text"
+              name="name"
+              required
+              placeholder={t("your-name")}
+            />
+            <Input
+              type="text"
+              name="email"
+              required
+              placeholder={t("your-email")}
+            />
+            <Input
+              type="password"
+              name="password"
+              required
+              placeholder={t("password")}
+            />
             <Input
               type="password"
               required
