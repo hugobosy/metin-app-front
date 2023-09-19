@@ -22,7 +22,8 @@
     "react-dom": "18.2.0",
     "sass": "^1.66.1",
     "typescript": "5.2.2",
-    "universal-cookie": "^6.1.1"
+    "universal-cookie": "^6.1.1",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",

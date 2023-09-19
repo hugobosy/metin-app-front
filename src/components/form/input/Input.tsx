@@ -9,6 +9,7 @@ export interface InputProps
   label?: string;
   required?: boolean;
   errorMessage?: string;
+  state?: string;
 }
 
 export const Input: FC<InputProps> = ({
