@@ -18,7 +18,8 @@
         "required-name": "Imię lub nick jest wymagany",
         "required-email": "E-mail jest wymagany",
         "required-password": "Pole z hasłem jest wymagane",
-        "required-confirm-password": "Musisz powtórzyć wpisane hasło"
+        "required-confirm-password": "Musisz powtórzyć wpisane hasło",
+        "required-agree": "Musisz zaakceptować warunki zawarte w regulaminie"
       },
       "min": {
         "min-name": "Imię lub nick musi składać się minimum z 3 znaków",

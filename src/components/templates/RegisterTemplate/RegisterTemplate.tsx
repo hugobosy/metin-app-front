@@ -2,12 +2,12 @@
 import styles from "./RegisterTemplate.module.scss";
 import { useTranslations } from "next-intl";
 import { Text } from "@/components/base/text/Text";
-import { Checkbox } from "@/components/form/checkbox/Checkbox";
 import { Button } from "@/components/base/button/Button";
 import { projectURL } from "@/const/projectURL";
 import { Form, FormikProvider, useFormik } from "formik";
 import { FormikInput } from "@/components/form/formikInput/FormikInput";
 import * as Yup from "yup";
+import { FormikCheckbox } from "@/components/form/formikCheckbox/FormikCheckbox";
 export const RegisterTemplate = () => {
   const t = useTranslations("RegisterPage");
 
@@ -17,6 +17,7 @@ export const RegisterTemplate = () => {
       email: "",
       password: "",
       passwordConfirm: "",
+      agree: false,
     },
     onSubmit: (values) => console.log(values),
     validationSchema: Yup.object().shape({
@@ -41,6 +42,7 @@ export const RegisterTemplate = () => {
           t("validate.matches.matches-confirm-password"),
         )
         .required(t("validate.required.required-confirm-password")),
+      agree: Yup.bool().oneOf([true], t("validate.required.required-agree")),
     }),
   });
 
@@ -80,7 +82,12 @@ export const RegisterTemplate = () => {
                 placeholder={t("repeat-your-password")}
               />
             </div>
-            <Checkbox label={t("i-agree-all-statements-in")} color="green" />
+            <FormikCheckbox
+              name="agree"
+              label={t("i-agree-all-statements-in")}
+              color="green"
+              checked={registerFormik.values.agree}
+            />
             <Button
               type="submit"
               text={t("sign-up")}

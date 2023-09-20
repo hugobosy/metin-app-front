@@ -40,7 +40,10 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         <Text
           tag="span"
           text={message}
-          className={styles.validateErrorMessage}
+          className={styles.error}
+          fontSize="xxs"
+          color="red"
+          fontFamily="montserrat"
         />
       )}
     </label>
