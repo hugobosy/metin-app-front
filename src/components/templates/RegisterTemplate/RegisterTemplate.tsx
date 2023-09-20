@@ -2,21 +2,46 @@
 import styles from "./RegisterTemplate.module.scss";
 import { useTranslations } from "next-intl";
 import { Text } from "@/components/base/text/Text";
-import { Input } from "@/components/form/input/Input";
 import { Checkbox } from "@/components/form/checkbox/Checkbox";
 import { Button } from "@/components/base/button/Button";
 import { projectURL } from "@/const/projectURL";
-import { useFormik } from "formik";
+import { Form, FormikProvider, useFormik } from "formik";
+import { FormikInput } from "@/components/form/formikInput/FormikInput";
+import * as Yup from "yup";
 export const RegisterTemplate = () => {
   const t = useTranslations("RegisterPage");
 
-  const formik = useFormik({
+  const registerFormik = useFormik({
     initialValues: {
       name: "",
       email: "",
       password: "",
+      passwordConfirm: "",
     },
-    onSubmit: () => {},
+    onSubmit: (values) => console.log(values),
+    validationSchema: Yup.object().shape({
+      name: Yup.string()
+        .min(3, t("validate.min.min-name"))
+        .max(50, t("validate.max.max-name"))
+        .required(t("validate.required.required-name")),
+      email: Yup.string()
+        .email(t("validate.matches.matches-email"))
+        .min(11, t("validate.min.min-email"))
+        .max(150, t("validate.max.max-email"))
+        .required(t("validate.required.required-email")),
+      password: Yup.string()
+        .matches(
+          /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_`+{}\[\]:;<>,.?~\-=/\\]{8,}$/,
+          t("validate.matches.matches-password"),
+        )
+        .required(t("validate.required.required-password")),
+      passwordConfirm: Yup.string()
+        .oneOf(
+          [Yup.ref("password")],
+          t("validate.matches.matches-confirm-password"),
+        )
+        .required(t("validate.required.required-confirm-password")),
+    }),
   });
 
   return (
@@ -31,41 +56,40 @@ export const RegisterTemplate = () => {
           fontFamily="inter"
           className={styles.header}
         />
-        <form className={styles["form-inner"]}>
-          <div>
-            <Input
-              type="text"
-              name="name"
-              required
-              placeholder={t("your-name")}
+        <FormikProvider value={registerFormik}>
+          <Form className={styles["form-inner"]}>
+            <div>
+              <FormikInput
+                type="text"
+                name="name"
+                placeholder={t("your-name")}
+              />
+              <FormikInput
+                type="text"
+                name="email"
+                placeholder={t("your-email")}
+              />
+              <FormikInput
+                type="password"
+                name="password"
+                placeholder={t("password")}
+              />
+              <FormikInput
+                name="passwordConfirm"
+                type="password"
+                placeholder={t("repeat-your-password")}
+              />
+            </div>
+            <Checkbox label={t("i-agree-all-statements-in")} color="green" />
+            <Button
+              type="submit"
+              text={t("sign-up")}
+              className={styles.button}
+              variant="success"
+              size="lg"
             />
-            <Input
-              type="text"
-              name="email"
-              required
-              placeholder={t("your-email")}
-            />
-            <Input
-              type="password"
-              name="password"
-              required
-              placeholder={t("password")}
-            />
-            <Input
-              type="password"
-              required
-              placeholder={t("repeat-your-password")}
-            />
-          </div>
-          <Checkbox label={t("i-agree-all-statements-in")} color="green" />
-          <Button
-            type="submit"
-            text={t("sign-up")}
-            className={styles.button}
-            variant="success"
-            size="lg"
-          />
-        </form>
+          </Form>
+        </FormikProvider>
 
         <div className={styles["form-isAccount"]}>
           <Text

@@ -41,7 +41,13 @@ export const Input: FC<InputProps> = ({
           className={classNames(styles.input, classname)}
         />
         {errorMessage && (
-          <Text tag="p" text="Error" fontSize="xxs" weight="300" color="red" />
+          <Text
+            tag="p"
+            text={errorMessage}
+            fontSize="xxs"
+            weight="300"
+            color="red"
+          />
         )}
       </div>
     </div>

@@ -12,6 +12,27 @@
     "sign-up": "Zarejestruj się",
     "i-agree-all-statements-in": "Zgadzam się na wszystkie warunki zawarte w",
     "have-already-an-account": "Posiadasz już konto?",
-    "login-here": "Zaloguj się"
+    "login-here": "Zaloguj się",
+    "validate": {
+      "required": {
+        "required-name": "Imię lub nick jest wymagany",
+        "required-email": "E-mail jest wymagany",
+        "required-password": "Pole z hasłem jest wymagane",
+        "required-confirm-password": "Musisz powtórzyć wpisane hasło"
+      },
+      "min": {
+        "min-name": "Imię lub nick musi składać się minimum z 3 znaków",
+        "min-email": "Email musi składać się minimalnie z 11 znaków"
+      },
+      "max": {
+        "max-name": "Imię lub nick może skłądać się z maksymalnie 50 znaków",
+        "max-email": "Email może maksymalnie składać się ze 150 znaków"
+      },
+      "matches": {
+        "matches-email": "Podaj prawidłowy format email",
+        "matches-password": "Hasło musi składać się minimum z 8 znaków, jednej wielkie i małej litery oraz jednaj liczby",
+        "matches-confirm-password": "Oba podane hasła muszą być jednakowe!"
+      }
+    }
   }
 }
