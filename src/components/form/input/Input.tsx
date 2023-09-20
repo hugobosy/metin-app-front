@@ -47,6 +47,8 @@ export const Input: FC<InputProps> = ({
             fontSize="xxs"
             weight="300"
             color="red"
+            fontFamily="montserrat"
+            className={styles.error}
           />
         )}
       </div>
