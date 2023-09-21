@@ -11,6 +11,7 @@ import * as Yup from "yup";
 import { FormikCheckbox } from "@/components/form/formikCheckbox/FormikCheckbox";
 import { useMutation } from "@tanstack/react-query";
 import { apiService } from "@/services";
+import { Spinner } from "@/components/base/spinner/Spinner";
 
 export const RegisterTemplate = () => {
   const t = useTranslations("RegisterPage");
@@ -26,17 +27,7 @@ export const RegisterTemplate = () => {
       agree: false,
     },
     onSubmit: async (values) => {
-      if (register.isLoading) {
-        console.log("Loading");
-      }
-
-      if (register.isError) {
-        console.log("Error");
-        return;
-      }
-
-      register.mutate(values);
-      return true;
+      setTimeout(() => register.mutate(values), 3000);
     },
     validationSchema: Yup.object().shape({
       nick: Yup.string()
@@ -106,13 +97,17 @@ export const RegisterTemplate = () => {
               color="green"
               checked={registerFormik.values.agree}
             />
-            <Button
-              type="submit"
-              text={t("sign-up")}
-              className={styles.button}
-              variant="success"
-              size="lg"
-            />
+            {register.isLoading ? (
+              <Spinner />
+            ) : (
+              <Button
+                type="submit"
+                text={t("sign-up")}
+                className={styles.button}
+                variant="success"
+                size="lg"
+              />
+            )}
           </Form>
         </FormikProvider>
 
