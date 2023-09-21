@@ -9,6 +9,7 @@ export interface InputProps
   label?: string;
   required?: boolean;
   errorMessage?: string;
+  state?: string;
 }
 
 export const Input: FC<InputProps> = ({
@@ -40,7 +41,15 @@ export const Input: FC<InputProps> = ({
           className={classNames(styles.input, classname)}
         />
         {errorMessage && (
-          <Text tag="p" text="Error" fontSize="xxs" weight="300" color="red" />
+          <Text
+            tag="p"
+            text={errorMessage}
+            fontSize="xxs"
+            weight="300"
+            color="red"
+            fontFamily="montserrat"
+            className={styles.error}
+          />
         )}
       </div>
     </div>

@@ -1,8 +1,9 @@
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
+import TanstackProvider from "@/components/tanstack/TanstackProvider";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return [{ locale: "pl" }, { locale: "en" }, { locale: "de" }];
 }
 
@@ -25,9 +26,11 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+        <TanstackProvider>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+        </TanstackProvider>
       </body>
     </html>
   );
