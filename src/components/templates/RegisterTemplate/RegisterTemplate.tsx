@@ -1,4 +1,5 @@
 "use client";
+
 import styles from "./RegisterTemplate.module.scss";
 import { useTranslations } from "next-intl";
 import { Text } from "@/components/base/text/Text";
@@ -8,20 +9,37 @@ import { Form, FormikProvider, useFormik } from "formik";
 import { FormikInput } from "@/components/form/formikInput/FormikInput";
 import * as Yup from "yup";
 import { FormikCheckbox } from "@/components/form/formikCheckbox/FormikCheckbox";
+import { useMutation } from "@tanstack/react-query";
+import { apiService } from "@/services";
+
 export const RegisterTemplate = () => {
   const t = useTranslations("RegisterPage");
 
+  const register = useMutation(apiService.register);
+
   const registerFormik = useFormik({
     initialValues: {
-      name: "",
+      nick: "",
       email: "",
       password: "",
       passwordConfirm: "",
       agree: false,
     },
-    onSubmit: (values) => console.log(values),
+    onSubmit: async (values) => {
+      if (register.isLoading) {
+        console.log("Loading");
+      }
+
+      if (register.isError) {
+        console.log("Error");
+        return;
+      }
+
+      register.mutate(values);
+      return true;
+    },
     validationSchema: Yup.object().shape({
-      name: Yup.string()
+      nick: Yup.string()
         .min(3, t("validate.min.min-name"))
         .max(50, t("validate.max.max-name"))
         .required(t("validate.required.required-name")),
@@ -63,7 +81,7 @@ export const RegisterTemplate = () => {
             <div>
               <FormikInput
                 type="text"
-                name="name"
+                name="nick"
                 placeholder={t("your-name")}
               />
               <FormikInput
