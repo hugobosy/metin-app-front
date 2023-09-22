@@ -2,6 +2,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import React, { ReactNode } from "react";
 import TanstackProvider from "@/components/tanstack/TanstackProvider";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export async function generateStaticParams() {
   return [{ locale: "pl" }, { locale: "en" }, { locale: "de" }];
@@ -29,6 +31,7 @@ export default async function LocaleLayout({
         <TanstackProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
             {children}
+            <ToastContainer />
           </NextIntlClientProvider>
         </TanstackProvider>
       </body>

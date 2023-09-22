@@ -12,8 +12,12 @@ import { FormikCheckbox } from "@/components/form/formikCheckbox/FormikCheckbox"
 import { useMutation } from "@tanstack/react-query";
 import { apiService } from "@/services";
 import { Spinner } from "@/components/base/spinner/Spinner";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 export const RegisterTemplate = () => {
+  const router = useRouter();
+
   const t = useTranslations("RegisterPage");
 
   const register = useMutation(apiService.register);
@@ -27,7 +31,18 @@ export const RegisterTemplate = () => {
       agree: false,
     },
     onSubmit: async (values) => {
-      setTimeout(() => register.mutate(values), 3000);
+      register.mutate(values, {
+        onSuccess: (res) => {
+          if (res.data.code === 502) {
+            toast.error("Taki email istnieje w bazie", { autoClose: 1200 });
+            return;
+          }
+          router.push("/register/thanks");
+        },
+        onError: () => {
+          toast.error("Błąd połaczenia z bazą");
+        },
+      });
     },
     validationSchema: Yup.object().shape({
       nick: Yup.string()
@@ -98,7 +113,7 @@ export const RegisterTemplate = () => {
               checked={registerFormik.values.agree}
             />
             {register.isLoading ? (
-              <Spinner />
+              <Spinner className={styles.spinner} />
             ) : (
               <Button
                 type="submit"
