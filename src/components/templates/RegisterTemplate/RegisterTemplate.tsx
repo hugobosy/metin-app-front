@@ -14,8 +14,14 @@ import { apiService } from "@/services";
 import { Spinner } from "@/components/base/spinner/Spinner";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import { ComponentPropsWithoutRef, FC } from "react";
+import { RegisterPageProps } from "@/app/[locale]/register/page";
 
-export const RegisterTemplate = () => {
+export interface RegisterTemplateProps extends ComponentPropsWithoutRef<"div"> {
+  locale: RegisterPageProps;
+}
+
+export const RegisterTemplate: FC<RegisterTemplateProps> = ({ locale }) => {
   const router = useRouter();
 
   const t = useTranslations("RegisterPage");
@@ -34,13 +40,13 @@ export const RegisterTemplate = () => {
       register.mutate(values, {
         onSuccess: (res) => {
           if (res.data.code === 502) {
-            toast.error("Taki email istnieje w bazie", { autoClose: 1200 });
+            toast.error(t("email-exists-in-the-database"), { autoClose: 1200 });
             return;
           }
-          router.push("/register/thanks");
+          router.push(`thanks-for-register`);
         },
         onError: () => {
-          toast.error("Błąd połaczenia z bazą");
+          toast.error(t("connection-error"), { autoClose: 1200 });
         },
       });
     },

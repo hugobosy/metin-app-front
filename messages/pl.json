@@ -13,6 +13,9 @@
     "i-agree-all-statements-in": "Zgadzam się na wszystkie warunki zawarte w",
     "have-already-an-account": "Posiadasz już konto?",
     "login-here": "Zaloguj się",
+    "email-exists-in-the-database": "Ten e-mail istnieje już w bazie !",
+    "connection-error": "Błąd połączenia",
+
     "validate": {
       "required": {
         "required-name": "Imię lub nick jest wymagany",
