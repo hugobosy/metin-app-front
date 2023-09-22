@@ -9,14 +9,16 @@ import { Form, FormikProvider, useFormik } from "formik";
 import { FormikInput } from "@/components/form/formikInput/FormikInput";
 import * as Yup from "yup";
 import { FormikCheckbox } from "@/components/form/formikCheckbox/FormikCheckbox";
-import { useMutation } from "@tanstack/react-query";
-import { apiService } from "@/services";
 import { Spinner } from "@/components/base/spinner/Spinner";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+import { useRegisterMutation } from "@/hooks/mutations/useRegisterMutation";
 
 export const RegisterTemplate = () => {
-  const t = useTranslations("RegisterPage");
+  const { mutate: register, isLoading } = useRegisterMutation();
+  const router = useRouter();
 
-  const register = useMutation(apiService.register);
+  const t = useTranslations("RegisterPage");
 
   const registerFormik = useFormik({
     initialValues: {
@@ -27,7 +29,18 @@ export const RegisterTemplate = () => {
       agree: false,
     },
     onSubmit: async (values) => {
-      setTimeout(() => register.mutate(values), 3000);
+      register(values, {
+        onSuccess: (res) => {
+          if (res.data.code === 502) {
+            toast.error(t("email-exists-in-the-database"), { autoClose: 1200 });
+            return;
+          }
+          router.push(`thanks-for-register`);
+        },
+        onError: () => {
+          toast.error(t("connection-error"), { autoClose: 1200 });
+        },
+      });
     },
     validationSchema: Yup.object().shape({
       nick: Yup.string()
@@ -97,8 +110,8 @@ export const RegisterTemplate = () => {
               color="green"
               checked={registerFormik.values.agree}
             />
-            {register.isLoading ? (
-              <Spinner />
+            {isLoading ? (
+              <Spinner className={styles.spinner} />
             ) : (
               <Button
                 type="submit"
