@@ -14,14 +14,8 @@ import { apiService } from "@/services";
 import { Spinner } from "@/components/base/spinner/Spinner";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import { ComponentPropsWithoutRef, FC } from "react";
-import { RegisterPageProps } from "@/app/[locale]/register/page";
 
-export interface RegisterTemplateProps extends ComponentPropsWithoutRef<"div"> {
-  locale: RegisterPageProps;
-}
-
-export const RegisterTemplate: FC<RegisterTemplateProps> = ({ locale }) => {
+export const RegisterTemplate = () => {
   const router = useRouter();
 
   const t = useTranslations("RegisterPage");
