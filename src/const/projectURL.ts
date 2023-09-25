@@ -1,5 +1,5 @@
 export const projectURL = {
-  LOGIN: "/login",
+  LOGIN: "login",
 };
 
 export const END_POINT = {
