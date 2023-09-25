@@ -7,6 +7,10 @@ export class ApiService {
     console.log(values);
     return axios.post(`http://localhost:3000${END_POINT.register}`, values);
   }
+
+  login(values) {
+    console.log(values);
+  }
 }
 
 export const apiService = new ApiService();
