@@ -8,8 +8,15 @@ import { Spinner } from "@/components/base/spinner/Spinner";
 import { Button } from "@/components/base/button/Button";
 import { projectURL } from "@/const/projectURL";
 import { useTranslations } from "next-intl";
+import { useLoginMutation } from "@/hooks/mutations/useLoginMutation";
+import { toast } from "react-toastify";
+import success = toast.success;
+import { LoginValues } from "@/types/loginValues";
+import { useRouter } from "next/navigation";
 export const LoginTemplate = () => {
   const t = useTranslations("LoginPage");
+  const router = useRouter();
+  const { mutate: login, isLoading } = useLoginMutation();
 
   const loginFormik = useFormik({
     initialValues: {
@@ -23,8 +30,21 @@ export const LoginTemplate = () => {
     }),
   });
 
-  const handleLogin = (values: FormikValues) => {
-    console.log(values);
+  const handleLogin = (values: LoginValues) => {
+    login(values, {
+      onError: () => {
+        toast.error("Error");
+      },
+
+      onSuccess: (res) => {
+        if (res.data.code === 401) {
+          toast.error("Nieprawidłowy login lub hasło");
+          return;
+        }
+
+        router.push("/");
+      },
+    });
   };
   return (
     <div className={styles.wrapper}>

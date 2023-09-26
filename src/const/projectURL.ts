@@ -4,4 +4,5 @@ export const projectURL = {
 
 export const END_POINT = {
   register: "/users/add",
+  login: "/login",
 };
