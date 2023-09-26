@@ -51,7 +51,7 @@ export const LoginTemplate = () => {
       <div className={styles.form}>
         <Text
           tag="h1"
-          text={t("create-account")}
+          text={t("sign-in")}
           fontSize="xl"
           isUppercase
           weight="700"
@@ -77,7 +77,7 @@ export const LoginTemplate = () => {
             ) : (
               <Button
                 type="submit"
-                text={t("sign-up")}
+                text={t("sign-in")}
                 className={styles.button}
                 variant="success"
                 size="lg"
