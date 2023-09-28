@@ -1,7 +1,7 @@
 "use client";
 import * as Yup from "yup";
 import styles from "./LoginTemplate.module.scss";
-import { Form, FormikProvider, FormikValues, useFormik } from "formik";
+import { Form, FormikProvider, useFormik } from "formik";
 import { Text } from "@/components/base/text/Text";
 import { FormikInput } from "@/components/form/formikInput/FormikInput";
 import { Spinner } from "@/components/base/spinner/Spinner";
@@ -10,9 +10,9 @@ import { projectURL } from "@/const/projectURL";
 import { useTranslations } from "next-intl";
 import { useLoginMutation } from "@/hooks/mutations/useLoginMutation";
 import { toast } from "react-toastify";
-import success = toast.success;
 import { LoginValues } from "@/types/loginValues";
 import { useRouter } from "next/navigation";
+
 export const LoginTemplate = () => {
   const t = useTranslations("LoginPage");
   const router = useRouter();
@@ -33,12 +33,12 @@ export const LoginTemplate = () => {
   const handleLogin = (values: LoginValues) => {
     login(values, {
       onError: () => {
-        toast.error("Error");
+        toast.error(t("error-connection"));
       },
 
       onSuccess: (res) => {
         if (res.data.code === 401) {
-          toast.error("Nieprawidłowy login lub hasło");
+          toast.error(t("incorrect-login-or-password"));
           return;
         }
 
@@ -94,7 +94,7 @@ export const LoginTemplate = () => {
             fontFamily="inter"
           />
           <Button
-            href={projectURL.LOGIN}
+            href={projectURL.REGISTER}
             type="button"
             text={t("register-here")}
             size="sm"

@@ -45,6 +45,8 @@
     "password": "Hasło",
     "sign-in": "Zaloguj się",
     "dont-have-already-an-account": "Nie posiadasz jeszcze konta?",
-    "register-here": "Zarejestruj się"
+    "register-here": "Zarejestruj się",
+    "error-connection": "Błąd połaczenia",
+    "incorrect-login-or-password": "Nieprawidłowy login lub hasło"
   }
 }

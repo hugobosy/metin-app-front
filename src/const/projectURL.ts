@@ -1,5 +1,6 @@
 export const projectURL = {
   LOGIN: "login",
+  REGISTER: "register",
 };
 
 export const END_POINT = {
