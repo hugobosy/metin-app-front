@@ -38,5 +38,15 @@
         "matches-confirm-password": "Oba podane hasła muszą być jednakowe!"
       }
     }
+  },
+
+  "LoginPage": {
+    "your-name": "Nazwa użytkownika",
+    "password": "Hasło",
+    "sign-in": "Zaloguj się",
+    "dont-have-already-an-account": "Nie posiadasz jeszcze konta?",
+    "register-here": "Zarejestruj się",
+    "error-connection": "Błąd połaczenia",
+    "incorrect-login-or-password": "Nieprawidłowy login lub hasło"
   }
 }
