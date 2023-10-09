@@ -16,7 +16,7 @@ import { useRouter } from "next/navigation";
 export const LoginTemplate = () => {
   const t = useTranslations("LoginPage");
   const router = useRouter();
-  const { mutate: login, isLoading } = useLoginMutation();
+  const { mutate: login, isLoading, isError } = useLoginMutation();
 
   const loginFormik = useFormik({
     initialValues: {
@@ -30,18 +30,20 @@ export const LoginTemplate = () => {
     }),
   });
 
-  const handleLogin = (values: LoginValues) => {
+  const handleLogin = async (values: LoginValues) => {
     login(values, {
-      onError: () => {
-        toast.error(t("error-connection"));
+      onError: (res) => {
+        // @ts-ignore
+        if (res.response.status === 401) {
+          toast.error(t("incorrect-login-or-password"));
+          return;
+        } else {
+          toast.error(t("error-connection"));
+        }
       },
 
       onSuccess: (res) => {
-        if (res.data.code === 401) {
-          toast.error(t("incorrect-login-or-password"));
-          return;
-        }
-
+        console.log(res);
         router.push("/");
       },
     });

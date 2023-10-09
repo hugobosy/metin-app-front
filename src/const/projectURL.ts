@@ -5,5 +5,6 @@ export const projectURL = {
 
 export const END_POINT = {
   register: "/users/add",
-  login: "/login",
+  login: "/auth/login",
+  checkAuth: "/auth/profile",
 };
