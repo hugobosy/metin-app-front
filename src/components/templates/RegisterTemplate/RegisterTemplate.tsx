@@ -31,6 +31,7 @@ export const RegisterTemplate = () => {
     onSubmit: async (values) => {
       register(values, {
         onSuccess: (res) => {
+          console.log(res);
           if (res.data.code === 502) {
             toast.error(t("email-exists-in-the-database"), { autoClose: 1200 });
             return;
