@@ -13,5 +13,9 @@ export default function Page({ params }: { params: { code: string } }) {
   if (isError) {
     return <Error statusCode={500} />;
   }
+
+  if (data.data.code === 502) {
+    return <Error statusCode={502} />;
+  }
   return redirect(`/pl/verification-email`);
 }
