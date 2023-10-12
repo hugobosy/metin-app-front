@@ -1,3 +1,5 @@
+import { ThanksForRegisterTemplate } from "@/components/templates/ThanksForRegisterTemplate/ThanksForRegisterTemplate";
+
 export default function ThanksForRegisterPage() {
-  return <h1>Dziękuyjemy</h1>;
+  return <ThanksForRegisterTemplate />;
 }
