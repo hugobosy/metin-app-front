@@ -13,8 +13,13 @@ import { Spinner } from "@/components/base/spinner/Spinner";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { useRegisterMutation } from "@/hooks/mutations/useRegisterMutation";
+import { ComponentPropsWithoutRef, FC } from "react";
 
-export const RegisterTemplate = () => {
+interface RegisterTemplateProps extends ComponentPropsWithoutRef<"div"> {
+  locale: string;
+}
+
+export const RegisterTemplate: FC<RegisterTemplateProps> = ({ locale }) => {
   const { mutate: register, isLoading } = useRegisterMutation();
   const router = useRouter();
 
@@ -27,6 +32,7 @@ export const RegisterTemplate = () => {
       password: "",
       passwordConfirm: "",
       agree: false,
+      locale,
     },
     onSubmit: async (values) => {
       register(values, {

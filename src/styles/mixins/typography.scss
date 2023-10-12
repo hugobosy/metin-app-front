@@ -1,3 +1,4 @@
+@import "media";
 //WEIGHT
 
 @mixin thin {
@@ -39,7 +40,10 @@
 }
 
 @mixin md-text {
-  font-size: 20px;
+  font-size: 16px;
+  @include media-from(md) {
+    font-size: 20px;
+  }
 }
 
 @mixin lg-text {
@@ -51,7 +55,10 @@
 }
 
 @mixin xxl-text {
-  font-size: 48px;
+  font-size: 32px;
+  @include media-from(md) {
+    font-size: 48px;
+  }
 }
 
 @mixin family-montserrat {

@@ -6,7 +6,6 @@ import jwtDecode from "jwt-decode";
 import { setAccessTokenCookie } from "@/utils/cookie";
 
 export const useLoginMutation = () => {
-  const router = useRouter();
   return useMutation(apiService.login, {
     onSuccess: (res) => {
       const decodedData = jwtDecode(res.access_token);
