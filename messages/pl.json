@@ -48,5 +48,16 @@
     "register-here": "Zarejestruj się",
     "error-connection": "Błąd połaczenia",
     "incorrect-login-or-password": "Nieprawidłowy login lub hasło"
+  },
+
+  "ErrorPage": {
+    "404": "Nie odnaleziono adresu strony",
+    "500": "Błąd serwera",
+    "502": {
+      "header": "Błąd potwierdzenia adresu email",
+      "description": "Twoje konto jest juz aktywne bądź kod potwierdzenia jest nieprawidłowy",
+      "link": "Przejdź do strony logowania",
+      "alt": "Bład potwierdzenia email"
+    }
   }
 }
