@@ -138,7 +138,7 @@ export const RegisterTemplate: FC<RegisterTemplateProps> = ({ locale }) => {
             fontFamily="inter"
           />
           <Button
-            href={projectURL.LOGIN}
+            href={projectURL(locale).LOGIN}
             type="button"
             text={t("login-here")}
             size="sm"
