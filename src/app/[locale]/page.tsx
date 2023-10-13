@@ -3,6 +3,7 @@
 import { useAuthQuery } from "@/hooks/queries/useAuthQuery";
 import { getAccessTokenCookie, removeAccessTokenCookie } from "@/utils/cookie";
 import { redirect } from "next/navigation";
+import { Tile } from "@/components/base/tile/Tile";
 
 export default function HomePage({ params }: { params: { locale: string } }) {
   const { data, isError } = useAuthQuery(getAccessTokenCookie());
@@ -10,5 +11,9 @@ export default function HomePage({ params }: { params: { locale: string } }) {
     removeAccessTokenCookie();
     return redirect(`/${params.locale}/login`);
   }
-  return <p>{data?.username}</p>;
+  return (
+    <Tile>
+      <p>{data?.username}</p>
+    </Tile>
+  );
 }
