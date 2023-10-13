@@ -1,3 +1,38 @@
-.wrapper {
-  //position: absolute;
+@keyframes showMenu {
+  0% {
+    top: 80px;
+    opacity: 0;
+  }
+  100% {
+    top: 50px;
+    opacity: 1;
+  }
+}
+
+.button {
+  display: flex;
+  background-color: transparent;
+  color: var(--color-gray-100)
+}
+
+.chooseButton {
+  position: relative;
+}
+
+.list {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+  background-color: var(--color-blue-800);
+  border-radius: 6px;
+  transition: .3s all ease-in-out;
+
+  &-active {
+    display: flex;
+    animation: showMenu ease-in-out .3s forwards;
+  }
 }
