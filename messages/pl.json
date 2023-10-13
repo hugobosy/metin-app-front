@@ -59,5 +59,12 @@
       "link": "Przejdź do strony logowania",
       "alt": "Bład potwierdzenia email"
     }
+  },
+  "Layout": {
+    "language": {
+      "english": "Angielski",
+      "polish": "Polski",
+      "german": "Niemiecki"
+    }
   }
 }

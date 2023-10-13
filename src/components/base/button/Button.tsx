@@ -8,7 +8,7 @@ export interface ButtonProps
   extends HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   href?: string;
   text?: string;
-  type: "button" | "submit" | "reset";
+  type?: "button" | "submit" | "reset";
   disabled?: boolean;
   variant?: "danger" | "success" | "base";
   size?: "sm" | "md" | "lg";
@@ -16,7 +16,7 @@ export interface ButtonProps
   fontFamily?: "montserrat" | "inter";
   fontColor?: "black";
   weight?: "300" | "400" | "500" | "600" | "700";
-  icon?: IconNames;
+  icon?: IconNames | undefined;
 }
 export const Button: FC<ButtonProps> = ({
   href,
