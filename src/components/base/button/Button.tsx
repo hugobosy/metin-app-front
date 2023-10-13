@@ -2,6 +2,7 @@ import styles from "./Button.module.scss";
 import { FC, HTMLAttributes } from "react";
 import classNames from "classnames";
 import Link from "next/link";
+import { Icon, IconNames } from "@/components/base/icon/Icon";
 
 export interface ButtonProps
   extends HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
@@ -15,6 +16,7 @@ export interface ButtonProps
   fontFamily?: "montserrat" | "inter";
   fontColor?: "black";
   weight?: "300" | "400" | "500" | "600" | "700";
+  icon?: IconNames;
 }
 export const Button: FC<ButtonProps> = ({
   href,
@@ -28,6 +30,8 @@ export const Button: FC<ButtonProps> = ({
   fontFamily,
   fontColor,
   weight = "400",
+  icon,
+  onClick,
   ...rest
 }) => {
   const classes = classNames(
@@ -40,20 +44,25 @@ export const Button: FC<ButtonProps> = ({
     styles[`weight-${weight}`],
   );
 
+  const iconInner = icon ? (
+    <Icon name={icon as IconNames} className={styles.icon} />
+  ) : null;
+
   const commonProps = {
     className: classes,
+    onClick: onClick,
   };
 
   if (href) {
     return (
       <Link href={href} {...commonProps} {...rest}>
-        {text}
+        {iconInner} {text}
       </Link>
     );
   }
   return (
     <button type={type} {...commonProps} {...rest} disabled={disabled}>
-      {text}
+      {iconInner} {text}
     </button>
   );
 };

@@ -1,6 +1,6 @@
-import Poland from "flag-icons/flags/4x3/pl.svg";
-import Germany from "flag-icons/flags/4x3/de.svg";
-import England from "flag-icons/flags/4x3/us.svg";
+import Poland from "@/assets/svg/pl.svg";
+import England from "@/assets/svg/us.svg";
+import Germany from "@/assets/svg/de.svg";
 export const icons = {
   Poland,
   Germany,
