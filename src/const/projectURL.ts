@@ -1,7 +1,7 @@
-export const projectURL = {
-  LOGIN: "login",
-  REGISTER: "register",
-};
+export const projectURL = (locale: string) => ({
+  LOGIN: `/${locale}/login`,
+  REGISTER: `/${locale}/register`,
+});
 
 export const END_POINT = {
   register: "/users/add",

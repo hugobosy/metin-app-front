@@ -4,8 +4,16 @@ import { Button } from "@/components/base/button/Button";
 import { projectURL } from "@/const/projectURL";
 import Image from "next/image";
 import EnvelopePass from "@/assets/img/envelopepass.png";
+import { ComponentPropsWithoutRef, FC } from "react";
 
-export const VerificationEmailTemplate = () => {
+export interface VerificationEmailTemplateProps
+  extends ComponentPropsWithoutRef<"div"> {
+  locale: string;
+}
+
+export const VerificationEmailTemplate: FC<VerificationEmailTemplateProps> = ({
+  locale,
+}) => {
   return (
     <div className={styles.wrapper}>
       <div>
@@ -29,7 +37,7 @@ export const VerificationEmailTemplate = () => {
         type="button"
         variant="success"
         size="lg"
-        href={projectURL.LOGIN}
+        href={projectURL(locale).LOGIN}
         text="Login"
         fontSize="lg"
         fontFamily="inter"

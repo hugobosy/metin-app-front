@@ -12,8 +12,13 @@ import { useLoginMutation } from "@/hooks/mutations/useLoginMutation";
 import { toast } from "react-toastify";
 import { LoginValues } from "@/types/loginValues";
 import { useRouter } from "next/navigation";
+import { ComponentPropsWithoutRef, FC } from "react";
 
-export const LoginTemplate = () => {
+export interface LoginTemplateProps extends ComponentPropsWithoutRef<"div"> {
+  locale: string;
+}
+
+export const LoginTemplate: FC<LoginTemplateProps> = ({ locale }) => {
   const t = useTranslations("LoginPage");
   const router = useRouter();
   const { mutate: login, isLoading, isError } = useLoginMutation();
@@ -96,7 +101,7 @@ export const LoginTemplate = () => {
             fontFamily="inter"
           />
           <Button
-            href={projectURL.REGISTER}
+            href={projectURL(locale ? locale : "pl").REGISTER}
             type="button"
             text={t("register-here")}
             size="sm"
