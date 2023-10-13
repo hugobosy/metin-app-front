@@ -2,7 +2,6 @@ import styles from "./MenuLanguage.module.scss";
 import { FC, useEffect, useRef, useState } from "react";
 import { LayoutProps } from "@/components/layout/Layout";
 import { usePathname, useRouter } from "next-intl/client";
-import { DropDown } from "@/components/base/dropdown/Dropdown";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/base/button/Button";
 import { IconNames } from "@/components/base/icon/Icon";
@@ -85,7 +84,7 @@ export const MenuLanguage: FC<MenuLanguageProps> = ({ locale }) => {
         className={classNames(styles.list, showMenu && styles["list-active"])}
       >
         {languages.map((lang) => (
-          <li className={styles["list-item"]}>
+          <li className={styles["list-item"]} key={lang.text}>
             <Button
               text={lang.text}
               icon={lang.icon}
