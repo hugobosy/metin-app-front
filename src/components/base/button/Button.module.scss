@@ -1,6 +1,9 @@
 @import "@/styles/common";
+
 .button {
-  display: flex;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
   border: none;
   border-radius: 8px;
@@ -95,16 +98,26 @@
   &-300 {
     @include thin;
   }
+
   &-400 {
     @include normal;
   }
+
   &-500 {
     @include semi-bold;
   }
+
   &-600 {
     @include bold;
   }
+
   &-700 {
     @include extra-bold;
   }
+}
+
+.link {
+  @include sm-text;
+  @include family-montserrat;
+  color: var(--color-gray-200)
 }

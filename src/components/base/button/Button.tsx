@@ -42,6 +42,7 @@ export const Button: FC<ButtonProps> = ({
     styles[`fontFamily-${fontFamily}`],
     styles[`fontColor-${fontColor}`],
     styles[`weight-${weight}`],
+    href && styles.link,
   );
 
   const iconInner = icon ? (
