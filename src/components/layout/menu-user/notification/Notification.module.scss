@@ -1,0 +1,46 @@
+@keyframes showMenu {
+  0% {
+    top: 80px;
+    opacity: 0;
+  }
+  100% {
+    top: 50px;
+    opacity: 1;
+  }
+}
+
+.list {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+  background-color: var(--color-blue-800);
+  border-radius: 6px;
+  transition: .3s all ease-in-out;
+
+  &-active {
+    display: flex;
+    animation: showMenu ease-in-out .3s forwards;
+  }
+}
+
+.notification {
+  position: relative;
+  cursor: pointer;
+
+  &-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    background-color: var(--color-red-100);
+    border-radius: 50%;
+  }
+}

@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.userMenu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.theme {
+  cursor: pointer;
+}

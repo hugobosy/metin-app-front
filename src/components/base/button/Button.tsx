@@ -2,19 +2,21 @@ import styles from "./Button.module.scss";
 import { FC, HTMLAttributes } from "react";
 import classNames from "classnames";
 import Link from "next/link";
+import { Icon, IconNames } from "@/components/base/icon/Icon";
 
 export interface ButtonProps
   extends HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   href?: string;
   text?: string;
-  type: "button" | "submit" | "reset";
+  type?: "button" | "submit" | "reset";
   disabled?: boolean;
-  variant?: "danger" | "success" | "base";
+  variant?: "danger" | "success" | "base" | "link";
   size?: "sm" | "md" | "lg";
   fontSize?: "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   fontFamily?: "montserrat" | "inter";
   fontColor?: "black";
   weight?: "300" | "400" | "500" | "600" | "700";
+  icon?: IconNames | undefined;
 }
 export const Button: FC<ButtonProps> = ({
   href,
@@ -28,6 +30,8 @@ export const Button: FC<ButtonProps> = ({
   fontFamily,
   fontColor,
   weight = "400",
+  icon,
+  onClick,
   ...rest
 }) => {
   const classes = classNames(
@@ -38,22 +42,30 @@ export const Button: FC<ButtonProps> = ({
     styles[`fontFamily-${fontFamily}`],
     styles[`fontColor-${fontColor}`],
     styles[`weight-${weight}`],
+    href && styles.link,
+    variant === "link" && styles.link,
+    className,
   );
+
+  const iconInner = icon ? (
+    <Icon name={icon as IconNames} className={styles.icon} />
+  ) : null;
 
   const commonProps = {
     className: classes,
+    onClick: onClick,
   };
 
   if (href) {
     return (
       <Link href={href} {...commonProps} {...rest}>
-        {text}
+        {iconInner} {text}
       </Link>
     );
   }
   return (
     <button type={type} {...commonProps} {...rest} disabled={disabled}>
-      {text}
+      {iconInner} {text}
     </button>
   );
 };
