@@ -7,18 +7,13 @@ import { Layout } from "@/components/layout/Layout";
 import { useState } from "react";
 
 export default function HomePage({ params }: { params: { locale: string } }) {
-  const [isLanguageMenu, setIsLanguageMenu] = useState(false);
   const { data, isError } = useAuthQuery(getAccessTokenCookie());
   if (isError) {
     removeAccessTokenCookie();
     return redirect(`/${params.locale}/login`);
   }
   return (
-    <Layout
-      isLanguageMenu={isLanguageMenu}
-      setLanguageMenu={setIsLanguageMenu}
-      locale={params.locale}
-    >
+    <Layout locale={params.locale} username={data?.username}>
       {data?.username}
     </Layout>
   );

@@ -5,4 +5,11 @@
 
 .userMenu {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.theme {
+  cursor: pointer;
 }
