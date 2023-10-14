@@ -84,7 +84,7 @@ export const MenuLanguage: FC<MenuLanguageProps> = ({ locale }) => {
         className={classNames(styles.list, showMenu && styles["list-active"])}
       >
         {languages.map((lang) => (
-          <li className={styles["list-item"]} key={lang.text}>
+          <li key={lang.text}>
             <Button
               text={lang.text}
               icon={lang.icon}

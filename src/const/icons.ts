@@ -4,6 +4,9 @@ import Germany from "@/assets/svg/de.svg";
 import Sun from "@/assets/svg/sun.svg";
 import Bell from "@/assets/svg/bell.svg";
 import Moon from "@/assets/svg/moon.svg";
+import User from "@/assets/svg/user.svg";
+import Logout from "@/assets/svg/logout.svg";
+
 export const icons = {
   Poland,
   Germany,
@@ -11,4 +14,6 @@ export const icons = {
   Sun,
   Bell,
   Moon,
+  User,
+  Logout,
 } as const;

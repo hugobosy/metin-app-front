@@ -3,9 +3,9 @@ import { Tile } from "@/components/base/tile/Tile";
 import { FC } from "react";
 import { LayoutProps } from "@/components/layout/Layout";
 import { MenuLanguage } from "@/components/layout/menu-user/menu-language/MenuLanguage";
-import { Text } from "@/components/base/text/Text";
 import { Theme } from "@/components/layout/menu-user/theme/Theme";
 import { Notification } from "@/components/layout/menu-user/notification/Notification";
+import { UserProfile } from "@/components/layout/menu-user/user-profile/UserProfile";
 
 export interface MenuUserProps extends Pick<LayoutProps, "locale"> {
   username: string;
@@ -23,15 +23,7 @@ export const MenuUser: FC<MenuUserProps> = ({
         <MenuLanguage locale={locale} />
         <Theme />
         <Notification notifications={notification} />
-        <div className={styles.username}>
-          <Text
-            tag="span"
-            text={username}
-            fontFamily="inter"
-            color="gray"
-            fontSize="sm"
-          />
-        </div>
+        <UserProfile username={username} locale={locale} />
       </div>
     </Tile>
   );

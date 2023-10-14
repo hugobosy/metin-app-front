@@ -1,6 +1,7 @@
 export const projectURL = (locale: string) => ({
   LOGIN: `/${locale}/login`,
   REGISTER: `/${locale}/register`,
+  PROFILE: `/${locale}/profile`,
 });
 
 export const END_POINT = {

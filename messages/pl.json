@@ -68,6 +68,10 @@
     },
     "notification": {
       "empty-notification": "Brak powiadomień"
+    },
+    "user": {
+      "profile": "Mój profil",
+      "logout": "Wyloguj się"
     }
   }
 }
