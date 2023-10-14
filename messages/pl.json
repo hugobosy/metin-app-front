@@ -65,6 +65,9 @@
       "english": "Angielski",
       "polish": "Polski",
       "german": "Niemiecki"
+    },
+    "notification": {
+      "empty-notification": "Brak powiadomień"
     }
   }
 }

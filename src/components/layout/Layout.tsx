@@ -5,8 +5,16 @@ export interface LayoutProps extends ComponentPropsWithoutRef<"div"> {
   children: React.ReactNode;
   locale: string;
   username: string;
+  notification?: string[];
 }
 
-export const Layout: FC<LayoutProps> = ({ children, locale, username }) => {
-  return <MenuUser locale={locale} username={username} />;
+export const Layout: FC<LayoutProps> = ({
+  children,
+  locale,
+  username,
+  notification,
+}) => {
+  return (
+    <MenuUser locale={locale} username={username} notification={notification} />
+  );
 };
