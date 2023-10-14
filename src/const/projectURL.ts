@@ -5,8 +5,8 @@ export const projectURL = (locale: string) => ({
   HOME: `/${locale}/`,
   BOOKKEEPING: `/${locale}/bookkeeping`,
   MAGAZINE: `/${locale}/magazine`,
-  ANIMALS: `/${locale}/animals`,
-  COSTUMES: `/${locale}/costumes`,
+  ANIMALS: `/${locale}/my-animals`,
+  COSTUMES: `/${locale}/my-costumes`,
   NOTEPAD: `/${locale}/notepad`,
 });
 

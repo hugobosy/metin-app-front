@@ -18,7 +18,7 @@ export const MenuUser: FC<MenuUserProps> = ({
 }) => {
   return (
     <Tile className={styles.wrapper}>
-      <div className={styles.iconGroup}>ALA</div>
+      <div className={styles.iconGroup}></div>
       <div className={styles.userMenu}>
         <MenuLanguage locale={locale} />
         <Theme />
