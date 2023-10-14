@@ -10,7 +10,7 @@ export interface ButtonProps
   text?: string;
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
-  variant?: "danger" | "success" | "base" | "link";
+  variant?: "danger" | "success" | "base";
   size?: "sm" | "md" | "lg";
   fontSize?: "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   fontFamily?: "montserrat" | "inter";
@@ -43,7 +43,6 @@ export const Button: FC<ButtonProps> = ({
     styles[`fontColor-${fontColor}`],
     styles[`weight-${weight}`],
     href && styles.link,
-    variant === "link" && styles.link,
     className,
   );
 

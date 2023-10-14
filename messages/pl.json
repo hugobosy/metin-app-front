@@ -72,6 +72,14 @@
     "user": {
       "profile": "Mój profil",
       "logout": "Wyloguj się"
+    },
+    "menu": {
+      "dashboard": "Strona główna",
+      "bookkeeping": "Księgowość",
+      "magazine": "Magazyn",
+      "my-animals": "Moje zwierzaki",
+      "my-costumes": "Moje kostiumy",
+      "notepad": "Notanik"
     }
   }
 }

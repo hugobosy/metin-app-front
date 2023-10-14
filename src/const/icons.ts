@@ -6,6 +6,12 @@ import Bell from "@/assets/svg/bell.svg";
 import Moon from "@/assets/svg/moon.svg";
 import User from "@/assets/svg/user.svg";
 import Logout from "@/assets/svg/logout.svg";
+import Home from "@/assets/svg/home.svg";
+import Book from "@/assets/svg/book.svg";
+import Magazine from "@/assets/svg/magazine.svg";
+import Animal from "@/assets/svg/animal.svg";
+import Costume from "@/assets/svg/costume.svg";
+import Notepad from "@/assets/svg/notepad.svg";
 
 export const icons = {
   Poland,
@@ -16,4 +22,10 @@ export const icons = {
   Moon,
   User,
   Logout,
+  Home,
+  Book,
+  Magazine,
+  Animal,
+  Costume,
+  Notepad,
 } as const;
