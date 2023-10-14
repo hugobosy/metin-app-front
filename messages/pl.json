@@ -59,5 +59,27 @@
       "link": "Przejdź do strony logowania",
       "alt": "Bład potwierdzenia email"
     }
+  },
+  "Layout": {
+    "language": {
+      "english": "Angielski",
+      "polish": "Polski",
+      "german": "Niemiecki"
+    },
+    "notification": {
+      "empty-notification": "Brak powiadomień"
+    },
+    "user": {
+      "profile": "Mój profil",
+      "logout": "Wyloguj się"
+    },
+    "menu": {
+      "dashboard": "Strona główna",
+      "bookkeeping": "Księgowość",
+      "magazine": "Magazyn",
+      "my-animals": "Moje zwierzaki",
+      "my-costumes": "Moje kostiumy",
+      "notepad": "Notanik"
+    }
   }
 }

@@ -1,0 +1,39 @@
+@import '@/styles/common.scss';
+.optionsWrapper {
+  position: relative;
+}
+
+.options {
+  position: relative;
+  gap: 8px;
+  background-color: var(--color-white-100);
+  padding: 10px 14px;
+  color: var(--color-gray-800);
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.optionList {
+  position: absolute;
+  top: 29px;
+  left: -5px;
+  padding: 7px;
+  box-shadow: 0 4px 16px rgba(17, 17, 26, 0.1), 0 8px 32px rgba(17, 17, 26, 0.05);
+  border-radius: 6px;
+  background-color: var(--color-white);
+  @include text-option;
+  z-index: 10;
+}
+
+.optionItem {
+  width: 100%;
+  display: block;
+  padding: 3px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}

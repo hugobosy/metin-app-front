@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.userMenu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.theme {
+  cursor: pointer;
+}
