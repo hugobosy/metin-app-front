@@ -1,9 +1,85 @@
 {
   "HomePage": {
-    "title": "Hello World"
+    "title": "Czesc tlumaczenia!"
   },
 
   "RegisterPage": {
-    "create-account": "Create account"
+    "create-account": "Stwórz konto",
+    "your-name": "Twoje imię",
+    "your-email": "Twój email",
+    "password": "Hasło",
+    "repeat-your-password": "Powtórz hasło",
+    "sign-up": "Zarejestruj się",
+    "i-agree-all-statements-in": "Zgadzam się na wszystkie warunki zawarte w",
+    "have-already-an-account": "Posiadasz już konto?",
+    "login-here": "Zaloguj się",
+    "email-exists-in-the-database": "Ten e-mail istnieje już w bazie !",
+    "connection-error": "Błąd połączenia",
+
+    "validate": {
+      "required": {
+        "required-name": "Imię lub nick jest wymagany",
+        "required-email": "E-mail jest wymagany",
+        "required-password": "Pole z hasłem jest wymagane",
+        "required-confirm-password": "Musisz powtórzyć wpisane hasło",
+        "required-agree": "Musisz zaakceptować warunki zawarte w regulaminie"
+      },
+      "min": {
+        "min-name": "Imię lub nick musi składać się minimum z 3 znaków",
+        "min-email": "Email musi składać się minimalnie z 11 znaków"
+      },
+      "max": {
+        "max-name": "Imię lub nick może skłądać się z maksymalnie 50 znaków",
+        "max-email": "Email może maksymalnie składać się ze 150 znaków"
+      },
+      "matches": {
+        "matches-email": "Podaj prawidłowy format email",
+        "matches-password": "Hasło musi składać się minimum z 8 znaków, jednej wielkie i małej litery oraz jednaj liczby",
+        "matches-confirm-password": "Oba podane hasła muszą być jednakowe!"
+      }
+    }
+  },
+
+  "LoginPage": {
+    "your-name": "Nazwa użytkownika",
+    "password": "Hasło",
+    "sign-in": "Zaloguj się",
+    "dont-have-already-an-account": "Nie posiadasz jeszcze konta?",
+    "register-here": "Zarejestruj się",
+    "error-connection": "Błąd połaczenia",
+    "incorrect-login-or-password": "Nieprawidłowy login lub hasło"
+  },
+
+  "ErrorPage": {
+    "404": "Nie odnaleziono adresu strony",
+    "500": "Błąd serwera",
+    "502": {
+      "header": "Błąd potwierdzenia adresu email",
+      "description": "Twoje konto jest juz aktywne bądź kod potwierdzenia jest nieprawidłowy",
+      "link": "Przejdź do strony logowania",
+      "alt": "Bład potwierdzenia email"
+    }
+  },
+  "Layout": {
+    "language": {
+      "english": "English",
+      "polish": "Polish",
+      "german": "German"
+    },
+    "notification": {
+      "empty-notification": "Brak powiadomień"
+    },
+    "user": {
+      "profile": "Mój profil",
+      "logout": "Wyloguj się"
+    },
+    "menu": {
+      "dashboard": "Dashboard",
+      "bookkeeping": "Bookkeeping",
+      "magazine": "Magazine",
+      "my-animals": "My animals",
+      "my-costumes": "My costumes",
+      "notepad": "Notepad"
+    }
   }
 }
