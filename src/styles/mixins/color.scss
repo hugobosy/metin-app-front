@@ -17,3 +17,7 @@
 @mixin red {
   color: var(--color-red-100);
 }
+
+@mixin green {
+  color: var(--color-green-100);
+}

@@ -81,5 +81,13 @@
       "my-costumes": "Moje kostiumy",
       "notepad": "Notanik"
     }
+  },
+  "Dashboard": {
+    "balance": {
+      "balance": "Saldo",
+      "total-expenses": "Suma wydatków:",
+      "total-revenues": "Suma przychodów:",
+      "result": "Bilans:"
+    }
   }
 }

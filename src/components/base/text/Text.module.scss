@@ -71,6 +71,10 @@
   &-red {
     @include red;
   }
+
+  &-green {
+    @include green;
+  }
 }
 
 .fontFamily {
