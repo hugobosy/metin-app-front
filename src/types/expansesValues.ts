@@ -3,5 +3,6 @@ export type ExpansesValues = {
   id: string;
   idUser: string;
   item: string;
-  price: number;
+  priceYang: number;
+  priceWon: number;
 };

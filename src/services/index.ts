@@ -36,7 +36,11 @@ export class ApiService {
   }
 
   async getExpenses(id: string) {
-    return new Promise<any>((res) => setTimeout(() => res(GET_EXPENSES), 1000));
+    // return new Promise<any>((res) => setTimeout(() => res(GET_EXPENSES), 1000));
+    return await axios.post(
+      `http://localhost:5000${END_POINT.getExpenses}`,
+      id,
+    );
   }
 }
 

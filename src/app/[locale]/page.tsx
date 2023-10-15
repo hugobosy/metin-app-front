@@ -24,14 +24,10 @@ export default function HomePage({ params }: { params: { locale: string } }) {
     return redirect(`/${params.locale}/login`);
   }
 
-  const expensesData = expenses?.filter(
-    (data: ExpansesValues) => data.idUser === user?.id,
-  );
-
   return (
     <Layout locale={params.locale} username={user?.username}>
       <HomePageTemplate
-        expenses={expensesData}
+        expenses={expenses?.data}
         revenues={0}
         expensesLoading={expensesLoading}
       />
