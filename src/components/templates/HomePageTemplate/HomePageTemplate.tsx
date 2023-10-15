@@ -3,28 +3,27 @@ import { Balance } from "@/components/modules/HomePage/Balance/Balance";
 import { ComponentPropsWithoutRef, FC } from "react";
 import { ExpansesValues } from "@/types/expansesValues";
 import { Spinner } from "@/components/base/spinner/Spinner";
+import { RevenuesValues } from "@/types/revenuesValues";
 
 export interface HomePageTemplateProps extends ComponentPropsWithoutRef<"div"> {
   expenses?: ExpansesValues[];
-  revenues?: number;
+  revenues?: RevenuesValues[];
   expensesLoading?: boolean;
+  revenuesLoading?: boolean;
 }
 
 export const HomePageTemplate: FC<HomePageTemplateProps> = ({
   expenses,
   revenues,
   expensesLoading,
+  revenuesLoading,
 }) => {
-  if (expensesLoading) {
+  if (expensesLoading || revenuesLoading) {
     return <Spinner className={styles.spinner} />;
   }
   return (
     <div className={styles.wrapper}>
-      <Balance
-        expenses={expenses}
-        revenues={revenues}
-        expensesLoading={expensesLoading}
-      />
+      <Balance expenses={expenses} revenues={revenues} />
     </div>
   );
 };
