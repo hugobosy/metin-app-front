@@ -1,11 +1,12 @@
-import { FC, HTMLProps } from "react";
+import { FC, HTMLProps, JSX } from "react";
 
 import styles from "./Text.module.scss";
 import classNames from "classnames";
+import { JSXElement } from "@babel/types";
 
 export interface TextProps extends HTMLProps<HTMLParagraphElement> {
   tag: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
-  text?: string;
+  text?: string | JSX.Element;
   className?: string;
   weight?: "300" | "400" | "500" | "600" | "700";
   fontSize?: "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";

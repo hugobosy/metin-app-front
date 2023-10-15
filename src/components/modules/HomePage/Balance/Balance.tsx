@@ -4,16 +4,18 @@ import { useTranslations } from "next-intl";
 import { Text } from "@/components/base/text/Text";
 import { FC } from "react";
 import { HomePageTemplateProps } from "@/components/templates/HomePageTemplate/HomePageTemplate";
+import { Spinner } from "@/components/base/spinner/Spinner";
 
 export interface BalanceProps extends HomePageTemplateProps {}
 
 export const Balance: FC<BalanceProps> = ({ expenses, revenues }) => {
   const t = useTranslations("Dashboard.balance");
   const totalExpenses = expenses
-    .map((expenses) =>
+    ?.map((expenses) =>
       [expenses.count, expenses.price].reduce((prev, curr) => prev * curr, 1),
     )
     .reduce((prev, curr) => prev + curr, 0);
+
   return (
     <Tile>
       <Text
@@ -32,7 +34,7 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues }) => {
           color="white"
           fontFamily="inter"
           fontSize="md"
-        />{" "}
+        />
         <Text
           tag="p"
           text={String(totalExpenses)}
@@ -67,13 +69,13 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues }) => {
         />
         <Text
           tag="p"
-          text={String(revenues - totalExpenses)}
+          text={String(Number(revenues) - Number(totalExpenses))}
           color={
-            revenues - totalExpenses < 0
-              ? "red"
-              : revenues - totalExpenses === 0
-              ? "white"
-              : "green"
+            Number(revenues) - Number(totalExpenses) >= 0
+              ? Number(revenues) - Number(totalExpenses) === 0
+                ? "white"
+                : "green"
+              : "red"
           }
           fontFamily="inter"
           fontSize="md"

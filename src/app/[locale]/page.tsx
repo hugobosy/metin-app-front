@@ -14,21 +14,27 @@ export default function HomePage({ params }: { params: { locale: string } }) {
     isError: userError,
     isLoading: loadingUser,
   } = useAuthQuery(getAccessTokenCookie());
-  const { data: expenses, isError: expansesError } = useGetExpenses(
-    loadingUser ? null : user.id,
-  );
+  const {
+    data: expenses,
+    isError: expensesError,
+    isLoading: expensesLoading,
+  } = useGetExpenses(loadingUser ? null : user?.id);
   if (userError) {
     removeAccessTokenCookie();
     return redirect(`/${params.locale}/login`);
   }
 
   const expensesData = expenses?.filter(
-    (data: ExpansesValues) => data.idUser === user.id,
+    (data: ExpansesValues) => data.idUser === user?.id,
   );
 
   return (
     <Layout locale={params.locale} username={user?.username}>
-      <HomePageTemplate expenses={expensesData} revenues={0} />
+      <HomePageTemplate
+        expenses={expensesData}
+        revenues={0}
+        expensesLoading={expensesLoading}
+      />
     </Layout>
   );
 }
