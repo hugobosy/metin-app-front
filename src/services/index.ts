@@ -2,6 +2,7 @@ import axios from "axios";
 import { END_POINT } from "@/const/projectURL";
 import { RegisterValues } from "@/types/registerValues";
 import { LoginValues } from "@/types/loginValues";
+import { GET_EXPENSES } from "@/mocks/expenses";
 
 export class ApiService {
   async register(values: RegisterValues) {
@@ -32,6 +33,18 @@ export class ApiService {
     return await axios.post(
       `http://localhost:5000${END_POINT.activate}/${code}`,
     );
+  }
+
+  async getExpenses(idUser: string) {
+    return await axios.post(`http://localhost:5000${END_POINT.getExpenses}`, {
+      idUser,
+    });
+  }
+
+  async getRevenues(idUser: string) {
+    return await axios.post(`http://localhost:5000${END_POINT.getRevenues}`, {
+      idUser,
+    });
   }
 }
 

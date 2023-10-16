@@ -15,4 +15,6 @@ export const END_POINT = {
   login: "/auth/login",
   checkAuth: "/auth/profile",
   activate: "/users/activate",
+  getExpenses: "/expenses",
+  getRevenues: "/revenues",
 };
