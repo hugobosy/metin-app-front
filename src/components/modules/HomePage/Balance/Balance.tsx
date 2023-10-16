@@ -8,6 +8,7 @@ import {
   calculationBookkeepingWon,
   calculationBookkeepingYang,
 } from "@/utils/calculationBookkeeping";
+import { Button } from "@/components/base/button/Button";
 
 export interface BalanceProps extends HomePageTemplateProps {}
 
@@ -25,37 +26,30 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues }) => {
 
   return (
     <Tile className={styles.wrapper}>
-      <Text
-        tag="h2"
-        text={t("balance")}
-        color="white"
-        fontFamily="montserrat"
-        fontSize="xl"
-        weight="500"
-        className={styles.header}
-      />
-      <div className={styles.totals}>
+      <div className={styles.header}>
         <Text
-          tag="p"
-          text={t("total-expenses")}
+          tag="h2"
+          text={t("balance")}
           color="white"
-          fontFamily="inter"
-          fontSize="md"
+          fontFamily="montserrat"
+          fontSize="xl"
+          weight="500"
+          className={styles["header-text"]}
         />
-        <div>
-          <Text
-            tag="p"
-            text={String(totalExpensesWon) + " WON"}
-            color="red"
-            fontFamily="inter"
-            fontSize="md"
+        <div className={styles["header-buttonGroup"]}>
+          <Button
+            text={t("add-revenue")}
+            className={styles.button}
+            variant="base"
+            fontFamily="montserrat"
+            weight="700"
           />
-          <Text
-            tag="p"
-            text={String(totalExpensesYang) + " Yang"}
-            color="red"
-            fontFamily="inter"
-            fontSize="md"
+          <Button
+            text={t("add-expense")}
+            className={styles.button}
+            variant="base"
+            fontFamily="montserrat"
+            weight="700"
           />
         </div>
       </div>
@@ -67,7 +61,7 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues }) => {
           fontFamily="inter"
           fontSize="md"
         />
-        <div>
+        <div className={styles["totals-numbers"]}>
           <Text
             tag="p"
             text={String(totalRevenuesWon) + " WON"}
@@ -87,12 +81,37 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues }) => {
       <div className={styles.totals}>
         <Text
           tag="p"
+          text={t("total-expenses")}
+          color="white"
+          fontFamily="inter"
+          fontSize="md"
+        />
+        <div className={styles["totals-numbers"]}>
+          <Text
+            tag="p"
+            text={String(totalExpensesWon) + " WON"}
+            color="red"
+            fontFamily="inter"
+            fontSize="md"
+          />
+          <Text
+            tag="p"
+            text={String(totalExpensesYang) + " Yang"}
+            color="red"
+            fontFamily="inter"
+            fontSize="md"
+          />
+        </div>
+      </div>
+      <div className={styles.totals}>
+        <Text
+          tag="p"
           text={t("result")}
           color="white"
           fontFamily="inter"
           fontSize="md"
         />
-        <div>
+        <div className={styles["totals-numbers"]}>
           <Text
             tag="p"
             text={

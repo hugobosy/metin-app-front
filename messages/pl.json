@@ -87,7 +87,9 @@
       "balance": "Saldo",
       "total-expenses": "Suma wydatków:",
       "total-revenues": "Suma przychodów:",
-      "result": "Bilans:"
+      "result": "Bilans:",
+      "add-revenue": "Dodaj przychód",
+      "add-expense": "Dodaj wydatek"
     }
   }
 }
