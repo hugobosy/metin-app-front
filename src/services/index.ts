@@ -3,6 +3,8 @@ import { END_POINT } from "@/const/projectURL";
 import { RegisterValues } from "@/types/registerValues";
 import { LoginValues } from "@/types/loginValues";
 import { GET_EXPENSES } from "@/mocks/expenses";
+import { GET_OBJECTIVE, getObjective } from "@/mocks/objective";
+import { ObjectiveValues } from "@/types/objectiveValues";
 
 export class ApiService {
   async register(values: RegisterValues) {
@@ -45,6 +47,12 @@ export class ApiService {
     return await axios.post(`http://localhost:5000${END_POINT.getRevenues}`, {
       idUser,
     });
+  }
+
+  async getObjective(idUser: string) {
+    return new Promise<ObjectiveValues[]>((res) =>
+      setTimeout(() => res(GET_OBJECTIVE), 1000),
+    );
   }
 }
 

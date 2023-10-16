@@ -6,7 +6,7 @@ import { JSXElement } from "@babel/types";
 
 export interface TextProps extends HTMLProps<HTMLParagraphElement> {
   tag: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
-  text?: string | JSX.Element;
+  text?: string | JSX.Element | number;
   className?: string;
   weight?: "300" | "400" | "500" | "600" | "700";
   fontSize?: "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
