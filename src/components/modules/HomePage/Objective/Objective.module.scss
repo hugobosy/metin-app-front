@@ -1,10 +1,12 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .objective {
   width: 100%;
+  height: 200px;
+  margin-top: 30px;
+  overflow: auto;
 
   &-item {
     display: flex;
