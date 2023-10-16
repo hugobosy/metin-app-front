@@ -4,6 +4,7 @@ import { ComponentPropsWithoutRef, FC } from "react";
 import { ExpansesValues } from "@/types/expansesValues";
 import { Spinner } from "@/components/base/spinner/Spinner";
 import { RevenuesValues } from "@/types/revenuesValues";
+import { Objective } from "@/components/modules/HomePage/Objective/Objective";
 
 export interface HomePageTemplateProps extends ComponentPropsWithoutRef<"div"> {
   expenses?: ExpansesValues[];
@@ -24,6 +25,7 @@ export const HomePageTemplate: FC<HomePageTemplateProps> = ({
   return (
     <div className={styles.wrapper}>
       <Balance expenses={expenses} revenues={revenues} />
+      <Objective />
     </div>
   );
 };
