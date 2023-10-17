@@ -90,6 +90,11 @@
       "result": "Bilans:",
       "add-revenue": "Dodaj przychód",
       "add-expense": "Dodaj wydatek"
+    },
+    "objective": {
+      "my-objective": "Moje cele",
+      "objective-not-found": "Nie masz żadnych celów",
+      "add-objective": "Dodaj cel"
     }
   }
 }

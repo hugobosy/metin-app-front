@@ -8,6 +8,7 @@ import { HomePageTemplate } from "@/components/templates/HomePageTemplate/HomePa
 import { useGetExpenses } from "@/hooks/queries/useGetExpenses";
 import { ExpansesValues } from "@/types/expansesValues";
 import { useGetRevenues } from "@/hooks/queries/useGetRevenues";
+import { useGetObjective } from "@/hooks/queries/useGetObjective";
 
 export default function HomePage({ params }: { params: { locale: string } }) {
   const {
@@ -16,9 +17,12 @@ export default function HomePage({ params }: { params: { locale: string } }) {
     isLoading: loadingUser,
   } = useAuthQuery(getAccessTokenCookie());
   const { data: expenses, isLoading: expensesLoading } = useGetExpenses(
-    loadingUser ? null : user?.id,
+    user && user.id,
   );
   const { data: revenues, isLoading: revenuesLoading } = useGetRevenues(
+    user && user.id,
+  );
+  const { data: objective, isLoading: objectiveLoading } = useGetObjective(
     user && user.id,
   );
   if (userError) {
@@ -26,15 +30,15 @@ export default function HomePage({ params }: { params: { locale: string } }) {
     return redirect(`/${params.locale}/login`);
   }
 
-  console.log(revenues);
+  const loading = expensesLoading || revenuesLoading || objectiveLoading;
 
   return (
     <Layout locale={params.locale} username={user?.username}>
       <HomePageTemplate
         expenses={expenses?.data}
         revenues={revenues?.data}
-        expensesLoading={expensesLoading}
-        revenuesLoading={revenuesLoading}
+        objective={objective?.data}
+        loading={loading}
       />
     </Layout>
   );
