@@ -17,4 +17,5 @@ export const END_POINT = {
   activate: "/users/activate",
   getExpenses: "/expenses",
   getRevenues: "/revenues",
+  getObjective: "/objective",
 };

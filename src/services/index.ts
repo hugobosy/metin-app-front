@@ -50,9 +50,9 @@ export class ApiService {
   }
 
   async getObjective(idUser: string) {
-    return new Promise<ObjectiveValues[]>((res) =>
-      setTimeout(() => res(GET_OBJECTIVE), 1000),
-    );
+    return await axios.post(`http://localhost:5000${END_POINT.getObjective}`, {
+      idUser,
+    });
   }
 }
 

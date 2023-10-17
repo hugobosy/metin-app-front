@@ -31,14 +31,13 @@ export default function HomePage({ params }: { params: { locale: string } }) {
   }
 
   const loading = expensesLoading || revenuesLoading || objectiveLoading;
-  console.log(objective);
 
   return (
     <Layout locale={params.locale} username={user?.username}>
       <HomePageTemplate
         expenses={expenses?.data}
         revenues={revenues?.data}
-        objective={objective}
+        objective={objective?.data}
         loading={loading}
       />
     </Layout>
