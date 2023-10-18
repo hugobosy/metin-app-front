@@ -3,6 +3,7 @@ import styles from "./Modal.module.scss";
 import classNames from "classnames";
 import { Icon } from "../icon/Icon";
 import { Button } from "../button/Button";
+import { log } from "console";
 
 export interface ModalProps extends ComponentPropsWithRef<"div"> {
   showModal: boolean;
@@ -23,13 +24,12 @@ export const Modal: FC<ModalProps> = ({
 
       setShowModal(false);
     };
-    const wrapperModal = document.querySelector(".wrapper");
 
-    wrapperModal?.addEventListener("click", onModalClick);
+    document.body.addEventListener("click", onModalClick);
     return () => {
-      wrapperModal?.removeEventListener("click", onModalClick);
+      document.body.removeEventListener("click", onModalClick);
     };
-  }, []);
+  }, [showModal]);
   return (
     <div
       className={classNames(
