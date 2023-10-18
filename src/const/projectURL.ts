@@ -18,4 +18,6 @@ export const END_POINT = {
   getExpenses: "/expenses",
   getRevenues: "/revenues",
   getObjective: "/objective",
+  addRevenues: "/revenues/add",
+  addExpenses: "/expenses/add",
 };

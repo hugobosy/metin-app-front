@@ -9,8 +9,9 @@ import {
   calculationBookkeepingYang,
 } from "@/utils/calculationBookkeeping";
 import { Button } from "@/components/base/button/Button";
-import { Modal } from "@/components/base/modal/Modal";
 import { ModalBalance } from "./ModalBalace/ModalBalance";
+import { useAddExpenses } from "@/hooks/mutations/useAddExpenses";
+import { useAddRevenues } from "@/hooks/mutations/useAddRevenues";
 
 export interface BalanceProps extends HomePageTemplateProps {}
 export type ModalType = "expenses" | "revenues" | null;
@@ -19,6 +20,8 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues, userId }) => {
   const t = useTranslations("Dashboard.balance");
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState<ModalType>(null);
+  const { mutate: addExpenses, isLoading: expensesLoading } = useAddExpenses();
+  const { mutate: addRevenues, isLoading: revenuesLoading } = useAddRevenues();
 
   const totalExpensesYang = calculationBookkeepingYang(expenses);
   const totalExpensesWon = calculationBookkeepingWon(expenses);
@@ -30,6 +33,11 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues, userId }) => {
     setShowModal(true);
     setModalType(type);
   };
+
+  useEffect(() => {
+    expenses;
+    revenues;
+  }, [addExpenses, addRevenues]);
 
   return (
     <>
@@ -162,6 +170,8 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues, userId }) => {
         showModal={showModal}
         setShowModal={setShowModal}
         userId={userId}
+        addExpenses={addExpenses}
+        addRevenues={addRevenues}
       />
     </>
   );
