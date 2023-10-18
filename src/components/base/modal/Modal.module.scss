@@ -1,0 +1,57 @@
+@import "@/styles/common";
+@keyframes ModalWrapper {
+    0% {
+        background-color: transparent
+    }
+    100% {
+        background-color: var(--color-blue-900-opacity);
+    }
+}
+
+@keyframes ModalInner {
+    0% {
+        opacity: 0;
+        top: 25%;
+    }
+    100% {
+        opacity: 1;
+        top: 50%;
+    }
+}
+
+.wrapper {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    // background-color: var(--color-blue-900-opacity);
+    z-index: 99;
+    animation: ModalWrapper .4s forwards;
+
+    &-active {
+        display: flex;
+    }
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    height: 100px;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    background-color: var(--color-blue-800);
+    animation: ModalInner .3s forwards;
+    border-radius: 8px;
+
+    &-exit {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        background-color: transparent;
+    }
+}
