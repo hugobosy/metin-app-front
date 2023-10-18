@@ -7,10 +7,7 @@ import { Form, FormikProvider, useFormik } from "formik";
 import * as Yup from "yup";
 import { FormikInput } from "@/components/form/formikInput/FormikInput";
 import { Button } from "@/components/base/button/Button";
-import { useAddExpenses } from "@/hooks/mutations/useAddExpenses";
-import { useAddRevenues } from "@/hooks/mutations/useAddRevenues";
 import { toast } from "react-toastify";
-import { UseMutateAsyncFunction } from "@tanstack/react-query";
 
 export interface ModalBalanceProps extends ModalProps {
   type: "revenues" | "expenses" | null;
@@ -41,7 +38,7 @@ export const ModalBalance: FC<ModalBalanceProps> = ({
     },
     onSubmit: async (values) => {
       if (values.priceWon === 0 && values.priceYang === 0) {
-        toast.error(t("values-price-cannot-null"), { autoClose: 1200 });
+        toast.error(t("values-price-cannot-null"), { autoClose: 1500 });
         return;
       }
       if (type === "revenues") {

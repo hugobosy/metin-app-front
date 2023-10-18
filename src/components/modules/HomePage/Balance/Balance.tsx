@@ -34,11 +34,6 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues, userId }) => {
     setModalType(type);
   };
 
-  useEffect(() => {
-    expenses;
-    revenues;
-  }, [addExpenses, addRevenues]);
-
   return (
     <>
       <Tile className={styles.wrapper}>
@@ -82,14 +77,14 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues, userId }) => {
           <div className={styles["totals-numbers"]}>
             <Text
               tag="p"
-              text={String(totalRevenuesWon) + " WON"}
+              text={totalRevenuesWon?.toLocaleString() + " WON"}
               color="green"
               fontFamily="inter"
               fontSize="md"
             />
             <Text
               tag="p"
-              text={String(totalRevenuesYang) + " Yang"}
+              text={totalRevenuesYang?.toLocaleString() + " Yang"}
               color="green"
               fontFamily="inter"
               fontSize="md"
@@ -107,14 +102,14 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues, userId }) => {
           <div className={styles["totals-numbers"]}>
             <Text
               tag="p"
-              text={String(totalExpensesWon) + " WON"}
+              text={totalExpensesWon?.toLocaleString() + " WON"}
               color="red"
               fontFamily="inter"
               fontSize="md"
             />
             <Text
               tag="p"
-              text={String(totalExpensesYang) + " Yang"}
+              text={totalExpensesYang?.toLocaleString() + " Yang"}
               color="red"
               fontFamily="inter"
               fontSize="md"
@@ -133,8 +128,9 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues, userId }) => {
             <Text
               tag="p"
               text={
-                String(Number(totalRevenuesWon) - Number(totalExpensesWon)) +
-                " WON"
+                (
+                  Number(totalRevenuesWon) - Number(totalExpensesWon)
+                ).toLocaleString() + " WON"
               }
               color={
                 Number(totalRevenuesWon) - Number(totalExpensesWon) >= 0
@@ -149,8 +145,9 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues, userId }) => {
             <Text
               tag="p"
               text={
-                String(Number(totalRevenuesYang) - Number(totalExpensesYang)) +
-                " Yang"
+                (
+                  Number(totalRevenuesYang) - Number(totalExpensesYang)
+                ).toLocaleString() + " Yang"
               }
               color={
                 Number(totalRevenuesYang) - Number(totalExpensesYang) >= 0
