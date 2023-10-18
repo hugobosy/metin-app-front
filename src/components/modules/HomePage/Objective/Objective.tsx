@@ -11,7 +11,7 @@ export interface ObjectiveProps
 
 export const Objective: FC<ObjectiveProps> = ({ objective }) => {
   const t = useTranslations("Dashboard.objective");
-  console.log(objective);
+
   return (
     <Tile className={styles.wrapper}>
       <div className={styles.header}>
