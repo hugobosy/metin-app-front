@@ -17,13 +17,13 @@ export default function HomePage({ params }: { params: { locale: string } }) {
     isLoading: loadingUser,
   } = useAuthQuery(getAccessTokenCookie());
   const { data: expenses, isLoading: expensesLoading } = useGetExpenses(
-    user && user.id,
+    user && user.id
   );
   const { data: revenues, isLoading: revenuesLoading } = useGetRevenues(
-    user && user.id,
+    user && user.id
   );
   const { data: objective, isLoading: objectiveLoading } = useGetObjective(
-    user && user.id,
+    user && user.id
   );
   if (userError) {
     removeAccessTokenCookie();
@@ -39,6 +39,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
         revenues={revenues?.data}
         objective={objective?.data}
         loading={loading}
+        userId={user?.id}
       />
     </Layout>
   );

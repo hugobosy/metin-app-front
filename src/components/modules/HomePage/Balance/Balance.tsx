@@ -2,7 +2,7 @@ import styles from "./Balance.module.scss";
 import { Tile } from "@/components/base/tile/Tile";
 import { useTranslations } from "next-intl";
 import { Text } from "@/components/base/text/Text";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { HomePageTemplateProps } from "@/components/templates/HomePageTemplate/HomePageTemplate";
 import {
   calculationBookkeepingWon,
@@ -10,18 +10,26 @@ import {
 } from "@/utils/calculationBookkeeping";
 import { Button } from "@/components/base/button/Button";
 import { Modal } from "@/components/base/modal/Modal";
+import { ModalBalance } from "./ModalBalace/ModalBalance";
 
 export interface BalanceProps extends HomePageTemplateProps {}
+export type ModalType = "expenses" | "revenues" | null;
 
-export const Balance: FC<BalanceProps> = ({ expenses, revenues }) => {
+export const Balance: FC<BalanceProps> = ({ expenses, revenues, userId }) => {
   const t = useTranslations("Dashboard.balance");
   const [showModal, setShowModal] = useState(false);
+  const [modalType, setModalType] = useState<ModalType>(null);
 
   const totalExpensesYang = calculationBookkeepingYang(expenses);
   const totalExpensesWon = calculationBookkeepingWon(expenses);
 
   const totalRevenuesYang = calculationBookkeepingYang(revenues);
   const totalRevenuesWon = calculationBookkeepingWon(revenues);
+
+  const openModal = (type: ModalType) => {
+    setShowModal(true);
+    setModalType(type);
+  };
 
   return (
     <>
@@ -43,7 +51,7 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues }) => {
               variant="base"
               fontFamily="montserrat"
               weight="700"
-              onClick={() => setShowModal(true)}
+              onClick={() => openModal("revenues")}
             />
             <Button
               text={t("add-expense")}
@@ -51,6 +59,7 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues }) => {
               variant="base"
               fontFamily="montserrat"
               weight="700"
+              onClick={() => openModal("expenses")}
             />
           </div>
         </div>
@@ -148,7 +157,12 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues }) => {
           </div>
         </div>
       </Tile>
-      <Modal showModal={showModal} setShowModal={setShowModal} />
+      <ModalBalance
+        type={modalType}
+        showModal={showModal}
+        setShowModal={setShowModal}
+        userId={userId}
+      />
     </>
   );
 };

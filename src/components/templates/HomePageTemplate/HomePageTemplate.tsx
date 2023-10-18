@@ -12,6 +12,7 @@ export interface HomePageTemplateProps extends ComponentPropsWithoutRef<"div"> {
   revenues?: RevenuesValues[];
   objective?: ObjectiveValues[];
   loading?: boolean;
+  userId?: string;
 }
 
 export const HomePageTemplate: FC<HomePageTemplateProps> = ({
@@ -19,13 +20,14 @@ export const HomePageTemplate: FC<HomePageTemplateProps> = ({
   revenues,
   loading,
   objective,
+  userId,
 }) => {
   if (loading) {
     return <Spinner className={styles.spinner} />;
   }
   return (
     <div className={styles.wrapper}>
-      <Balance expenses={expenses} revenues={revenues} />
+      <Balance expenses={expenses} revenues={revenues} userId={userId} />
       <Objective objective={objective} />
     </div>
   );
