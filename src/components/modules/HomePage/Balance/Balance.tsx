@@ -21,9 +21,6 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues }) => {
   const totalRevenuesYang = calculationBookkeepingYang(revenues);
   const totalRevenuesWon = calculationBookkeepingWon(revenues);
 
-  console.log(revenues);
-  console.log(expenses);
-
   return (
     <Tile className={styles.wrapper}>
       <div className={styles.header}>
