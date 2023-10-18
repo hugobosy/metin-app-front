@@ -1,0 +1,5 @@
+{
+    "prettier.bracketSameLine": true,
+    "prettier.configPath": "",
+    "prettier.endOfLine": "auto"
+}
