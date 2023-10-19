@@ -4,6 +4,7 @@ import { RegisterValues } from "@/types/registerValues";
 import { LoginValues } from "@/types/loginValues";
 import { RevenuesValues } from "@/types/revenuesValues";
 import { ExpansesValues } from "@/types/expansesValues";
+import { ObjectiveValues } from "@/types/objectiveValues";
 
 export class ApiService {
   async register(values: RegisterValues) {
@@ -37,7 +38,9 @@ export class ApiService {
   }
 
   async getExpenses(idUser: string) {
-    return await axios.post(`http://localhost:5000${END_POINT.getExpenses}`, {idUser});
+    return await axios.post(`http://localhost:5000${END_POINT.getExpenses}`, {
+      idUser
+    });
   }
 
   async getRevenues(idUser: string) {
@@ -59,6 +62,10 @@ export class ApiService {
 
   async addExpenses(values: ExpansesValues) {
     return await axios.post(`http://localhost:5000${END_POINT.addExpenses}`, values)
+  }
+
+  async addObjective(values: ObjectiveValues) {
+    return await axios.post(`http://localhost:5000${END_POINT.addObjective}`, values)
   }
 }
 

@@ -113,6 +113,16 @@
       "price-yang": "Cena Yang",
       "price-won": "Cena Won",
       "values-price-cannot-null": "Musisz podać przynajmniej jedną z cen"
+    },
+    "objective": {
+      "add-objective": "Dodaj cel",
+      "min-objective-lenght": "Cel musi mieć conajmniej 10 znaków",
+      "max-objective-lenght": "Cel może mieć maksymalnie 255 znaków",
+      "required-objective": "Musisz podać cel",
+      "amount-more-than-0": "Wartość musi być większa niż 0",
+      "amount-required": "Musisz podać wartość",
+      "label-objective": "Podaj jaki chcesz osiągnąć cel",
+      "label-amount": "Podaj jaką wartość ma określony cel"
     }
   }
 }

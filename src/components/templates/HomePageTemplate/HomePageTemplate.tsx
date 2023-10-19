@@ -1,6 +1,6 @@
 import styles from "./HomePageTemplate.module.scss";
 import { Balance } from "@/components/modules/HomePage/Balance/Balance";
-import { ComponentPropsWithoutRef, FC } from "react";
+import { ComponentPropsWithoutRef, FC, use } from "react";
 import { ExpansesValues } from "@/types/expansesValues";
 import { Spinner } from "@/components/base/spinner/Spinner";
 import { RevenuesValues } from "@/types/revenuesValues";
@@ -28,7 +28,7 @@ export const HomePageTemplate: FC<HomePageTemplateProps> = ({
   return (
     <div className={styles.wrapper}>
       <Balance expenses={expenses} revenues={revenues} userId={userId} />
-      <Objective objective={objective} />
+      <Objective objective={objective} userId={userId} />
     </div>
   );
 };

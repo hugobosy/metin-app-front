@@ -9,6 +9,7 @@ import { useGetExpenses } from "@/hooks/queries/useGetExpenses";
 import { ExpansesValues } from "@/types/expansesValues";
 import { useGetRevenues } from "@/hooks/queries/useGetRevenues";
 import { useGetObjective } from "@/hooks/queries/useGetObjective";
+import { useAddObjective } from "@/hooks/mutations/useAddObjective";
 
 export default function HomePage({ params }: { params: { locale: string } }) {
   const {
@@ -25,6 +26,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
   const { data: objective, isLoading: objectiveLoading } = useGetObjective(
     user && user.id
   );
+
   if (userError) {
     removeAccessTokenCookie();
     return redirect(`/${params.locale}/login`);
