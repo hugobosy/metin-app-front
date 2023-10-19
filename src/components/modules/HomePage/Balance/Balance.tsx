@@ -2,26 +2,37 @@ import styles from "./Balance.module.scss";
 import { Tile } from "@/components/base/tile/Tile";
 import { useTranslations } from "next-intl";
 import { Text } from "@/components/base/text/Text";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { HomePageTemplateProps } from "@/components/templates/HomePageTemplate/HomePageTemplate";
 import {
   calculationBookkeepingWon,
   calculationBookkeepingYang,
 } from "@/utils/calculationBookkeeping";
 import { Button } from "@/components/base/button/Button";
-import { Modal } from "@/components/base/modal/Modal";
+import { ModalBalance } from "./ModalBalace/ModalBalance";
+import { useAddExpenses } from "@/hooks/mutations/useAddExpenses";
+import { useAddRevenues } from "@/hooks/mutations/useAddRevenues";
 
 export interface BalanceProps extends HomePageTemplateProps {}
+export type ModalType = "expenses" | "revenues" | null;
 
-export const Balance: FC<BalanceProps> = ({ expenses, revenues }) => {
+export const Balance: FC<BalanceProps> = ({ expenses, revenues, userId }) => {
   const t = useTranslations("Dashboard.balance");
   const [showModal, setShowModal] = useState(false);
+  const [modalType, setModalType] = useState<ModalType>(null);
+  const { mutate: addExpenses, isLoading: expensesLoading } = useAddExpenses();
+  const { mutate: addRevenues, isLoading: revenuesLoading } = useAddRevenues();
 
   const totalExpensesYang = calculationBookkeepingYang(expenses);
   const totalExpensesWon = calculationBookkeepingWon(expenses);
 
   const totalRevenuesYang = calculationBookkeepingYang(revenues);
   const totalRevenuesWon = calculationBookkeepingWon(revenues);
+
+  const openModal = (type: ModalType) => {
+    setShowModal(true);
+    setModalType(type);
+  };
 
   return (
     <>
@@ -43,7 +54,7 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues }) => {
               variant="base"
               fontFamily="montserrat"
               weight="700"
-              onClick={() => setShowModal(true)}
+              onClick={() => openModal("revenues")}
             />
             <Button
               text={t("add-expense")}
@@ -51,6 +62,7 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues }) => {
               variant="base"
               fontFamily="montserrat"
               weight="700"
+              onClick={() => openModal("expenses")}
             />
           </div>
         </div>
@@ -65,14 +77,14 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues }) => {
           <div className={styles["totals-numbers"]}>
             <Text
               tag="p"
-              text={String(totalRevenuesWon) + " WON"}
+              text={totalRevenuesWon?.toLocaleString() + " WON"}
               color="green"
               fontFamily="inter"
               fontSize="md"
             />
             <Text
               tag="p"
-              text={String(totalRevenuesYang) + " Yang"}
+              text={totalRevenuesYang?.toLocaleString() + " Yang"}
               color="green"
               fontFamily="inter"
               fontSize="md"
@@ -90,14 +102,14 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues }) => {
           <div className={styles["totals-numbers"]}>
             <Text
               tag="p"
-              text={String(totalExpensesWon) + " WON"}
+              text={totalExpensesWon?.toLocaleString() + " WON"}
               color="red"
               fontFamily="inter"
               fontSize="md"
             />
             <Text
               tag="p"
-              text={String(totalExpensesYang) + " Yang"}
+              text={totalExpensesYang?.toLocaleString() + " Yang"}
               color="red"
               fontFamily="inter"
               fontSize="md"
@@ -116,8 +128,9 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues }) => {
             <Text
               tag="p"
               text={
-                String(Number(totalRevenuesWon) - Number(totalExpensesWon)) +
-                " WON"
+                (
+                  Number(totalRevenuesWon) - Number(totalExpensesWon)
+                ).toLocaleString() + " WON"
               }
               color={
                 Number(totalRevenuesWon) - Number(totalExpensesWon) >= 0
@@ -132,8 +145,9 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues }) => {
             <Text
               tag="p"
               text={
-                String(Number(totalRevenuesYang) - Number(totalExpensesYang)) +
-                " Yang"
+                (
+                  Number(totalRevenuesYang) - Number(totalExpensesYang)
+                ).toLocaleString() + " Yang"
               }
               color={
                 Number(totalRevenuesYang) - Number(totalExpensesYang) >= 0
@@ -148,7 +162,14 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues }) => {
           </div>
         </div>
       </Tile>
-      <Modal showModal={showModal} setShowModal={setShowModal} />
+      <ModalBalance
+        type={modalType}
+        showModal={showModal}
+        setShowModal={setShowModal}
+        userId={userId}
+        addExpenses={addExpenses}
+        addRevenues={addRevenues}
+      />
     </>
   );
 };

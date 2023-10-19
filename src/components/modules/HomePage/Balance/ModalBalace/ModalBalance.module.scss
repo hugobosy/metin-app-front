@@ -1,0 +1,18 @@
+.modal {
+    padding: 0 150px
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: 0 150px;
+}
+.button {
+    padding: 10px 30px;
+    place-self: flex-end;
+
+    &:hover {
+        transform: scale(1.01);
+    }
+}

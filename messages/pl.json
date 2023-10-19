@@ -96,5 +96,23 @@
       "objective-not-found": "Nie masz żadnych celów",
       "add-objective": "Dodaj cel"
     }
+  },
+  "Modal": {
+    "revenues": {
+      "add": "Dodaj przychód",
+      "item-label": "Przedmiot",
+      "count": "Ilość",
+      "price-yang": "Cena Yang",
+      "price-won": "Cena Won",
+      "values-price-cannot-null": "Musisz podać przynajmniej jedną z cen"
+    },
+    "expenses": {
+      "add": "Dodad wydatek",
+      "item-label": "Przedmiot",
+      "count": "Ilość",
+      "price-yang": "Cena Yang",
+      "price-won": "Cena Won",
+      "values-price-cannot-null": "Musisz podać przynajmniej jedną z cen"
+    }
   }
 }

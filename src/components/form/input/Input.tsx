@@ -26,10 +26,11 @@ export const Input: FC<InputProps> = ({
           <label htmlFor={rest.name} className={styles.label}>
             <Text
               tag="span"
-              text={label}
+              text={label + ":"}
               weight="500"
-              fontSize="xxs"
-              color="black"
+              fontSize="sm"
+              color="white"
+              fontFamily="montserrat"
             />
           </label>
         </div>
@@ -44,8 +45,8 @@ export const Input: FC<InputProps> = ({
           <Text
             tag="p"
             text={errorMessage}
-            fontSize="xxs"
-            weight="300"
+            fontSize="xs"
+            weight="700"
             color="red"
             fontFamily="montserrat"
             className={styles.error}

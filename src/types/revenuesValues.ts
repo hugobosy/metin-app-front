@@ -1,8 +1,7 @@
 export type RevenuesValues = {
-  count: number;
-  id: string;
-  idUser: string;
+  idUser?: string;
   item: string;
+  count: number;
   priceYang: number;
   priceWon: number;
 };

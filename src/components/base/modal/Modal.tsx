@@ -14,6 +14,7 @@ export const Modal: FC<ModalProps> = ({
   showModal,
   setShowModal,
   children,
+  className,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -34,7 +35,8 @@ export const Modal: FC<ModalProps> = ({
     <div
       className={classNames(
         styles.wrapper,
-        showModal && styles["wrapper-active"]
+        showModal && styles["wrapper-active"],
+        className
       )}>
       <div className={styles.modal} ref={modalRef}>
         <Button

@@ -25,12 +25,12 @@ export const LoginTemplate: FC<LoginTemplateProps> = ({ locale }) => {
 
   const loginFormik = useFormik({
     initialValues: {
-      login: "",
+      email: "",
       password: "",
     },
     onSubmit: (values) => handleLogin(values),
     validationSchema: Yup.object().shape({
-      login: Yup.string().required(),
+      email: Yup.string().required(),
       password: Yup.string().required(),
     }),
   });
@@ -70,7 +70,7 @@ export const LoginTemplate: FC<LoginTemplateProps> = ({ locale }) => {
             <div>
               <FormikInput
                 type="text"
-                name="login"
+                name="email"
                 placeholder={t("your-name")}
               />
               <FormikInput
