@@ -37,9 +37,7 @@ export class ApiService {
   }
 
   async getExpenses(idUser: string) {
-    return await axios.post(`http://localhost:5000${END_POINT.getExpenses}`, {
-      idUser,
-    });
+    return await axios.post(`http://localhost:5000${END_POINT.getExpenses}`, {idUser});
   }
 
   async getRevenues(idUser: string) {
