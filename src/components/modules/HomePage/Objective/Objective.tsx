@@ -15,7 +15,6 @@ export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
   const [showModal, setShowModal] = useState(false);
 
   const { mutate: addObjective, isLoading } = useAddObjectiveMutation();
-  console.log(userId);
 
   return (
     <>
@@ -41,8 +40,10 @@ export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
         </div>
         {objective?.length ? (
           <ul className={styles.objective}>
-            {objective?.map((obj) => (
-              <li className={styles["objective-item"]} key={obj.id}>
+            {objective?.map((obj, index) => (
+              <li
+                className={styles["objective-item"]}
+                key={String(obj?.idUser) + index}>
                 <Text
                   tag="span"
                   text={obj.objective}
