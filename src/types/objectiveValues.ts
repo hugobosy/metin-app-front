@@ -1,6 +1,5 @@
 export type ObjectiveValues = {
-  id: string;
-  idUser: string;
+  idUser?: string;
   objective: string;
   amount: number;
 };

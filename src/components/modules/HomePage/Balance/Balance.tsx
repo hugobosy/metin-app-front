@@ -2,7 +2,7 @@ import styles from "./Balance.module.scss";
 import { Tile } from "@/components/base/tile/Tile";
 import { useTranslations } from "next-intl";
 import { Text } from "@/components/base/text/Text";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { HomePageTemplateProps } from "@/components/templates/HomePageTemplate/HomePageTemplate";
 import {
   calculationBookkeepingWon,

@@ -6,7 +6,6 @@ import { redirect } from "next/navigation";
 import { Layout } from "@/components/layout/Layout";
 import { HomePageTemplate } from "@/components/templates/HomePageTemplate/HomePageTemplate";
 import { useGetExpenses } from "@/hooks/queries/useGetExpenses";
-import { ExpansesValues } from "@/types/expansesValues";
 import { useGetRevenues } from "@/hooks/queries/useGetRevenues";
 import { useGetObjective } from "@/hooks/queries/useGetObjective";
 
@@ -25,6 +24,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
   const { data: objective, isLoading: objectiveLoading } = useGetObjective(
     user && user.id
   );
+
   if (userError) {
     removeAccessTokenCookie();
     return redirect(`/${params.locale}/login`);
