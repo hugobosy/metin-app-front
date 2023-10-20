@@ -7,6 +7,7 @@ import { HomePageTemplateProps } from "@/components/templates/HomePageTemplate/H
 import { Button } from "@/components/base/button/Button";
 import { ModalObjective } from "./ModalObjective/ModalObjective";
 import { useAddObjectiveMutation } from "@/hooks/mutations/useAddObjective";
+import { Icon } from "@/components/base/icon/Icon";
 
 export interface ObjectiveProps extends HomePageTemplateProps {}
 
@@ -50,13 +51,18 @@ export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
                   color="gray"
                   fontFamily="inter"
                 />
-                <Text
-                  tag="span"
-                  text={obj.amount + " Won"}
-                  color="gray"
-                  fontFamily="montserrat"
-                  weight="700"
-                />
+                <div className={styles.options}>
+                  <Text
+                    tag="span"
+                    text={obj.amount + " Won"}
+                    color="gray"
+                    fontFamily="montserrat"
+                    weight="700"
+                  />
+                  <Button icon="Accept" className={styles.option} />
+                  <Button icon="Edit" className={styles.option} />
+                  <Button icon="Trash" className={styles.option} />
+                </div>
               </li>
             ))}
           </ul>

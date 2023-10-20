@@ -13,6 +13,9 @@ import Animal from "@/assets/svg/animal.svg";
 import Costume from "@/assets/svg/costume.svg";
 import Notepad from "@/assets/svg/notepad.svg";
 import Exit from "@/assets/svg/x.svg";
+import Edit from "@/assets/svg/edit.svg";
+import Accept from "@/assets/svg/accept.svg";
+import Trash from "@/assets/svg/trash.svg";
 
 export const icons = {
   Poland,
@@ -29,5 +32,8 @@ export const icons = {
   Animal,
   Costume,
   Notepad,
-  Exit
+  Exit,
+  Edit,
+  Accept,
+  Trash,
 } as const;

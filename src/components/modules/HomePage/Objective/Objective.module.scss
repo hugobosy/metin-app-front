@@ -30,3 +30,12 @@
   align-items: center;
   height: 100%;
 }
+
+.options {
+  display: flex;
+  gap: 5px;
+}
+
+.option {
+  background-color: transparent;
+}
