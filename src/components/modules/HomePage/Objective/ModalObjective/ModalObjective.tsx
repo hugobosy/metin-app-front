@@ -11,6 +11,8 @@ import { Button } from "@/components/base/button/Button";
 export interface ModalObjectiveProps extends ModalProps {
   userId?: string;
   addObjective?: any;
+  typeModal: "normal" | "edit";
+  objectiveId: string | null;
 }
 
 export const ModalObjective: FC<ModalObjectiveProps> = ({
@@ -18,6 +20,8 @@ export const ModalObjective: FC<ModalObjectiveProps> = ({
   setShowModal,
   userId,
   addObjective,
+  typeModal,
+  objectiveId,
 }) => {
   const t = useTranslations("Modal.objective");
 
@@ -49,7 +53,7 @@ export const ModalObjective: FC<ModalObjectiveProps> = ({
     <Modal showModal={showModal} setShowModal={setShowModal}>
       <Text
         tag="h2"
-        text={t("add-objective")}
+        text={typeModal === "normal" ? t("add-objective") : t("edit-objective")}
         color="white"
         fontFamily="montserrat"
         fontSize="xl"
@@ -61,12 +65,26 @@ export const ModalObjective: FC<ModalObjectiveProps> = ({
           <FormikInput
             name="objective"
             type="text"
-            label={t("label-objective")}
+            label={
+              typeModal === "normal"
+                ? t("label-objective")
+                : t("label-objective-edit")
+            }
           />
-          <FormikInput name="amount" type="number" label={t("label-amount")} />
+          <FormikInput
+            name="amount"
+            type="number"
+            label={
+              typeModal === "normal"
+                ? t("label-amount")
+                : t("label-amount-edit")
+            }
+          />
           <Button
             type="submit"
-            text={t("add-objective")}
+            text={
+              typeModal === "normal" ? t("add-objective") : t("edit-objective")
+            }
             variant="base"
             className={styles.button}
           />

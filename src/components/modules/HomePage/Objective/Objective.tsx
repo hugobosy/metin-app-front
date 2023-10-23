@@ -2,7 +2,7 @@ import { Tile } from "@/components/base/tile/Tile";
 import { useTranslations } from "next-intl";
 import { Text } from "@/components/base/text/Text";
 import styles from "./Objective.module.scss";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { HomePageTemplateProps } from "@/components/templates/HomePageTemplate/HomePageTemplate";
 import { Button } from "@/components/base/button/Button";
 import { ModalObjective } from "./ModalObjective/ModalObjective";
@@ -14,6 +14,12 @@ export interface ObjectiveProps extends HomePageTemplateProps {}
 export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
   const t = useTranslations("Dashboard.objective");
   const [showModal, setShowModal] = useState(false);
+  const [typeModal, setTypeModal] = useState<"normal" | "edit">("normal");
+  const [objectiveId, setObjectiveId] = useState<string | null>(null);
+
+  useEffect(() => {
+    setObjectiveId(!showModal ? null : objectiveId);
+  }, [showModal]);
 
   const { mutate: addObjective, isLoading: addObjectiveLoading } =
     useAddObjectiveMutation();
@@ -23,7 +29,13 @@ export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
   } = useSetCompleteObjective();
 
   function setComplete(id?: string) {
-    setCompleteObjective(id ? id : "");
+    setCompleteObjective(id || "");
+  }
+
+  function edit(id?: string) {
+    setTypeModal("edit");
+    setObjectiveId(id || "");
+    setShowModal(true);
   }
 
   return (
@@ -45,7 +57,10 @@ export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
             className={styles["header-button"]}
             weight="700"
             fontFamily="montserrat"
-            onClick={() => setShowModal(true)}
+            onClick={() => {
+              setTypeModal("normal");
+              setShowModal(true);
+            }}
           />
         </div>
         {objective?.length ? (
@@ -73,7 +88,11 @@ export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
                     className={styles.option}
                     onClick={() => setComplete(obj.id)}
                   />
-                  <Button icon="Edit" className={styles.option} />
+                  <Button
+                    icon="Edit"
+                    className={styles.option}
+                    onClick={() => edit(obj.id)}
+                  />
                   <Button icon="Trash" className={styles.option} />
                 </div>
               </li>
@@ -91,12 +110,16 @@ export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
           </div>
         )}
       </Tile>
-      <ModalObjective
-        showModal={showModal}
-        setShowModal={setShowModal}
-        addObjective={addObjective}
-        userId={userId}
-      />
+      {showModal && (
+        <ModalObjective
+          typeModal={typeModal}
+          showModal={showModal}
+          setShowModal={setShowModal}
+          addObjective={addObjective}
+          userId={userId}
+          objectiveId={objectiveId}
+        />
+      )}
     </>
   );
 };
