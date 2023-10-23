@@ -67,6 +67,10 @@ export class ApiService {
   async addObjective(values: ObjectiveValues) {
     return await axios.post(`http://localhost:5000${END_POINT.addObjective}`, values)
   }
+
+  async setCompleteObjective(id: string) {
+    return await axios.patch(`http://localhost:5000${END_POINT.setCompleteObjective}/${id}`)
+  }
 }
 
 export const apiService = new ApiService();

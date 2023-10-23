@@ -7,7 +7,7 @@ import { HomePageTemplateProps } from "@/components/templates/HomePageTemplate/H
 import { Button } from "@/components/base/button/Button";
 import { ModalObjective } from "./ModalObjective/ModalObjective";
 import { useAddObjectiveMutation } from "@/hooks/mutations/useAddObjective";
-import { Icon } from "@/components/base/icon/Icon";
+import { useSetCompleteObjective } from "@/hooks/mutations/useSetCompleteObjective";
 
 export interface ObjectiveProps extends HomePageTemplateProps {}
 
@@ -15,7 +15,16 @@ export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
   const t = useTranslations("Dashboard.objective");
   const [showModal, setShowModal] = useState(false);
 
-  const { mutate: addObjective, isLoading } = useAddObjectiveMutation();
+  const { mutate: addObjective, isLoading: addObjectiveLoading } =
+    useAddObjectiveMutation();
+  const {
+    mutate: setCompleteObjective,
+    isLoading: setCompleteObjectiveLoading,
+  } = useSetCompleteObjective();
+
+  function setComplete(id?: string) {
+    setCompleteObjective(id ? id : "");
+  }
 
   return (
     <>
@@ -59,7 +68,11 @@ export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
                     fontFamily="montserrat"
                     weight="700"
                   />
-                  <Button icon="Accept" className={styles.option} />
+                  <Button
+                    icon="Accept"
+                    className={styles.option}
+                    onClick={() => setComplete(obj.id)}
+                  />
                   <Button icon="Edit" className={styles.option} />
                   <Button icon="Trash" className={styles.option} />
                 </div>
