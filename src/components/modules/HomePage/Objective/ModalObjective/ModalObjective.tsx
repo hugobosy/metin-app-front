@@ -1,18 +1,19 @@
 import { Modal, ModalProps } from "@/components/base/modal/Modal";
 import { useTranslations } from "next-intl";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { Text } from "@/components/base/text/Text";
 import styles from "./ModalObjective.module.scss";
 import { Form, FormikProvider, useFormik } from "formik";
 import * as Yup from "yup";
 import { FormikInput } from "@/components/form/formikInput/FormikInput";
 import { Button } from "@/components/base/button/Button";
+import { ObjectiveValues } from "@/types/objectiveValues";
 
 export interface ModalObjectiveProps extends ModalProps {
   userId?: string;
   addObjective?: any;
   typeModal: "normal" | "edit";
-  objectiveId: string | null;
+  objective: ObjectiveValues;
 }
 
 export const ModalObjective: FC<ModalObjectiveProps> = ({
@@ -21,23 +22,28 @@ export const ModalObjective: FC<ModalObjectiveProps> = ({
   userId,
   addObjective,
   typeModal,
-  objectiveId,
+  objective,
 }) => {
   const t = useTranslations("Modal.objective");
+  console.log(objective);
 
   const objectiveFormik = useFormik({
     initialValues: {
       idUser: userId,
-      objective: "",
-      amount: 0,
+      objective: typeModal === "edit" ? objective.objective : "",
+      amount: typeModal === "edit" ? objective.amount : 0,
     },
-    onSubmit: async (values) =>
-      addObjective(values, {
-        onSuccess: () => {
-          setShowModal(false);
-          location.reload();
-        },
-      }),
+    onSubmit: async (values) => {
+      if (typeModal === "normal") {
+        addObjective(values, {
+          onSuccess: () => {
+            setShowModal(false);
+            location.reload();
+          },
+        });
+      } else {
+      }
+    },
     validationSchema: Yup.object().shape({
       objective: Yup.string()
         .min(10, t("min-objective-lenght"))

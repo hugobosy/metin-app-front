@@ -55,6 +55,12 @@ export class ApiService {
     });
   }
 
+  async getOneObjective(id: string | null) {
+    const res = await axios.get(`http://localhost:5000${END_POINT.getOneObjective}/${id}`)
+
+    return res.data
+  }
+
   async addRevenues(values: RevenuesValues) {
     return await axios.post(`http://localhost:5000${END_POINT.addRevenues}`, values)
 

@@ -8,6 +8,7 @@ import { Button } from "@/components/base/button/Button";
 import { ModalObjective } from "./ModalObjective/ModalObjective";
 import { useAddObjectiveMutation } from "@/hooks/mutations/useAddObjective";
 import { useSetCompleteObjective } from "@/hooks/mutations/useSetCompleteObjective";
+import { useGetOneObjective } from "@/hooks/queries/useGetOneObjective";
 
 export interface ObjectiveProps extends HomePageTemplateProps {}
 
@@ -17,16 +18,19 @@ export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
   const [typeModal, setTypeModal] = useState<"normal" | "edit">("normal");
   const [objectiveId, setObjectiveId] = useState<string | null>(null);
 
-  useEffect(() => {
-    setObjectiveId(!showModal ? null : objectiveId);
-  }, [showModal]);
-
   const { mutate: addObjective, isLoading: addObjectiveLoading } =
     useAddObjectiveMutation();
   const {
     mutate: setCompleteObjective,
     isLoading: setCompleteObjectiveLoading,
   } = useSetCompleteObjective();
+
+  const { data: objectiveData, isLoading: objectiveLoading } =
+    useGetOneObjective(objectiveId);
+
+  useEffect(() => {
+    setObjectiveId(!showModal ? null : objectiveId);
+  }, [showModal]);
 
   function setComplete(id?: string) {
     setCompleteObjective(id || "");
@@ -110,14 +114,14 @@ export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
           </div>
         )}
       </Tile>
-      {showModal && (
+      {!objectiveLoading && showModal && (
         <ModalObjective
           typeModal={typeModal}
           showModal={showModal}
           setShowModal={setShowModal}
           addObjective={addObjective}
           userId={userId}
-          objectiveId={objectiveId}
+          objective={objectiveData}
         />
       )}
     </>
