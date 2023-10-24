@@ -41,7 +41,6 @@ export const ModalObjective: FC<ModalObjectiveProps> = ({
           onSuccess: () => {
             setShowModal(false);
             location.reload();
-            toast.success(t("added-objective"));
           },
         });
       } else {
@@ -52,7 +51,6 @@ export const ModalObjective: FC<ModalObjectiveProps> = ({
             onSuccess: () => {
               setShowModal(false);
               location.reload();
-              toast.success(t("edited-objective"), { delay: 2000 });
             },
           }
         );

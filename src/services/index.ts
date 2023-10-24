@@ -81,6 +81,10 @@ export class ApiService {
   async setCompleteObjective(id: string) {
     return await axios.patch(`http://localhost:5000${END_POINT.setCompleteObjective}/${id}`)
   }
+
+  async deleteObjective(id?: string) {
+    return await axios.delete(`http://localhost:5000${END_POINT.deleteObjective}/${id}`)
+  }
 }
 
 export const apiService = new ApiService();

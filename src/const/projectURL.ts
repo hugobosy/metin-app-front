@@ -24,4 +24,5 @@ export const END_POINT = {
   setCompleteObjective: "/objective/complete",
   getOneObjective: "/objective",
   editObjective: "/objective/edit",
+  deleteObjective: "/objective/delete",
 };

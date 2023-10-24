@@ -1,7 +1,7 @@
-"use client"
-import { apiService } from "@/services"
-import { useMutation } from "@tanstack/react-query"
+"use client";
+import { useMutation } from "@tanstack/react-query";
+import { apiService } from "@/services";
 
 export const useEditObjective = () => {
-    return useMutation(apiService.editObjective)
-}
+  return useMutation(apiService.editObjective);
+};

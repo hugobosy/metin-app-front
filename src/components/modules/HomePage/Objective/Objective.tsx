@@ -10,6 +10,9 @@ import { useAddObjectiveMutation } from "@/hooks/mutations/useAddObjective";
 import { useSetCompleteObjective } from "@/hooks/mutations/useSetCompleteObjective";
 import { useGetOneObjective } from "@/hooks/queries/useGetOneObjective";
 import { useEditObjective } from "@/hooks/mutations/useEditObjective";
+import classNames from "classnames";
+import { useDeleteObjective } from "@/hooks/mutations/useDeleteObjective";
+import { apiService } from "@/services";
 
 export interface ObjectiveProps extends HomePageTemplateProps {}
 
@@ -29,8 +32,10 @@ export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
   const { data: objectiveData, isLoading: objectiveLoading } =
     useGetOneObjective(objectiveId);
 
-  const { mutate: editObjective, isLoading: EditObjectiveLoading } =
+  const { mutate: editObjectiveMutate, isLoading: EditObjectiveLoading } =
     useEditObjective();
+
+  const { mutate: deleteObjectiveMutate } = useDeleteObjective();
 
   useEffect(() => {
     setObjectiveId(!showModal ? null : objectiveId);
@@ -38,12 +43,18 @@ export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
 
   function setComplete(id?: string) {
     setCompleteObjective(id || "");
+    location.reload();
   }
 
-  function edit(id?: string) {
+  function editObjective(id?: string) {
     setTypeModal("edit");
     setObjectiveId(id || "");
     setShowModal(true);
+  }
+
+  function deleteObjective(id?: string) {
+    deleteObjectiveMutate(id || "");
+    location.reload();
   }
 
   return (
@@ -75,7 +86,7 @@ export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
           <ul className={styles.objective}>
             {objective?.map((obj, index) => (
               <li
-                className={styles["objective-item"]}
+                className={classNames(styles["objective-item"])}
                 key={String(obj?.idUser) + index}>
                 <Text
                   tag="span"
@@ -99,9 +110,13 @@ export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
                   <Button
                     icon="Edit"
                     className={styles.option}
-                    onClick={() => edit(obj.id)}
+                    onClick={() => editObjective(obj.id)}
                   />
-                  <Button icon="Trash" className={styles.option} />
+                  <Button
+                    icon="Trash"
+                    className={styles.option}
+                    onClick={() => deleteObjective(obj?.id)}
+                  />
                 </div>
               </li>
             ))}
@@ -124,7 +139,7 @@ export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
           showModal={showModal}
           setShowModal={setShowModal}
           addObjective={addObjective}
-          editObjective={editObjective}
+          editObjective={editObjectiveMutate}
           userId={userId}
           objective={objectiveData}
         />
