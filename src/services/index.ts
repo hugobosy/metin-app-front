@@ -61,6 +61,10 @@ export class ApiService {
     return res.data
   }
 
+  async editObjective(values: ObjectiveValues) {
+    return await axios.put(`http://localhost:5000${END_POINT.editObjective}`, values)
+  }
+
   async addRevenues(values: RevenuesValues) {
     return await axios.post(`http://localhost:5000${END_POINT.addRevenues}`, values)
 

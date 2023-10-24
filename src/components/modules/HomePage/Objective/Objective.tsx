@@ -9,6 +9,7 @@ import { ModalObjective } from "./ModalObjective/ModalObjective";
 import { useAddObjectiveMutation } from "@/hooks/mutations/useAddObjective";
 import { useSetCompleteObjective } from "@/hooks/mutations/useSetCompleteObjective";
 import { useGetOneObjective } from "@/hooks/queries/useGetOneObjective";
+import { useEditObjective } from "@/hooks/mutations/useEditObjective";
 
 export interface ObjectiveProps extends HomePageTemplateProps {}
 
@@ -27,6 +28,9 @@ export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
 
   const { data: objectiveData, isLoading: objectiveLoading } =
     useGetOneObjective(objectiveId);
+
+  const { mutate: editObjective, isLoading: EditObjectiveLoading } =
+    useEditObjective();
 
   useEffect(() => {
     setObjectiveId(!showModal ? null : objectiveId);
@@ -120,6 +124,7 @@ export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
           showModal={showModal}
           setShowModal={setShowModal}
           addObjective={addObjective}
+          editObjective={editObjective}
           userId={userId}
           objective={objectiveData}
         />

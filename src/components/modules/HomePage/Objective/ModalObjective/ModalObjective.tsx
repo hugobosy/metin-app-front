@@ -8,10 +8,12 @@ import * as Yup from "yup";
 import { FormikInput } from "@/components/form/formikInput/FormikInput";
 import { Button } from "@/components/base/button/Button";
 import { ObjectiveValues } from "@/types/objectiveValues";
+import { toast } from "react-toastify";
 
 export interface ModalObjectiveProps extends ModalProps {
   userId?: string;
   addObjective?: any;
+  editObjective?: any;
   typeModal: "normal" | "edit";
   objective: ObjectiveValues;
 }
@@ -23,9 +25,9 @@ export const ModalObjective: FC<ModalObjectiveProps> = ({
   addObjective,
   typeModal,
   objective,
+  editObjective,
 }) => {
   const t = useTranslations("Modal.objective");
-  console.log(objective);
 
   const objectiveFormik = useFormik({
     initialValues: {
@@ -39,9 +41,21 @@ export const ModalObjective: FC<ModalObjectiveProps> = ({
           onSuccess: () => {
             setShowModal(false);
             location.reload();
+            toast.success(t("added-objective"));
           },
         });
       } else {
+        console.log({ id: objective.id, values });
+        editObjective(
+          { id: objective.id, values },
+          {
+            onSuccess: () => {
+              setShowModal(false);
+              location.reload();
+              toast.success(t("edited-objective"), { delay: 2000 });
+            },
+          }
+        );
       }
     },
     validationSchema: Yup.object().shape({

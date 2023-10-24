@@ -1,6 +1,5 @@
 import { apiService } from "@/services";
 import { useQuery } from "@tanstack/react-query";
-import { ObjectiveValues } from "@/types/objectiveValues";
 
 export const getObjective = (id: string) => ({
   queryKey: ["get-objective", id],

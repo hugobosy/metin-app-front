@@ -22,5 +22,6 @@ export const END_POINT = {
   addExpenses: "/expenses/add",
   addObjective: "/objective/add",
   setCompleteObjective: "/objective/complete",
-  getOneObjective: "/objective"
+  getOneObjective: "/objective",
+  editObjective: "/objective/edit",
 };
