@@ -55,6 +55,16 @@ export class ApiService {
     });
   }
 
+  async getOneObjective(id: string | null) {
+    const res = await axios.get(`http://localhost:5000${END_POINT.getOneObjective}/${id}`)
+
+    return res.data
+  }
+
+  async editObjective(values: ObjectiveValues) {
+    return await axios.put(`http://localhost:5000${END_POINT.editObjective}`, values)
+  }
+
   async addRevenues(values: RevenuesValues) {
     return await axios.post(`http://localhost:5000${END_POINT.addRevenues}`, values)
 
@@ -66,6 +76,14 @@ export class ApiService {
 
   async addObjective(values: ObjectiveValues) {
     return await axios.post(`http://localhost:5000${END_POINT.addObjective}`, values)
+  }
+
+  async setCompleteObjective(id: string) {
+    return await axios.patch(`http://localhost:5000${END_POINT.setCompleteObjective}/${id}`)
+  }
+
+  async deleteObjective(id?: string) {
+    return await axios.delete(`http://localhost:5000${END_POINT.deleteObjective}/${id}`)
   }
 }
 

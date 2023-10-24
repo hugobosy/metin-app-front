@@ -19,8 +19,12 @@
   &-item {
     display: flex;
     justify-content: space-between;
-    padding: 12px 0;
+    padding: 12px;
     border-bottom: 1px solid var(--color-gray-200)
+  }
+
+  &-complete {
+    background-color: green;
   }
 }
 
@@ -29,4 +33,13 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+.options {
+  display: flex;
+  gap: 5px;
+}
+
+.option {
+  background-color: transparent;
 }
