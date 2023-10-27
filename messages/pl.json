@@ -80,11 +80,14 @@
       "my-animals": "Moje zwierzaki",
       "my-costumes": "Moje kostiumy",
       "notepad": "Notanik"
+    },
+    "balance": {
+      "your-balance": "Twoje saldo:"
     }
   },
   "Dashboard": {
     "balance": {
-      "balance": "Saldo",
+      "summary": "Podsumowanie",
       "total-expenses": "Suma wydatków:",
       "total-revenues": "Suma przychodów:",
       "result": "Bilans:",

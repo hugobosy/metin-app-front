@@ -25,4 +25,5 @@ export const END_POINT = {
   getOneObjective: "/objective",
   editObjective: "/objective/edit",
   deleteObjective: "/objective/delete",
+  getBalance: "/balance",
 };

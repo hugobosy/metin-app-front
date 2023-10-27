@@ -8,6 +8,8 @@ export interface LayoutProps extends ComponentPropsWithoutRef<"div"> {
   locale: string;
   username: string;
   notification?: string[];
+  balanceWon: number;
+  balanceYang: number;
 }
 
 export const Layout: FC<LayoutProps> = ({
@@ -15,7 +17,10 @@ export const Layout: FC<LayoutProps> = ({
   locale,
   username,
   notification,
+  balanceWon,
+  balanceYang,
 }) => {
+  console.log(balanceWon, balanceYang);
   return (
     <div className={styles.wrapper}>
       <MenuBase locale={locale} />
@@ -24,6 +29,8 @@ export const Layout: FC<LayoutProps> = ({
           locale={locale}
           username={username}
           notification={notification}
+          balanceWon={balanceWon}
+          balanceYang={balanceYang}
         />
         {children}
       </div>

@@ -6,8 +6,9 @@ import { MenuLanguage } from "@/components/layout/menu-user/menu-language/MenuLa
 import { Theme } from "@/components/layout/menu-user/theme/Theme";
 import { Notification } from "@/components/layout/menu-user/notification/Notification";
 import { UserProfile } from "@/components/layout/menu-user/user-profile/UserProfile";
+import { MenuBalance } from "./menu-balance/MenuBalance";
 
-export interface MenuUserProps extends Pick<LayoutProps, "locale"> {
+export interface MenuUserProps extends Omit<LayoutProps, "children"> {
   username: string;
   notification?: string[];
 }
@@ -15,10 +16,12 @@ export const MenuUser: FC<MenuUserProps> = ({
   locale,
   username,
   notification,
+  balanceWon,
+  balanceYang,
 }) => {
   return (
     <Tile className={styles.wrapper}>
-      <div className={styles.iconGroup}></div>
+      <MenuBalance balanceWon={balanceWon} balanceYang={balanceYang} />
       <div className={styles.userMenu}>
         <MenuLanguage locale={locale} />
         <Theme />

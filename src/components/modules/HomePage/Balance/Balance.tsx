@@ -40,7 +40,7 @@ export const Balance: FC<BalanceProps> = ({ expenses, revenues, userId }) => {
         <div className={styles.header}>
           <Text
             tag="h2"
-            text={t("balance")}
+            text={t("summary")}
             color="white"
             fontFamily="montserrat"
             fontSize="xl"
