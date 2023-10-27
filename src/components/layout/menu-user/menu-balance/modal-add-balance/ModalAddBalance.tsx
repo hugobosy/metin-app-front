@@ -7,22 +7,35 @@ import { FormikInput } from "@/components/form/formikInput/FormikInput";
 import { Button } from "@/components/base/button/Button";
 
 import styles from "./ModalAddBalance.module.scss";
+import { useUpdateBalance } from "@/hooks/mutations/useUpdateBalance";
 
-export interface ModalAddBalanceProps extends ModalProps {}
+export interface ModalAddBalanceProps extends ModalProps {
+  userId?: string;
+  updateBalance: any;
+}
 
 export const ModalAddBalance: FC<ModalAddBalanceProps> = ({
   showModal,
   setShowModal,
+  userId,
+  updateBalance,
 }) => {
   const t = useTranslations("Layout.modal-balance");
 
   const balanceForm = useFormik({
     initialValues: {
-      id: "",
       balanceWon: 0,
       balanceYang: 0,
     },
-    onSubmit: (values) => console.log(values),
+    onSubmit: (values) => {
+      const balance = { id: userId, ...values };
+      updateBalance(
+        { balance },
+        {
+          onSuccess: () => setShowModal(false),
+        },
+      );
+    },
   });
 
   return (

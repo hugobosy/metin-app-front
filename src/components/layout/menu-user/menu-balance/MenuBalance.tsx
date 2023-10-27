@@ -1,21 +1,22 @@
 import { useTranslations } from "next-intl";
 import styles from "./MenuBalance.module.scss";
 import { Text } from "@/components/base/text/Text";
-import { FC, useState } from "react";
+import { FC } from "react";
 import { MenuUserProps } from "../MenuUser";
 import { Button } from "@/components/base/button/Button";
+import { Spinner } from "@/components/base/spinner/Spinner";
 
 export interface MenuBalanceProps
   extends Pick<MenuUserProps, "balanceWon" | "balanceYang"> {
-  showModal: boolean;
   setShowModal: (showModal: boolean) => void;
+  isLoadingUpdateBalance: boolean;
 }
 
 export const MenuBalance: FC<MenuBalanceProps> = ({
   balanceWon,
   balanceYang,
-  showModal,
   setShowModal,
+  isLoadingUpdateBalance,
 }) => {
   const t = useTranslations("Layout.balance");
 
@@ -56,13 +57,19 @@ export const MenuBalance: FC<MenuBalanceProps> = ({
   }
 
   return (
-    <Button
-      variant="base"
-      text={t("add-balance")}
-      fontFamily="montserrat"
-      weight="700"
-      className={styles.button}
-      onClick={() => setShowModal(true)}
-    />
+    <>
+      {isLoadingUpdateBalance ? (
+        <Spinner />
+      ) : (
+        <Button
+          variant="base"
+          text={t("add-balance")}
+          fontFamily="montserrat"
+          weight="700"
+          className={styles.button}
+          onClick={() => setShowModal(true)}
+        />
+      )}
+    </>
   );
 };

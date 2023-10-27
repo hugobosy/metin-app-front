@@ -26,4 +26,5 @@ export const END_POINT = {
   editObjective: "/objective/edit",
   deleteObjective: "/objective/delete",
   getBalance: "/balance",
+  updateBalance: "/balance",
 };

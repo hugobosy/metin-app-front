@@ -27,8 +27,10 @@ export default function HomePage({ params }: { params: { locale: string } }) {
   );
 
   const { data: balance, isLoading: balanceLoading } = useGetBalance(
-    user && user.id,
+    !loadingUser && user?.id,
   );
+
+  console.log(balance, user?.id);
 
   if (userError) {
     removeAccessTokenCookie();
@@ -38,14 +40,13 @@ export default function HomePage({ params }: { params: { locale: string } }) {
   const loading =
     expensesLoading || revenuesLoading || objectiveLoading || balanceLoading;
 
-  console.log(balance?.data);
-
   return (
     <Layout
       locale={params.locale}
       username={user?.username}
       balanceWon={balance?.data.balanceWon}
       balanceYang={balance?.data.balanceYang}
+      userId={user?.id}
     >
       <HomePageTemplate
         expenses={expenses?.data}

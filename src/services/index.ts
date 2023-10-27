@@ -5,6 +5,7 @@ import { LoginValues } from "@/types/loginValues";
 import { RevenuesValues } from "@/types/revenuesValues";
 import { ExpansesValues } from "@/types/expansesValues";
 import { ObjectiveValues } from "@/types/objectiveValues";
+import { BalanceValues } from "@/types/balanceValues";
 
 export class ApiService {
   async register(values: RegisterValues) {
@@ -106,6 +107,13 @@ export class ApiService {
   async getBalance(id: string) {
     return await axios.get(
       `http://localhost:5000${END_POINT.getBalance}/${id}`,
+    );
+  }
+
+  async updateBalance(values: BalanceValues) {
+    return await axios.put(
+      `http://localhost:5000${END_POINT.updateBalance}`,
+      values,
     );
   }
 }
