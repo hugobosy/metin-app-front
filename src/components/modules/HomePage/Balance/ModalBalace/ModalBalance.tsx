@@ -25,7 +25,7 @@ export const ModalBalance: FC<ModalBalanceProps> = ({
   addExpenses,
 }) => {
   const t = useTranslations(
-    type === "revenues" ? "Modal.revenues" : "Modal.expenses"
+    type === "revenues" ? "Modal.revenues" : "Modal.expenses",
   );
 
   const balanceForm = useFormik({

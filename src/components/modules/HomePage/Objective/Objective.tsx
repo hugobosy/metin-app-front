@@ -12,7 +12,6 @@ import { useGetOneObjective } from "@/hooks/queries/useGetOneObjective";
 import { useEditObjective } from "@/hooks/mutations/useEditObjective";
 import classNames from "classnames";
 import { useDeleteObjective } from "@/hooks/mutations/useDeleteObjective";
-import { apiService } from "@/services";
 
 export interface ObjectiveProps extends HomePageTemplateProps {}
 

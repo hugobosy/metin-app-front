@@ -5,6 +5,7 @@ import { LoginValues } from "@/types/loginValues";
 import { RevenuesValues } from "@/types/revenuesValues";
 import { ExpansesValues } from "@/types/expansesValues";
 import { ObjectiveValues } from "@/types/objectiveValues";
+import { BalanceValues } from "@/types/balanceValues";
 
 export class ApiService {
   async register(values: RegisterValues) {
@@ -39,7 +40,7 @@ export class ApiService {
 
   async getExpenses(idUser: string) {
     return await axios.post(`http://localhost:5000${END_POINT.getExpenses}`, {
-      idUser
+      idUser,
     });
   }
 
@@ -56,34 +57,64 @@ export class ApiService {
   }
 
   async getOneObjective(id: string | null) {
-    const res = await axios.get(`http://localhost:5000${END_POINT.getOneObjective}/${id}`)
+    const res = await axios.get(
+      `http://localhost:5000${END_POINT.getOneObjective}/${id}`,
+    );
 
-    return res.data
+    return res.data;
   }
 
   async editObjective(values: ObjectiveValues) {
-    return await axios.put(`http://localhost:5000${END_POINT.editObjective}`, values)
+    return await axios.put(
+      `http://localhost:5000${END_POINT.editObjective}`,
+      values,
+    );
   }
 
   async addRevenues(values: RevenuesValues) {
-    return await axios.post(`http://localhost:5000${END_POINT.addRevenues}`, values)
-
+    return await axios.post(
+      `http://localhost:5000${END_POINT.addRevenues}`,
+      values,
+    );
   }
 
   async addExpenses(values: ExpansesValues) {
-    return await axios.post(`http://localhost:5000${END_POINT.addExpenses}`, values)
+    return await axios.post(
+      `http://localhost:5000${END_POINT.addExpenses}`,
+      values,
+    );
   }
 
   async addObjective(values: ObjectiveValues) {
-    return await axios.post(`http://localhost:5000${END_POINT.addObjective}`, values)
+    return await axios.post(
+      `http://localhost:5000${END_POINT.addObjective}`,
+      values,
+    );
   }
 
   async setCompleteObjective(id: string) {
-    return await axios.patch(`http://localhost:5000${END_POINT.setCompleteObjective}/${id}`)
+    return await axios.patch(
+      `http://localhost:5000${END_POINT.setCompleteObjective}/${id}`,
+    );
   }
 
   async deleteObjective(id?: string) {
-    return await axios.delete(`http://localhost:5000${END_POINT.deleteObjective}/${id}`)
+    return await axios.delete(
+      `http://localhost:5000${END_POINT.deleteObjective}/${id}`,
+    );
+  }
+
+  async getBalance(id: string) {
+    return await axios.get(
+      `http://localhost:5000${END_POINT.getBalance}/${id}`,
+    );
+  }
+
+  async updateBalance(values: BalanceValues) {
+    return await axios.put(
+      `http://localhost:5000${END_POINT.updateBalance}`,
+      values,
+    );
   }
 }
 
