@@ -83,7 +83,8 @@
     },
     "balance": {
       "your-balance": "Twoje saldo:",
-      "add-balance": "Dodaj swoje saldo"
+      "add-balance": "Dodaj swoje saldo",
+      "update-balance": "Aktualizuj saldo"
     },
     "modal-balance": {
       "add-balance": "Dodaj swoje saldo",

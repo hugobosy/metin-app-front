@@ -2,6 +2,7 @@ import React, { ComponentPropsWithoutRef, FC } from "react";
 import { MenuUser } from "@/components/layout/menu-user/MenuUser";
 import styles from "./Layout.module.scss";
 import { MenuBase } from "@/components/layout/menu-base/MenuBase";
+import Cookies from "universal-cookie";
 
 export interface LayoutProps extends ComponentPropsWithoutRef<"div"> {
   children: React.ReactNode;

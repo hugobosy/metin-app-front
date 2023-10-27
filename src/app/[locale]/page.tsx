@@ -1,7 +1,11 @@
 "use client";
 
 import { useAuthQuery } from "@/hooks/queries/useAuthQuery";
-import { getAccessTokenCookie, removeAccessTokenCookie } from "@/utils/cookie";
+import {
+  getAccessTokenCookie,
+  getBalanceCookie,
+  removeAccessTokenCookie,
+} from "@/utils/cookie";
 import { redirect } from "next/navigation";
 import { Layout } from "@/components/layout/Layout";
 import { HomePageTemplate } from "@/components/templates/HomePageTemplate/HomePageTemplate";
@@ -9,6 +13,7 @@ import { useGetExpenses } from "@/hooks/queries/useGetExpenses";
 import { useGetRevenues } from "@/hooks/queries/useGetRevenues";
 import { useGetObjective } from "@/hooks/queries/useGetObjective";
 import { useGetBalance } from "@/hooks/queries/useGetBalance";
+import Cookies from "universal-cookie";
 
 export default function HomePage({ params }: { params: { locale: string } }) {
   const {
@@ -27,18 +32,15 @@ export default function HomePage({ params }: { params: { locale: string } }) {
   );
 
   const { data: balance, isLoading: balanceLoading } = useGetBalance(
-    !loadingUser && user?.id,
+    user && user?.id,
   );
-
-  console.log(balance, user?.id);
 
   if (userError) {
     removeAccessTokenCookie();
     return redirect(`/${params.locale}/login`);
   }
 
-  const loading =
-    expensesLoading || revenuesLoading || objectiveLoading || balanceLoading;
+  const loading = expensesLoading || revenuesLoading || objectiveLoading;
 
   return (
     <Layout
