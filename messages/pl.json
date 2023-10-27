@@ -82,7 +82,8 @@
       "notepad": "Notanik"
     },
     "balance": {
-      "your-balance": "Twoje saldo:"
+      "your-balance": "Twoje saldo:",
+      "add-balance": "Dodaj swoje saldo"
     }
   },
   "Dashboard": {
