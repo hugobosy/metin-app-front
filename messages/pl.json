@@ -84,6 +84,9 @@
     "balance": {
       "your-balance": "Twoje saldo:",
       "add-balance": "Dodaj swoje saldo"
+    },
+    "modal-balance": {
+      "add-balance": "Dodaj swoje saldo"
     }
   },
   "Dashboard": {
