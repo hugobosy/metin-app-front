@@ -9,6 +9,7 @@ import { UserProfile } from "@/components/layout/menu-user/user-profile/UserProf
 import { MenuBalance } from "./menu-balance/MenuBalance";
 import { ModalAddBalance } from "@/components/layout/menu-user/menu-balance/modal-add-balance/ModalAddBalance";
 import { useUpdateBalance } from "@/hooks/mutations/useUpdateBalance";
+import { ModalConverter } from "@/components/layout/menu-user/menu-balance/modal-converter/ModalConverter";
 
 export interface MenuUserProps extends Omit<LayoutProps, "children"> {
   username: string;
@@ -23,6 +24,9 @@ export const MenuUser: FC<MenuUserProps> = ({
   userId,
 }) => {
   const [showModal, setShowModal] = useState(false);
+  const [typeModal, setTypeModal] = useState<"balance" | "converter">(
+    "balance",
+  );
   const { mutate: updateBalance, isLoading: isLoadingUpdateBalance } =
     useUpdateBalance();
   return (
@@ -33,6 +37,7 @@ export const MenuUser: FC<MenuUserProps> = ({
           balanceYang={balanceYang}
           setShowModal={setShowModal}
           isLoadingUpdateBalance={isLoadingUpdateBalance}
+          setTypeModal={setTypeModal}
         />
         <div className={styles.userMenu}>
           <MenuLanguage locale={locale} />
@@ -41,12 +46,16 @@ export const MenuUser: FC<MenuUserProps> = ({
           <UserProfile username={username} locale={locale} />
         </div>
       </Tile>
-      <ModalAddBalance
-        showModal={showModal}
-        setShowModal={setShowModal}
-        userId={userId}
-        updateBalance={updateBalance}
-      />
+      {typeModal === "balance" ? (
+        <ModalAddBalance
+          showModal={showModal}
+          setShowModal={setShowModal}
+          userId={userId}
+          updateBalance={updateBalance}
+        />
+      ) : (
+        <ModalConverter showModal={showModal} setShowModal={setShowModal} />
+      )}
     </>
   );
 };

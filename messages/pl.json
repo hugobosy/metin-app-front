@@ -84,12 +84,19 @@
     "balance": {
       "your-balance": "Twoje saldo:",
       "add-balance": "Dodaj swoje saldo",
-      "update-balance": "Aktualizuj saldo"
+      "update-balance": "Aktualizuj saldo",
+      "converter": "Konwerter"
     },
     "modal-balance": {
       "update-balance": "Aktualizuj swoje saldo",
       "write-won": "Wpisz ile posiadasz aktualnie won",
       "write-yang": "Wpisz ile aktualnie posiadasz yang"
+    },
+    "converter": {
+      "convert-yang-to-won": "Konwertuj YANG na WON",
+      "convert-won-to-yang": "Konwertuj WON na YANG",
+      "enter-the-quantity-won-to-convert-yang": "Podaj ilość WON do skonwertowania na YANG",
+      "enter-the-quantity-won-to-convert-from-yang": "Podaj ilość WON jaką chcesz otrzymać z YANG"
     }
   },
   "Dashboard": {
