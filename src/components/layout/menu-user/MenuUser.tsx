@@ -58,8 +58,6 @@ export const MenuUser: FC<MenuUserProps> = ({
           showModal={showModal}
           setShowModal={setShowModal}
           userId={userId}
-          balanceWon={balanceWon}
-          balanceYang={balanceYang}
         />
       )}
     </>
