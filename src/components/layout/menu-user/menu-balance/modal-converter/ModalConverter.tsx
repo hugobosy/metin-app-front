@@ -44,7 +44,13 @@ export const ModalConverter: FC<ModalConverterProps> = ({
       id: userId,
       won: 0,
     },
-    onSubmit: (values) => convertWonToYang(values),
+    onSubmit: (values) =>
+      convertWonToYang(values, {
+        onSuccess: () => {
+          setShowModal(false);
+          location.reload();
+        },
+      }),
   });
 
   const yangToWon = useFormik({
@@ -52,7 +58,13 @@ export const ModalConverter: FC<ModalConverterProps> = ({
       id: userId,
       won: 0,
     },
-    onSubmit: (values) => convertYangToWon(values),
+    onSubmit: (values) =>
+      convertYangToWon(values, {
+        onSuccess: () => {
+          setShowModal(false);
+          location.reload();
+        },
+      }),
   });
 
   if (converter === null) {
