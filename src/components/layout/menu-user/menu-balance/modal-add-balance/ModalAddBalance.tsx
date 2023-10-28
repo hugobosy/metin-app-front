@@ -44,7 +44,7 @@ export const ModalAddBalance: FC<ModalAddBalanceProps> = ({
     <Modal showModal={showModal} setShowModal={setShowModal}>
       <Text
         tag="h2"
-        text={t("add-balance")}
+        text={t("update-balance")}
         fontFamily="inter"
         fontSize="xl"
         weight="500"
@@ -60,7 +60,7 @@ export const ModalAddBalance: FC<ModalAddBalanceProps> = ({
           />
           <Button
             type="submit"
-            text={t("add-balance")}
+            text={t("update-balance")}
             variant="base"
             className={styles.button}
           />
