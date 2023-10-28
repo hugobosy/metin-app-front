@@ -8,6 +8,8 @@ import { Text } from "@/components/base/text/Text";
 import { Form, FormikProvider, useFormik } from "formik";
 import { FormikInput } from "@/components/form/formikInput/FormikInput";
 import classNames from "classnames";
+import { useConvertWonToYang } from "@/hooks/mutations/useConvertWonToYang";
+import { useConvertYangToWon } from "@/hooks/mutations/useConvertYangToWon";
 
 export interface ModalConverterProps extends ModalProps {
   userId?: string;
@@ -26,6 +28,11 @@ export const ModalConverter: FC<ModalConverterProps> = ({
 }) => {
   const [converter, setConverter] = useState<ConverterType>(null);
 
+  const { mutate: convertWonToYang, isLoading: convertWonToYangLoading } =
+    useConvertWonToYang();
+  const { mutate: convertYangToWon, isLoading: convertYangToWonLoading } =
+    useConvertYangToWon();
+
   useEffect(() => {
     !showModal && setConverter(null);
   }, [showModal]);
@@ -34,18 +41,18 @@ export const ModalConverter: FC<ModalConverterProps> = ({
 
   const wonToYang = useFormik({
     initialValues: {
-      id: "",
+      id: userId,
       won: 0,
     },
-    onSubmit: (values) => console.log(values),
+    onSubmit: (values) => convertWonToYang(values),
   });
 
   const yangToWon = useFormik({
     initialValues: {
-      id: "",
+      id: userId,
       won: 0,
     },
-    onSubmit: (values) => console.log(values),
+    onSubmit: (values) => convertYangToWon(values),
   });
 
   if (converter === null) {

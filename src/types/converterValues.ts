@@ -1,4 +1,4 @@
 export type ConverterValues = {
-  id: string;
+  id?: string;
   won: number;
 };
