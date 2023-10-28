@@ -54,7 +54,13 @@ export const MenuUser: FC<MenuUserProps> = ({
           updateBalance={updateBalance}
         />
       ) : (
-        <ModalConverter showModal={showModal} setShowModal={setShowModal} />
+        <ModalConverter
+          showModal={showModal}
+          setShowModal={setShowModal}
+          userId={userId}
+          balanceWon={balanceWon}
+          balanceYang={balanceYang}
+        />
       )}
     </>
   );

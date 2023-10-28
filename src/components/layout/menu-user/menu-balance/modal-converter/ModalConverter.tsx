@@ -1,5 +1,5 @@
 import { Modal, ModalProps } from "@/components/base/modal/Modal";
-import { FC, useEffect, useState } from "react";
+import { Component, FC, useEffect, useState } from "react";
 import { Button } from "@/components/base/button/Button";
 import { useTranslations } from "next-intl";
 
@@ -10,8 +10,9 @@ import { FormikInput } from "@/components/form/formikInput/FormikInput";
 import classNames from "classnames";
 
 export interface ModalConverterProps extends ModalProps {
-  showModal: boolean;
-  setShowModal: (showModal: boolean) => void;
+  userId?: string;
+  balanceWon?: number;
+  balanceYang?: number;
 }
 
 type ConverterType = "yangToWon" | "wonToYang" | null;
@@ -19,6 +20,9 @@ type ConverterType = "yangToWon" | "wonToYang" | null;
 export const ModalConverter: FC<ModalConverterProps> = ({
   showModal,
   setShowModal,
+  userId,
+  balanceWon,
+  balanceYang,
 }) => {
   const [converter, setConverter] = useState<ConverterType>(null);
 
@@ -39,7 +43,7 @@ export const ModalConverter: FC<ModalConverterProps> = ({
   const yangToWon = useFormik({
     initialValues: {
       id: "",
-      yang: 0,
+      won: 0,
     },
     onSubmit: (values) => console.log(values),
   });
