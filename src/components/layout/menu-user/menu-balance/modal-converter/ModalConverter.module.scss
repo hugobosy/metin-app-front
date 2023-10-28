@@ -1,0 +1,19 @@
+.button {
+  padding: 10px 30px;
+
+  &-submit{
+   place-self: flex-end;
+  }
+
+  &:hover {
+    transform: scale(1.01);
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  padding: 50px 150px 0;
+}

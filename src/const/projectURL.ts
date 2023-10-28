@@ -27,4 +27,6 @@ export const END_POINT = {
   deleteObjective: "/objective/delete",
   getBalance: "/balance",
   updateBalance: "/balance",
+  convertWonToYang: "/converter/won-to-yang",
+  convertYangToWon: "/converter/yang-to-won",
 };

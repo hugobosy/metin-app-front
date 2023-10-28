@@ -6,6 +6,7 @@ import { RevenuesValues } from "@/types/revenuesValues";
 import { ExpansesValues } from "@/types/expansesValues";
 import { ObjectiveValues } from "@/types/objectiveValues";
 import { BalanceValues } from "@/types/balanceValues";
+import { ConverterValues } from "@/types/converterValues";
 
 export class ApiService {
   async register(values: RegisterValues) {
@@ -113,6 +114,22 @@ export class ApiService {
   async updateBalance(values: BalanceValues) {
     return await axios.put(
       `http://localhost:5000${END_POINT.updateBalance}`,
+      values,
+    );
+  }
+
+  async convertWonToYang(values: ConverterValues) {
+    console.log(values);
+    return await axios.post(
+      `http://localhost:5000${END_POINT.convertWonToYang}`,
+      values,
+    );
+  }
+
+  async convertYangToWon(values: ConverterValues) {
+    console.log(values);
+    return await axios.post(
+      `http://localhost:5000${END_POINT.convertYangToWon}`,
       values,
     );
   }

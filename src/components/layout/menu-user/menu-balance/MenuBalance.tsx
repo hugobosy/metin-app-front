@@ -11,12 +11,14 @@ export interface MenuBalanceProps
   extends Pick<MenuUserProps, "balanceWon" | "balanceYang"> {
   setShowModal: (showModal: boolean) => void;
   isLoadingUpdateBalance: boolean;
+  setTypeModal: (typeModal: "balance" | "converter") => void;
 }
 
 export const MenuBalance: FC<MenuBalanceProps> = ({
   balanceWon,
   balanceYang,
   setShowModal,
+  setTypeModal,
 }) => {
   const t = useTranslations("Layout.balance");
 
@@ -57,7 +59,21 @@ export const MenuBalance: FC<MenuBalanceProps> = ({
         weight="700"
         fontFamily="montserrat"
         className={styles.button}
-        onClick={() => setShowModal(true)}
+        onClick={() => {
+          setTypeModal("balance");
+          setShowModal(true);
+        }}
+      />{" "}
+      <Button
+        text={t("converter")}
+        variant="base"
+        weight="700"
+        fontFamily="montserrat"
+        className={styles.button}
+        onClick={() => {
+          setTypeModal("converter");
+          setShowModal(true);
+        }}
       />
     </div>
   );
