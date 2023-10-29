@@ -6,6 +6,8 @@ import { Spinner } from "@/components/base/spinner/Spinner";
 import { RevenuesValues } from "@/types/revenuesValues";
 import { Objective } from "@/components/modules/HomePage/Objective/Objective";
 import { ObjectiveValues } from "@/types/objectiveValues";
+import { TransactionsValues } from "@/types/transactionsValues";
+import { Transactions } from "@/components/modules/HomePage/Transactions/Transactions";
 
 export interface HomePageTemplateProps extends ComponentPropsWithoutRef<"div"> {
   expenses?: ExpansesValues[];
@@ -13,6 +15,7 @@ export interface HomePageTemplateProps extends ComponentPropsWithoutRef<"div"> {
   objective?: ObjectiveValues[];
   loading?: boolean;
   userId?: string;
+  transactions?: TransactionsValues[];
 }
 
 export const HomePageTemplate: FC<HomePageTemplateProps> = ({
@@ -21,6 +24,7 @@ export const HomePageTemplate: FC<HomePageTemplateProps> = ({
   loading,
   objective,
   userId,
+  transactions,
 }) => {
   if (loading) {
     return <Spinner className={styles.spinner} />;
@@ -29,6 +33,7 @@ export const HomePageTemplate: FC<HomePageTemplateProps> = ({
     <div className={styles.wrapper}>
       <Balance expenses={expenses} revenues={revenues} userId={userId} />
       <Objective objective={objective} userId={userId} />
+      <Transactions transactions={transactions} />
     </div>
   );
 };

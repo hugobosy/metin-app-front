@@ -14,6 +14,7 @@ import { useGetRevenues } from "@/hooks/queries/useGetRevenues";
 import { useGetObjective } from "@/hooks/queries/useGetObjective";
 import { useGetBalance } from "@/hooks/queries/useGetBalance";
 import Cookies from "universal-cookie";
+import { useGetTransactions } from "@/hooks/queries/useGetTransactions";
 
 export default function HomePage({ params }: { params: { locale: string } }) {
   const {
@@ -31,9 +32,14 @@ export default function HomePage({ params }: { params: { locale: string } }) {
     user && user.id,
   );
 
+  const { data: transactions, isLoading: transactionsLoading } =
+    useGetTransactions(user && user.id);
+
   const { data: balance, isLoading: balanceLoading } = useGetBalance(
     user && user?.id,
   );
+
+  console.log(transactions?.data);
 
   if (userError) {
     removeAccessTokenCookie();
@@ -56,6 +62,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
         objective={objective?.data}
         loading={loading}
         userId={user?.id}
+        transactions={transactions?.data}
       />
     </Layout>
   );
