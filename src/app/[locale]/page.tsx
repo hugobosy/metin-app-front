@@ -39,14 +39,18 @@ export default function HomePage({ params }: { params: { locale: string } }) {
     user && user?.id,
   );
 
-  console.log(transactions?.data);
-
   if (userError) {
     removeAccessTokenCookie();
     return redirect(`/${params.locale}/login`);
   }
 
-  const loading = expensesLoading || revenuesLoading || objectiveLoading;
+  console.log(transactions?.data);
+
+  const loading =
+    expensesLoading ||
+    revenuesLoading ||
+    objectiveLoading ||
+    transactionsLoading;
 
   return (
     <Layout
