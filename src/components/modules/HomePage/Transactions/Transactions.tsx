@@ -16,6 +16,22 @@ const columnHelper = createColumnHelper<TransactionsValues>();
 export const Transactions: FC<TransactionsProps> = ({ transactions }) => {
   const t = useTranslations("Dashboard.transactions");
 
+  function changeColor(type: "revenues" | "expenses") {
+    if (type === "revenues") {
+      return "green";
+    } else {
+      return "red";
+    }
+  }
+
+  function getType(type: "revenues" | "expenses") {
+    if (type === "revenues") {
+      return "Przychód";
+    } else {
+      return "Wydatek";
+    }
+  }
+
   const columns = [
     columnHelper.accessor("item", {
       header: () => (
@@ -117,7 +133,7 @@ export const Transactions: FC<TransactionsProps> = ({ transactions }) => {
           tag="span"
           text={`${(
             cell.row.original.priceWon * cell.row.original.count
-          ).toLocaleString()} WON, ${(
+          ).toLocaleString()} WON \n ${(
             cell.row.original.priceYang * cell.row.original.count
           ).toLocaleString()} YANG`}
           fontFamily="montserrat"
@@ -138,7 +154,6 @@ export const Transactions: FC<TransactionsProps> = ({ transactions }) => {
         />
       ),
       cell: (cell) => {
-        console.log(cell);
         return (
           <Text
             tag="span"
@@ -149,6 +164,27 @@ export const Transactions: FC<TransactionsProps> = ({ transactions }) => {
           />
         );
       },
+    }),
+    columnHelper.accessor("type", {
+      header: () => (
+        <Text
+          tag="span"
+          text="Przychód/wydatek"
+          fontFamily="inter"
+          fontSize="md"
+          color="gray"
+          weight="500"
+        />
+      ),
+      cell: (cell) => (
+        <Text
+          tag="span"
+          text={getType(cell.getValue())}
+          fontFamily="montserrat"
+          color={changeColor(cell.getValue())}
+          fontSize="sm"
+        />
+      ),
     }),
   ];
 

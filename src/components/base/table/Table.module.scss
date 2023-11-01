@@ -7,19 +7,27 @@
   width: 100%;
   border-spacing: 0;
 
+
   &-header {
     &-item {
       padding: 15px 10px;
       min-width: min-content;
+
+      &:first-child {
+        text-align: left;
+      }
+
+      &:last-child {
+        text-align: right;
+      }
     }
   }
 
   &-body {
+    display: flex;
     &-item {
       padding: 15px 10px;
       text-align: center;
-      border-top: 1px solid white;
-      border-right: 1px solid white;
 
       &:first-child {
         text-align: left;

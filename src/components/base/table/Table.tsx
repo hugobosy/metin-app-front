@@ -1,7 +1,7 @@
 import styles from "./Table.module.scss";
 import { ColumnDef, getCoreRowModel } from "@tanstack/table-core";
 import { flexRender, useReactTable } from "@tanstack/react-table";
-import { ComponentPropsWithoutRef, FC } from "react";
+import { ComponentPropsWithoutRef } from "react";
 import classNames from "classnames";
 
 export interface TableProps<T> extends ComponentPropsWithoutRef<"table"> {
@@ -20,9 +20,6 @@ export const Table = <T extends Record<string, any>>({
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
-
-  // if (!data) return null;
-  console.log(data);
 
   return (
     <div className={classNames(styles.wrapper, className)}>
@@ -44,18 +41,21 @@ export const Table = <T extends Record<string, any>>({
           ))}
         </thead>
         <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <td
-                  key={cell.id}
-                  className={classNames(styles["table-body-item"])}
-                >
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
+          {table.getRowModel().rows.map((row, i) => {
+            const rowStyle = {
+              backgroundColor:
+                i % 2 === 0 ? "var(--color-blue-900)" : "var(--color-blue-800)",
+            };
+            return (
+              <tr key={row.id} style={rowStyle}>
+                {row.getVisibleCells().map((cell) => (
+                  <td key={cell.id} className={styles["table-body-item"]}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                ))}
+              </tr>
+            );
+          })}
         </tbody>
         <tfoot>
           {table.getFooterGroups().map((footerGroup) => (
