@@ -7,4 +7,5 @@ export type TransactionsValues = {
   priceWon: number;
   priceYang: number;
   type: "revenues" | "expenses";
+  sum?: number;
 };

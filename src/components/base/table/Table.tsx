@@ -27,11 +27,11 @@ export const Table = <T extends Record<string, any>>({
   return (
     <div className={classNames(styles.wrapper, className)}>
       <table className={styles.table}>
-        <thead>
+        <thead className={styles["table-header"]}>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
-                <th key={header.id}>
+                <th key={header.id} className={styles["table-header-item"]}>
                   {header.isPlaceholder
                     ? null
                     : flexRender(
@@ -47,7 +47,10 @@ export const Table = <T extends Record<string, any>>({
           {table.getRowModel().rows.map((row) => (
             <tr key={row.id}>
               {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>
+                <td
+                  key={cell.id}
+                  className={classNames(styles["table-body-item"])}
+                >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}

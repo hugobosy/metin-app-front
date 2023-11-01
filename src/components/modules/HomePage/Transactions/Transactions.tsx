@@ -11,73 +11,141 @@ import { TransactionsValues } from "@/types/transactionsValues";
 export interface TransactionsProps
   extends Pick<HomePageTemplateProps, "transactions"> {}
 
-type Person = {
-  firstName: string;
-  lastName: string;
-  age: number;
-  visits: number;
-  status: string;
-  progress: number;
-};
-
-const defaultData: Person[] = [
-  {
-    firstName: "tanner",
-    lastName: "linsley",
-    age: 24,
-    visits: 100,
-    status: "In Relationship",
-    progress: 50,
-  },
-  {
-    firstName: "tandy",
-    lastName: "miller",
-    age: 40,
-    visits: 40,
-    status: "Single",
-    progress: 80,
-  },
-  {
-    firstName: "joe",
-    lastName: "dirte",
-    age: 45,
-    visits: 20,
-    status: "Complicated",
-    progress: 10,
-  },
-];
-
 const columnHelper = createColumnHelper<TransactionsValues>();
 
 export const Transactions: FC<TransactionsProps> = ({ transactions }) => {
   const t = useTranslations("Dashboard.transactions");
-  console.log(transactions);
 
   const columns = [
     columnHelper.accessor("item", {
-      header: () => <Text tag="span" text="Sprzedany przedmiot" />,
-      cell: (cell) => cell.getValue(),
+      header: () => (
+        <Text
+          tag="span"
+          text="Sprzedany przedmiot"
+          fontFamily="inter"
+          fontSize="md"
+          color="gray"
+          weight="500"
+        />
+      ),
+      cell: (cell) => (
+        <Text
+          tag="span"
+          text={cell.getValue()}
+          fontFamily="montserrat"
+          color="gray"
+          fontSize="sm"
+        />
+      ),
     }),
     columnHelper.accessor("count", {
-      header: () => <Text tag="span" text="Ilość" />,
-      cell: (cell) => console.log(cell.getValue()),
+      header: () => (
+        <Text
+          tag="span"
+          text="Ilość"
+          fontFamily="inter"
+          fontSize="md"
+          color="gray"
+          weight="500"
+        />
+      ),
+      cell: (cell) => (
+        <Text
+          tag="span"
+          text={cell.getValue()}
+          fontFamily="montserrat"
+          color="gray"
+          fontSize="sm"
+        />
+      ),
     }),
     columnHelper.accessor("priceWon", {
-      header: () => <Text tag="span" text="Cena WON" />,
-      cell: (cell) => <Text tag="span" text={cell.getValue()} />,
+      header: () => (
+        <Text
+          tag="span"
+          text="Cena WON"
+          fontFamily="inter"
+          fontSize="md"
+          color="gray"
+          weight="500"
+        />
+      ),
+      cell: (cell) => (
+        <Text
+          tag="span"
+          text={cell.getValue()}
+          fontFamily="montserrat"
+          color="gray"
+          fontSize="sm"
+        />
+      ),
     }),
     columnHelper.accessor("priceYang", {
-      header: () => <Text tag="span" text="Cena YANG" />,
-      cell: (cell) => <Text tag="span" text={cell.getValue()} />,
+      header: () => (
+        <Text
+          tag="span"
+          text="Cena YANG"
+          fontFamily="inter"
+          fontSize="md"
+          color="gray"
+          weight="500"
+        />
+      ),
+      cell: (cell) => (
+        <Text
+          tag="span"
+          text={cell.getValue().toLocaleString()}
+          fontFamily="montserrat"
+          color="gray"
+          fontSize="sm"
+        />
+      ),
+    }),
+    columnHelper.accessor("sum", {
+      header: () => (
+        <Text
+          tag="span"
+          text="Całkowita suma"
+          fontFamily="inter"
+          fontSize="md"
+          color="gray"
+          weight="500"
+        />
+      ),
+      cell: (cell) => (
+        <Text
+          tag="span"
+          text={`${(
+            cell.row.original.priceWon * cell.row.original.count
+          ).toLocaleString()} WON, ${(
+            cell.row.original.priceYang * cell.row.original.count
+          ).toLocaleString()} YANG`}
+          fontFamily="montserrat"
+          color="gray"
+          fontSize="sm"
+        />
+      ),
     }),
     columnHelper.accessor("createdAt", {
-      header: () => <Text tag="span" text="Data transakcji" />,
+      header: () => (
+        <Text
+          tag="span"
+          text="Data transakcji"
+          fontFamily="inter"
+          fontSize="md"
+          color="gray"
+          weight="500"
+        />
+      ),
       cell: (cell) => {
         console.log(cell);
         return (
           <Text
             tag="span"
-            text={new Date(cell.row.original.createdAt).toLocaleDateString()}
+            text={new Date(cell.getValue()).toLocaleDateString()}
+            fontFamily="montserrat"
+            color="gray"
+            fontSize="sm"
           />
         );
       },
