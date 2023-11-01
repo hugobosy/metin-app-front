@@ -16,6 +16,17 @@ const columnHelper = createColumnHelper<TransactionsValues>();
 export const Transactions: FC<TransactionsProps> = ({ transactions }) => {
   const t = useTranslations("Dashboard.transactions");
 
+  const lastTransactions = (
+    data?: TransactionsValues[],
+  ): TransactionsValues[] | undefined => {
+    const lastData = [];
+    for (let i = 0; i < 5; i++) {
+      lastData.push(data && data[i]);
+    }
+
+    // @ts-ignore
+    return lastData;
+  };
   function changeColor(type: "revenues" | "expenses") {
     if (type === "revenues") {
       return "green";
@@ -199,7 +210,7 @@ export const Transactions: FC<TransactionsProps> = ({ transactions }) => {
         weight="500"
         className={styles["header-text"]}
       />
-      <Table columns={columns} data={transactions} />
+      <Table columns={columns} data={lastTransactions(transactions)} />
     </Tile>
   );
 };
