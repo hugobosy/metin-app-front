@@ -35,7 +35,7 @@ export const Layout: FC<LayoutProps> = ({
           balanceYang={balanceYang}
           userId={userId}
         />
-        {children}
+        <div className={styles.childrenWrapper}>{children}</div>
       </div>
     </div>
   );
