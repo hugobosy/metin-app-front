@@ -29,4 +29,5 @@ export const END_POINT = {
   updateBalance: "/balance",
   convertWonToYang: "/converter/won-to-yang",
   convertYangToWon: "/converter/yang-to-won",
+  getTransactions: "/transactions",
 };

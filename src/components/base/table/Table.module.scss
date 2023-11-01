@@ -1,0 +1,42 @@
+.wrapper {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.table {
+  width: 100%;
+  border-spacing: 0;
+
+
+  &-header {
+    &-item {
+      padding: 15px 10px;
+      min-width: min-content;
+
+      &:first-child {
+        text-align: left;
+      }
+
+      &:last-child {
+        text-align: right;
+      }
+    }
+  }
+
+  &-body {
+    display: flex;
+    &-item {
+      padding: 15px 10px;
+      text-align: center;
+
+      &:first-child {
+        text-align: left;
+      }
+
+      &:last-child {
+        text-align: right;
+        border-right: none;
+      }
+    }
+  }
+}

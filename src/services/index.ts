@@ -119,7 +119,6 @@ export class ApiService {
   }
 
   async convertWonToYang(values: ConverterValues) {
-    console.log(values);
     return await axios.post(
       `http://localhost:5000${END_POINT.convertWonToYang}`,
       values,
@@ -127,10 +126,15 @@ export class ApiService {
   }
 
   async convertYangToWon(values: ConverterValues) {
-    console.log(values);
     return await axios.post(
       `http://localhost:5000${END_POINT.convertYangToWon}`,
       values,
+    );
+  }
+
+  async getTransactions(id: string) {
+    return await axios.get(
+      `http://localhost:5000${END_POINT.getTransactions}/${id}`,
     );
   }
 }

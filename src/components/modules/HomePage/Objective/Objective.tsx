@@ -38,7 +38,7 @@ export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
 
   useEffect(() => {
     setObjectiveId(!showModal ? null : objectiveId);
-  }, [showModal]);
+  }, [showModal, setObjectiveId]);
 
   function setComplete(id?: string) {
     setCompleteObjective(id || "");
@@ -86,7 +86,8 @@ export const Objective: FC<ObjectiveProps> = ({ objective, userId }) => {
             {objective?.map((obj, index) => (
               <li
                 className={classNames(styles["objective-item"])}
-                key={String(obj?.idUser) + index}>
+                key={String(obj?.idUser) + index}
+              >
                 <Text
                   tag="span"
                   text={obj.objective}

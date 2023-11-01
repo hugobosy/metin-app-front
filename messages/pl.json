@@ -112,6 +112,9 @@
       "my-objective": "Moje cele",
       "objective-not-found": "Nie masz żadnych celów",
       "add-objective": "Dodaj cel"
+    },
+    "transactions": {
+      "last-transactions": "Ostatnie transakcje"
     }
   },
   "Modal": {

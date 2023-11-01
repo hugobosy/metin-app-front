@@ -30,14 +30,15 @@ export const Modal: FC<ModalProps> = ({
     return () => {
       document.body.removeEventListener("click", onModalClick);
     };
-  }, [showModal]);
+  }, [showModal, setShowModal]);
   return (
     <div
       className={classNames(
         styles.wrapper,
         showModal && styles["wrapper-active"],
-        className
-      )}>
+        className,
+      )}
+    >
       <div className={styles.modal} ref={modalRef}>
         <Button
           icon="Exit"
