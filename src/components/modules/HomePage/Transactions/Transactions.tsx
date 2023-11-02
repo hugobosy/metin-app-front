@@ -58,7 +58,11 @@ export const Transactions: FC<TransactionsProps> = ({ transactions }) => {
       cell: (cell) => (
         <Text
           tag="span"
-          text={cell.getValue()}
+          text={
+            cell.row.original && cell.row.original.item
+              ? cell.row.original.item
+              : ""
+          }
           fontFamily="montserrat"
           color="gray"
           fontSize="sm"
@@ -79,7 +83,11 @@ export const Transactions: FC<TransactionsProps> = ({ transactions }) => {
       cell: (cell) => (
         <Text
           tag="span"
-          text={cell.getValue()}
+          text={
+            cell.row.original && cell.row.original.count
+              ? cell.row.original.count
+              : ""
+          }
           fontFamily="montserrat"
           color="gray"
           fontSize="sm"
@@ -100,7 +108,11 @@ export const Transactions: FC<TransactionsProps> = ({ transactions }) => {
       cell: (cell) => (
         <Text
           tag="span"
-          text={cell.getValue()}
+          text={
+            cell.row.original && cell.row.original.priceWon
+              ? cell.row.original.priceWon
+              : ""
+          }
           fontFamily="montserrat"
           color="gray"
           fontSize="sm"
@@ -121,7 +133,7 @@ export const Transactions: FC<TransactionsProps> = ({ transactions }) => {
       cell: (cell) => (
         <Text
           tag="span"
-          text={cell.getValue().toLocaleString()}
+          text={cell.row.original && cell.getValue()}
           fontFamily="montserrat"
           color="gray"
           fontSize="sm"
@@ -142,11 +154,13 @@ export const Transactions: FC<TransactionsProps> = ({ transactions }) => {
       cell: (cell) => (
         <Text
           tag="span"
-          text={`${(
+          text={`${
+            cell.row.original &&
             cell.row.original.priceWon * cell.row.original.count
-          ).toLocaleString()} WON \n ${(
+          } WON \n ${
+            cell.row.original &&
             cell.row.original.priceYang * cell.row.original.count
-          ).toLocaleString()} YANG`}
+          } YANG`}
           fontFamily="montserrat"
           color="gray"
           fontSize="sm"
@@ -168,7 +182,10 @@ export const Transactions: FC<TransactionsProps> = ({ transactions }) => {
         return (
           <Text
             tag="span"
-            text={new Date(cell.getValue()).toLocaleDateString()}
+            text={
+              cell.row.original &&
+              new Date(cell.getValue()).toLocaleDateString()
+            }
             fontFamily="montserrat"
             color="gray"
             fontSize="sm"
@@ -190,9 +207,9 @@ export const Transactions: FC<TransactionsProps> = ({ transactions }) => {
       cell: (cell) => (
         <Text
           tag="span"
-          text={getType(cell.getValue())}
+          text={cell.row.original && getType(cell.getValue())}
           fontFamily="montserrat"
-          color={changeColor(cell.getValue())}
+          color={cell.row.original && changeColor(cell.getValue())}
           fontSize="sm"
         />
       ),
@@ -210,7 +227,19 @@ export const Transactions: FC<TransactionsProps> = ({ transactions }) => {
         weight="500"
         className={styles["header-text"]}
       />
-      <Table columns={columns} data={lastTransactions(transactions)} />
+      {transactions?.length ? (
+        <Table columns={columns} data={lastTransactions(transactions)} />
+      ) : (
+        <Text
+          tag="p"
+          text="Brak ostatnich transakcji"
+          fontFamily="montserrat"
+          color="gray"
+          fontSize="lg"
+          weight="500"
+          className={styles.lastTransactions}
+        />
+      )}
     </Tile>
   );
 };
