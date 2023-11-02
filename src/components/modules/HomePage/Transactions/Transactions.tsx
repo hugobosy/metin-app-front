@@ -20,7 +20,7 @@ export const Transactions: FC<TransactionsProps> = ({ transactions }) => {
     data?: TransactionsValues[],
   ): TransactionsValues[] | undefined => {
     const lastData = [];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < (data ? data?.length : [].length) && i < 5; i++) {
       lastData.push(data && data[i]);
     }
 
