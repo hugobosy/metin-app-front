@@ -115,6 +115,9 @@
     },
     "transactions": {
       "last-transactions": "Ostatnie transakcje"
+    },
+    "pets": {
+      "my-pets": "Moje zwierzaki"
     }
   },
   "Modal": {

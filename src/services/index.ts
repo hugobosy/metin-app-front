@@ -137,6 +137,10 @@ export class ApiService {
       `http://localhost:5000${END_POINT.getTransactions}/${id}`,
     );
   }
+
+  async getPets(id: string) {
+    return await axios.get(`http://localhost:5000${END_POINT.getPets}/${id}`);
+  }
 }
 
 export const apiService = new ApiService();
