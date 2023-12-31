@@ -84,6 +84,7 @@ export const RegisterTemplate: FC<RegisterTemplateProps> = ({ locale }) => {
           isUppercase
           weight="700"
           fontFamily="inter"
+          color="white"
           className={styles.header}
         />
         <FormikProvider value={registerFormik}>
@@ -92,50 +93,73 @@ export const RegisterTemplate: FC<RegisterTemplateProps> = ({ locale }) => {
               <FormikInput
                 type="text"
                 name="nick"
-                placeholder={t("your-name")}
+                label={t("your-name")}
+                id="nick"
+                required
               />
               <FormikInput
                 type="text"
                 name="email"
-                placeholder={t("your-email")}
+                label={t("your-email")}
+                id="email"
+                required
               />
               <FormikInput
                 type="password"
                 name="password"
-                placeholder={t("password")}
+                label={t("password")}
+                id="password"
+                required
               />
               <FormikInput
                 name="passwordConfirm"
                 type="password"
-                placeholder={t("repeat-your-password")}
+                label={t("repeat-your-password")}
+                id="passwordConfirm"
+                required
               />
             </div>
-            <FormikCheckbox
-              name="agree"
-              label={t("i-agree-all-statements-in")}
-              color="green"
-              checked={registerFormik.values.agree}
-            />
-            {isLoading ? (
-              <Spinner className={styles.spinner} />
-            ) : (
-              <Button
-                type="submit"
-                text={t("sign-up")}
-                className={styles.button}
-                variant="success"
-                size="lg"
+            <div className={styles.checkboxWrapper}>
+              <FormikCheckbox
+                name="agree"
+                label={t("i-agree-all-statements-in")}
+                color="blue"
+                checked={registerFormik.values.agree}
               />
+              <Button
+                href="#"
+                text={t("regulations")}
+                fontColor="blue"
+                weight="600"
+                fontSize="xs"
+                fontFamily="inter"
+              />
+            </div>
+            {isLoading ? (
+              <div className={styles.buttonWrapper}>
+                <Spinner className={styles.spinner} />
+              </div>
+            ) : (
+              <div className={styles.buttonWrapper}>
+                <Button
+                  type="submit"
+                  text={t("sign-up")}
+                  className={styles.button}
+                  variant="base"
+                  size="lg"
+                />
+              </div>
             )}
           </Form>
         </FormikProvider>
 
-        <div className={styles["form-isAccount"]}>
+        <div className={styles["form-goToLogin"]}>
           <Text
             tag="span"
             text={t("have-already-an-account")}
             fontSize="md"
             fontFamily="inter"
+            color="white"
           />
           <Button
             href={projectURL(locale).LOGIN}
@@ -144,7 +168,7 @@ export const RegisterTemplate: FC<RegisterTemplateProps> = ({ locale }) => {
             size="sm"
             fontSize="md"
             fontFamily="inter"
-            fontColor="black"
+            fontColor="blue"
             weight="700"
           />
         </div>

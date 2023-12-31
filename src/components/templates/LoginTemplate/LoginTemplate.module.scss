@@ -3,7 +3,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  background-color: var(--color-blue-900);
 }
 .form {
   display: flex;
@@ -14,7 +15,6 @@
   max-width: 800px;
   padding: 40px 15px;
   margin: 0 25px;
-  border: 1px solid var(--color-gray-100);
   border-radius: 16px;
   @include shadow;
 
@@ -29,27 +29,17 @@
     width: 100%;
   }
 
-  &-isAccount {
-    span {
-      @include xs-text;
-      @include media-from(md) {
-        @include md-text
-      }
-    }
+  &-goToRegister {
+    @include changeLoginOrRegister
   }
-}
-
-.button {
-  width: 100%;
 }
 
 .header {
-  @include sm-text;
-  @include media-from(md) {
-    @include lg-text
-  }
+  letter-spacing: 6px;
 }
 
-.spinner {
-  justify-self: center;
+.buttonWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }

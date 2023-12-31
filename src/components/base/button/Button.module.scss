@@ -9,6 +9,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color .4s;
+  letter-spacing: 1px;
 
   svg {
     width: 20px;
@@ -92,6 +93,9 @@
   &-black {
     @include black;
   }
+  &-blue {
+    @include blue;
+  }
 }
 
 .weight {
@@ -117,7 +121,78 @@
 }
 
 .link {
-  @include sm-text;
-  @include family-montserrat;
-  color: var(--color-gray-200)
+  .fontFamily {
+    &-montserrat {
+      @include family-montserrat;
+    }
+
+    &-inter {
+      @include family-inter;
+    }
+  }
+
+  .fontSize {
+    &-xxs {
+      @include xxs-text;
+    }
+
+    &-xs {
+      @include xs-text;
+    }
+
+    &-sm {
+      @include sm-text;
+    }
+
+    &-base {
+      @include base-text;
+    }
+
+    &-md {
+      @include md-text;
+    }
+
+    &-lg {
+      @include lg-text;
+    }
+
+    &-xl {
+      @include xl-text;
+    }
+
+    &-xxl {
+      @include xxl-text;
+    }
+  }
+
+  .fontColor {
+    &-black {
+      @include black;
+    }
+    &-blue {
+      @include blue;
+    }
+  }
+
+  .weight {
+    &-300 {
+      @include thin;
+    }
+
+    &-400 {
+      @include normal;
+    }
+
+    &-500 {
+      @include semi-bold;
+    }
+
+    &-600 {
+      @include bold;
+    }
+
+    &-700 {
+      @include extra-bold;
+    }
+  }
 }

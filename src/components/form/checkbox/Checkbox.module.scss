@@ -3,6 +3,7 @@
 .checkbox-wrapper {
   position: relative;
 
+
   &.red {
     --current-color: var(--color-red-100);
   }
@@ -13,6 +14,10 @@
 
   &.green {
     --current-color: var(--color-green-100);
+  }
+
+  &.blue {
+    --current-color: var(--color-blue-700);
   }
 }
 
@@ -103,9 +108,7 @@
 
 .label {
   position: relative;
-  color: var(--color-gray-800);
-  font-size: 14px;
-  padding-left: 8px;
+  margin-left: 8px;
 
   &-option {
     font-weight: 700;
@@ -128,5 +131,6 @@
 }
 
 .error {
-  margin-left: 5px;
+  position: absolute;
+  margin: 5px
 }

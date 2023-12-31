@@ -21,38 +21,34 @@ export const Input: FC<InputProps> = ({
 }) => {
   return (
     <div className={classNames(styles.wrapper, classname)}>
+      <input
+        {...rest}
+        required={required}
+        className={classNames(styles.input, classname)}
+      />
       {label && (
-        <div className={styles.label}>
-          <label htmlFor={rest.name} className={styles.label}>
-            <Text
-              tag="span"
-              text={label + ":"}
-              weight="500"
-              fontSize="sm"
-              color="white"
-              fontFamily="montserrat"
-            />
-          </label>
-        </div>
-      )}
-      <div className={styles.inputWrapper}>
-        <input
-          {...rest}
-          required={required}
-          className={classNames(styles.input, classname)}
-        />
-        {errorMessage && (
+        <label htmlFor={rest.name} className={styles.label}>
           <Text
-            tag="p"
-            text={errorMessage}
-            fontSize="xs"
-            weight="700"
-            color="red"
+            tag="span"
+            text={label}
+            weight="500"
+            fontSize="sm"
+            color="white"
             fontFamily="montserrat"
-            className={styles.error}
           />
-        )}
-      </div>
+        </label>
+      )}
+      {errorMessage && (
+        <Text
+          tag="p"
+          text={errorMessage}
+          fontSize="xs"
+          weight="700"
+          color="red"
+          fontFamily="montserrat"
+          className={styles.error}
+        />
+      )}
     </div>
   );
 };

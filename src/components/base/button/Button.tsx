@@ -14,7 +14,7 @@ export interface ButtonProps
   size?: "sm" | "md" | "lg";
   fontSize?: "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   fontFamily?: "montserrat" | "inter";
-  fontColor?: "black";
+  fontColor?: "black" | "blue";
   weight?: "300" | "400" | "500" | "600" | "700";
   icon?: IconNames | undefined;
 }
