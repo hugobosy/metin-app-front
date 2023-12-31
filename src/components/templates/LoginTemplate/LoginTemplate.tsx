@@ -74,6 +74,7 @@ export const LoginTemplate: FC<LoginTemplateProps> = ({ locale }) => {
                 label={t("your-name")}
                 className={styles.input}
                 id="email"
+                required
               />
               <FormikInput
                 type="password"
@@ -81,6 +82,7 @@ export const LoginTemplate: FC<LoginTemplateProps> = ({ locale }) => {
                 label={t("password")}
                 className={styles.input}
                 id="password"
+                required
               />
             </div>
             {isLoading ? (

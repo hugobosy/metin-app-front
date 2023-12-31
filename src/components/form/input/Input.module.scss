@@ -25,12 +25,14 @@
   transition: .4s;
   overflow-y: visible;
 
-  &:focus {
+
+  &:focus,
+  &:valid{
     outline: none;
     background-color: var(--color-blue-900-opacity);
 
-    + .label {
-      top: 0;
+    ~ .label {
+      top: -1px;
     }
   }
 }
