@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: var(--color-blue-900);
 }
 .form {
@@ -41,12 +41,7 @@
 }
 
 .header {
-  @include sm-text;
-  color: var(--color-gray-100);
   letter-spacing: 6px;
-  @include media-from(md) {
-    @include lg-text
-  }
 }
 
 .buttonWrapper {

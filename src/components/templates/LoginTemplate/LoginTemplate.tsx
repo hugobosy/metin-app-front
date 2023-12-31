@@ -63,6 +63,7 @@ export const LoginTemplate: FC<LoginTemplateProps> = ({ locale }) => {
           isUppercase
           weight="700"
           fontFamily="inter"
+          color="white"
           className={styles.header}
         />
         <FormikProvider value={loginFormik}>
