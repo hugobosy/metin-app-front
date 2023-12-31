@@ -15,9 +15,7 @@
   max-width: 800px;
   padding: 40px 15px;
   margin: 0 25px;
-  border: 1px solid var(--color-gray-100);
   border-radius: 16px;
-  @include shadow;
 
   @include media-from(md) {
     padding: 40px 60px;
@@ -30,27 +28,21 @@
     width: 100%;
   }
 
-  &-isAccount {
-    span {
-      @include xs-text;
-      @include media-from(md) {
-        @include md-text
-      }
-    }
+  &-goToLogin {
+    @include changeLoginOrRegister
   }
-}
-
-.button {
-  width: 100%;
 }
 
 .header {
-  @include sm-text;
-  @include media-from(md) {
-    @include lg-text
-  }
+  letter-spacing: 6px;
 }
 
-.spinner {
-  justify-self: center;
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.checkboxWrapper {
+  display: flex;
+  gap: 5px;
 }

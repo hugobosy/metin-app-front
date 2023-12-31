@@ -30,13 +30,7 @@
   }
 
   &-goToRegister {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    @include media-from(md) {
-      flex-direction: row;
-    }
+    @include changeLoginOrRegister
   }
 }
 

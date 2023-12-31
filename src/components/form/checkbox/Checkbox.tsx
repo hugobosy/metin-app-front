@@ -8,7 +8,7 @@ import { Text } from "@/components/base/text/Text";
 
 export interface CheckboxProps extends ComponentPropsWithRef<"input"> {
   label?: string;
-  color?: "yellow" | "red" | "green";
+  color?: "yellow" | "red" | "green" | "blue";
   message?: string;
 }
 
@@ -34,7 +34,15 @@ export const Checkbox: React.FC<CheckboxProps> = ({
             <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
           </svg>
         </span>
-        <span className={styles.label}>{label}</span>
+        {/*<span className={styles.label}>{label}</span>*/}
+        <Text
+          tag="span"
+          text={label}
+          fontFamily="inter"
+          fontSize="xs"
+          color="white"
+          className={styles.label}
+        />
       </div>
       {message && (
         <Text

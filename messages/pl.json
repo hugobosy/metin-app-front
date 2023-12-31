@@ -15,6 +15,7 @@
     "login-here": "Zaloguj się",
     "email-exists-in-the-database": "Ten e-mail istnieje już w bazie !",
     "connection-error": "Błąd połączenia",
+    "regulations": "Regulaminie",
 
     "validate": {
       "required": {
