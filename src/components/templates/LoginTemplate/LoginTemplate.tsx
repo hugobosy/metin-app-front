@@ -30,8 +30,8 @@ export const LoginTemplate: FC<LoginTemplateProps> = ({ locale }) => {
     },
     onSubmit: (values) => handleLogin(values),
     validationSchema: Yup.object().shape({
-      email: Yup.string().required(),
-      password: Yup.string().required(),
+      email: Yup.string().required(t("required-email")),
+      password: Yup.string().required(t("required-password")),
     }),
   });
 
@@ -71,43 +71,50 @@ export const LoginTemplate: FC<LoginTemplateProps> = ({ locale }) => {
               <FormikInput
                 type="text"
                 name="email"
-                placeholder={t("your-name")}
+                label={t("your-name")}
+                className={styles.input}
+                id="email"
               />
               <FormikInput
                 type="password"
                 name="password"
-                placeholder={t("password")}
+                label={t("password")}
+                className={styles.input}
+                id="password"
               />
             </div>
             {isLoading ? (
-              <Spinner className={styles.spinner} />
+              <div className={styles.buttonWrapper}>
+                <Spinner className={styles.spinner} />
+              </div>
             ) : (
-              <Button
-                type="submit"
-                text={t("sign-in")}
-                className={styles.button}
-                variant="success"
-                size="lg"
-              />
+              <div className={styles.buttonWrapper}>
+                <Button
+                  type="submit"
+                  text={t("sign-in")}
+                  variant="base"
+                  size="lg"
+                />
+              </div>
             )}
           </Form>
         </FormikProvider>
 
-        <div className={styles["form-isAccount"]}>
+        <div className={styles["form-goToRegister"]}>
           <Text
             tag="span"
             text={t("dont-have-already-an-account")}
             fontSize="md"
             fontFamily="inter"
+            color="white"
           />
           <Button
             href={projectURL(locale ? locale : "pl").REGISTER}
-            type="button"
             text={t("register-here")}
             size="sm"
             fontSize="md"
             fontFamily="inter"
-            fontColor="black"
+            fontColor="blue"
             weight="700"
           />
         </div>
