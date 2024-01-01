@@ -96,6 +96,12 @@
   &-blue {
     @include blue;
   }
+  &-white {
+    @include white;
+  }
+  &-gray {
+    @include gray;
+  }
 }
 
 .weight {

@@ -1,5 +1,4 @@
 import styles from "./MenuBase.module.scss";
-import { Tile } from "@/components/base/tile/Tile";
 import { Button } from "@/components/base/button/Button";
 import { useTranslations } from "next-intl";
 import { projectURL } from "@/const/projectURL";
@@ -59,8 +58,9 @@ export const MenuBase: FC<MenuBaseProps> = ({ locale }) => {
               text={item.text}
               href={item.href}
               icon={item.icon}
-              fontFamily="inter"
+              fontFamily="montserrat"
               fontSize="xxs"
+              fontColor="gray"
               className={styles.link}
             />
           </li>
