@@ -125,14 +125,7 @@ export const RegisterTemplate: FC<RegisterTemplateProps> = ({ locale }) => {
                 label={t("i-agree-all-statements-in")}
                 color="blue"
                 checked={registerFormik.values.agree}
-              />
-              <Button
-                href="#"
-                text={t("regulations")}
-                fontColor="blue"
-                weight="600"
-                fontSize="xs"
-                fontFamily="inter"
+                link={{ text: t("regulations"), href: "#" }}
               />
             </div>
             {isLoading ? (

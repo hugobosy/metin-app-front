@@ -16,7 +16,6 @@
   padding: 40px 15px;
   margin: 0 25px;
   border-radius: 16px;
-  @include shadow;
 
   @include media-from(md) {
     padding: 40px 60px;
