@@ -1,13 +1,10 @@
+@import "@/styles/common";
 .wrapper {
   display: flex;
 }
 
 .content {
-  position: absolute;
-  top: 0;
-  left: 250px;
-  width: calc(100% - 250px);
-  height: 100%;
+  width: 100%;
   padding: 30px 70px;
   background-color: var(--color-blue-900);
 }

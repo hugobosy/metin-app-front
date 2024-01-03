@@ -1,0 +1,37 @@
+@import "@/styles/common";
+.burger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 99;
+
+  @include media-from(lg) {
+    display: none;
+  }
+}
+
+.line {
+  display: inline-block;
+  width: 80%;
+  height: 2px;
+  background-color: #fff;
+  transition: .4s;
+}
+
+.active {
+  &:first-child {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  &:nth-child(2) {
+    transform: translate(-120%);
+  }
+  &:last-child {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}

@@ -1,16 +1,42 @@
 @import "@/styles/common";
 .wrapper {
-  position: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 250px;
+  max-width: 0;
   height: 100vh;
   background-color: var(--color-blue-800);
+  transition: .3s;
+  z-index: 10;
+  box-shadow: 0 0 25px 5px var(--color-blue-900);
+
+  @include media-from(lg) {
+    position: relative;
+    max-width: 250px;
+  }
+
+  &.active {
+    max-width: 250px;
+  }
 }
 
 .list {
-  display: flex;
+  display: none;
   flex-direction: column;
   padding: 30px 0;
+  opacity: 0;
+  transition: .3s;
+
+  &.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  @include media-from(lg) {
+    display: flex;
+    opacity: 1;
+  }
   
   &-item {
     transition: .3s;
@@ -27,4 +53,11 @@
   width: 100%;
   padding: 20px 0;
   @include base-text
+}
+
+.mobile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
 }
