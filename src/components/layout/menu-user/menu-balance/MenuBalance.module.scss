@@ -1,9 +1,42 @@
+@import "@/styles/common";
 .wrapper {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 30px;
+    margin-bottom: 30px;
+    height: 30px;
+    overflow: hidden;
+    transition: .4s;
+
+    &.active {
+        height: 280px;
+
+        @include media-from(md) {
+            height: auto;
+        }
+    }
+
+    @include media-from(md) {
+        flex-direction: row;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 0;
+        height: auto;
+        overflow: visible;
+
+        svg {
+            display: none;
+        }
+    }
 }
 
 .button {
     padding: 10px 30px;
+}
+
+.yourBalance {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }

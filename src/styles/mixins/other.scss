@@ -1,4 +1,5 @@
 @import "media";
+
 @mixin changeLoginOrRegister {
   display: flex;
   flex-direction: column;
@@ -6,5 +7,15 @@
 
   @include media-from(md) {
     flex-direction: row;
+  }
+}
+
+@mixin formModal {
+  display: flex;
+  flex-direction: column;;
+  width: 100%;
+
+  @include media-from(md) {
+    padding: 50px 150px 0;
   }
 }

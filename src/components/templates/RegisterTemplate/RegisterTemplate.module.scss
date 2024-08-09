@@ -40,9 +40,10 @@
 .buttonWrapper {
   display: flex;
   justify-content: center;
+  margin-top: 40px;
 }
 
 .checkboxWrapper {
-  display: flex;
+  display: inline-flex;
   gap: 5px;
 }

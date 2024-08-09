@@ -1,15 +1,32 @@
+@import "@/styles/common";
 .wrapper {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 30px;
-  height: 60px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 0 25px 5px var(--color-blue-900);
+
+  @include media-from(md) {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    height: 60px;
+  }
 }
 
 .userMenu {
-  position: relative;
   display: flex;
-  align-items: center;
-  gap: 15px;
+  justify-content: center;
+  gap: 10px;
+
+  @include media-from(md) {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
 }
 
 .theme {

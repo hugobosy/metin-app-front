@@ -42,7 +42,7 @@ export const Input: FC<InputProps> = ({
         <Text
           tag="p"
           text={errorMessage}
-          fontSize="xs"
+          fontSize="xxs"
           weight="700"
           color="red"
           fontFamily="montserrat"

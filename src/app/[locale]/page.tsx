@@ -44,7 +44,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
     return redirect(`/${params.locale}/login`);
   }
 
-  console.log(transactions?.data);
+  console.log(user?.id);
 
   const loading =
     expensesLoading ||

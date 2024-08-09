@@ -1,11 +1,13 @@
 import { useTranslations } from "next-intl";
 import styles from "./MenuBalance.module.scss";
 import { Text } from "@/components/base/text/Text";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { MenuUserProps } from "../MenuUser";
 import { Button } from "@/components/base/button/Button";
 import { Spinner } from "@/components/base/spinner/Spinner";
 import Cookies from "universal-cookie";
+import { Icon } from "@/components/base/icon/Icon";
+import classNames from "classnames";
 
 export interface MenuBalanceProps
   extends Pick<MenuUserProps, "balanceWon" | "balanceYang"> {
@@ -21,16 +23,24 @@ export const MenuBalance: FC<MenuBalanceProps> = ({
   setTypeModal,
 }) => {
   const t = useTranslations("Layout.balance");
+  const [showBalance, setShowBalance] = useState<boolean>(false);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={classNames(styles.wrapper, showBalance && styles.active)}>
       <Text
-        tag="span"
-        fontFamily="montserrat"
-        fontSize="md"
-        color="white"
-        text={t("your-balance")}
-      />
+        tag="p"
+        className={styles.yourBalance}
+        onClick={() => setShowBalance(!showBalance)}
+      >
+        <Text
+          tag="span"
+          fontFamily="montserrat"
+          fontSize="md"
+          color="white"
+          text={t("your-balance")}
+        />
+        <Icon name={showBalance ? "ArrowDown" : "ArrowUp"} />
+      </Text>
       <Text
         tag="span"
         fontFamily="montserrat"

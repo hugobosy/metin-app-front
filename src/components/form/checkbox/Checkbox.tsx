@@ -5,11 +5,16 @@ import classNames from "classnames";
 
 import styles from "./Checkbox.module.scss";
 import { Text } from "@/components/base/text/Text";
+import { Button } from "@/components/base/button/Button";
 
 export interface CheckboxProps extends ComponentPropsWithRef<"input"> {
   label?: string;
   color?: "yellow" | "red" | "green" | "blue";
   message?: string;
+  link?: {
+    text: string;
+    href: string;
+  };
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({
@@ -17,6 +22,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   color = "green",
   className,
   message,
+  link,
   ...rest
 }) => {
   return (
@@ -34,15 +40,25 @@ export const Checkbox: React.FC<CheckboxProps> = ({
             <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
           </svg>
         </span>
-        {/*<span className={styles.label}>{label}</span>*/}
         <Text
-          tag="span"
-          text={label}
+          tag="p"
           fontFamily="inter"
           fontSize="xs"
           color="white"
           className={styles.label}
-        />
+        >
+          {label}{" "}
+          {link && (
+            <Button
+              href={link.href}
+              text={link.text}
+              fontColor="blue"
+              weight="600"
+              fontSize="xs"
+              fontFamily="inter"
+            />
+          )}
+        </Text>
       </div>
       {message && (
         <Text
