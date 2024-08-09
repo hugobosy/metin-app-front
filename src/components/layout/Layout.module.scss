@@ -5,7 +5,7 @@
 
 .content {
   width: 100%;
-  padding: 30px 20px;
+  padding: 30px 20px 150px;
   background-color: var(--color-blue-900);
 
   @include media-from(md) {
