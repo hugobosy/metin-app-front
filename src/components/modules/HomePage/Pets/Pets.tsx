@@ -5,13 +5,18 @@ import { Text } from "@/components/base/text/Text";
 import { useTranslations } from "next-intl";
 import { FC } from "react";
 import { HomePageTemplateProps } from "@/components/templates/HomePageTemplate/HomePageTemplate";
-import { Pet } from "@/components/base/pet/pet";
+import { Pet } from "@/components/base/pet/Pet";
 
 export interface PetsProps extends Pick<HomePageTemplateProps, "userPets"> {}
 
 export const Pets: FC<PetsProps> = ({ userPets }) => {
   const t = useTranslations("Dashboard.pets");
   console.log(userPets);
+  const petsNames = userPets?.map((names) => {
+    return names.pets.name;
+  });
+
+  console.log(petsNames);
   return (
     <Tile className={styles.wrapper}>
       <Text
@@ -24,7 +29,11 @@ export const Pets: FC<PetsProps> = ({ userPets }) => {
         className={styles["header-text"]}
       />
       <div className={styles.pets}>
-        <Pet name="Monkey" alt="Monkey" src="" />
+        {userPets?.map((pet) => (
+          <div className={styles["pets-pet"]}>
+            <Pet name={pet.pets.name} />
+          </div>
+        ))}
       </div>
     </Tile>
   );

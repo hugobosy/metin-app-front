@@ -1,5 +1,5 @@
 import { pets } from "@/const/pets";
-import { ComponentProps, FC, useMemo } from "react";
+import React, { ComponentProps, FC, useMemo } from "react";
 
 export type PetNames = keyof typeof pets;
 

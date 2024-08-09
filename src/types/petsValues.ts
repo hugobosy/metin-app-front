@@ -6,4 +6,20 @@ export type PetsValues = {
   type: number;
   stats: string;
   time: string;
+  pets: {
+    name:
+      | "Monkey"
+      | "Spider"
+      | "Razador"
+      | "Nemere"
+      | "Dragon"
+      | "Meley"
+      | "Baashidos"
+      | "Kat"
+      | "Nessie"
+      | "Azrael"
+      | "Exedyar"
+      | "Alastor"
+      | "MiniBoss";
+  };
 };
