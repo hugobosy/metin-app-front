@@ -5,8 +5,12 @@
 
 .content {
   width: 100%;
-  padding: 30px 70px;
+  padding: 30px 20px;
   background-color: var(--color-blue-900);
+
+  @include media-from(md) {
+    padding: 30px 70px;
+  }
 }
 
 .childrenWrapper {
