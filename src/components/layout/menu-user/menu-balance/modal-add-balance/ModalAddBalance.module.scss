@@ -1,9 +1,6 @@
+@import "@/styles/common";
 .form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  padding: 50px 150px 0;
+  @include formModal;
 }
 .button {
   padding: 10px 30px;
