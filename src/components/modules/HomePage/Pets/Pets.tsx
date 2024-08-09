@@ -31,7 +31,7 @@ export const Pets: FC<PetsProps> = ({ userPets }) => {
       <div className={styles.pets}>
         {userPets?.map((pet) => (
           <div className={styles["pets-pet"]}>
-            <Pet name={pet.pets.name} />
+            <Pet name={pet.pets.name} key={pet.name} />
           </div>
         ))}
       </div>
