@@ -30,4 +30,6 @@ export const END_POINT = {
   convertWonToYang: "/converter/won-to-yang",
   convertYangToWon: "/converter/yang-to-won",
   getTransactions: "/transactions",
+  getPets: "/pets",
+  getUserPets: "/pets/get-user-pets",
 };
