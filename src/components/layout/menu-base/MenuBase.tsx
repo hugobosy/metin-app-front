@@ -1,71 +1,37 @@
 import styles from "./MenuBase.module.scss";
-import { Tile } from "@/components/base/tile/Tile";
 import { Button } from "@/components/base/button/Button";
-import { useTranslations } from "next-intl";
-import { projectURL } from "@/const/projectURL";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { LayoutProps } from "@/components/layout/Layout";
-import { IconNames } from "@/components/base/icon/Icon";
+import classNames from "classnames";
+import { Burger } from "@/components/base/burger/Burger";
+import { Menu } from "@/const/menu";
 
 export interface MenuBaseProps extends Pick<LayoutProps, "locale"> {}
 export const MenuBase: FC<MenuBaseProps> = ({ locale }) => {
-  const t = useTranslations("Layout");
-
-  type Menu = {
-    text: string;
-    href: string;
-    icon: IconNames;
-  };
-
-  const menu: Menu[] = [
-    {
-      text: t("menu.dashboard"),
-      href: projectURL(locale).HOME,
-      icon: "Home",
-    },
-    {
-      text: t("menu.bookkeeping"),
-      href: projectURL(locale).BOOKKEEPING,
-      icon: "Book",
-    },
-    {
-      text: t("menu.magazine"),
-      href: projectURL(locale).MAGAZINE,
-      icon: "Magazine",
-    },
-    {
-      text: t("menu.my-animals"),
-      href: projectURL(locale).ANIMALS,
-      icon: "Animal",
-    },
-    {
-      text: t("menu.my-costumes"),
-      href: projectURL(locale).COSTUMES,
-      icon: "Costume",
-    },
-    {
-      text: t("menu.notepad"),
-      href: projectURL(locale).NOTEPAD,
-      icon: "Notepad",
-    },
-  ];
-
+  const [activeMenu, setActiveMenu] = useState(false);
   return (
-    <div className={styles.wrapper}>
-      <ul className={styles.list}>
-        {menu.map((item) => (
+    <div className={classNames(styles.wrapper, activeMenu && styles.active)}>
+      <ul className={classNames(styles.list, activeMenu && styles.active)}>
+        {Menu(locale).map((item) => (
           <li key={item.text} className={styles["list-item"]}>
             <Button
               text={item.text}
               href={item.href}
               icon={item.icon}
-              fontFamily="inter"
+              fontFamily="montserrat"
               fontSize="xxs"
+              fontColor="gray"
               className={styles.link}
             />
           </li>
         ))}
       </ul>
+      <div className={styles.mobile}>
+        <Burger
+          setShowMobileNavigation={setActiveMenu}
+          showMobileNavigation={activeMenu}
+        />
+      </div>
     </div>
   );
 };

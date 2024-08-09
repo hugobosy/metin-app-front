@@ -8,8 +8,8 @@ import { Objective } from "@/components/modules/HomePage/Objective/Objective";
 import { ObjectiveValues } from "@/types/objectiveValues";
 import { TransactionsValues } from "@/types/transactionsValues";
 import { Transactions } from "@/components/modules/HomePage/Transactions/Transactions";
-import { Pets } from "@/components/modules/HomePage/Pets/Pets";
 import { PetsValues } from "@/types/petsValues";
+import { Pets } from "@/components/modules/HomePage/Pets/Pets";
 
 export interface HomePageTemplateProps extends ComponentPropsWithoutRef<"div"> {
   expenses?: ExpansesValues[];
@@ -18,7 +18,7 @@ export interface HomePageTemplateProps extends ComponentPropsWithoutRef<"div"> {
   loading?: boolean;
   userId?: string;
   transactions?: TransactionsValues[];
-  pets?: PetsValues[];
+  userPets?: PetsValues[];
 }
 
 export const HomePageTemplate: FC<HomePageTemplateProps> = ({
@@ -28,7 +28,7 @@ export const HomePageTemplate: FC<HomePageTemplateProps> = ({
   objective,
   userId,
   transactions,
-  pets,
+  userPets,
 }) => {
   if (loading) {
     return <Spinner className={styles.spinner} />;
@@ -38,7 +38,7 @@ export const HomePageTemplate: FC<HomePageTemplateProps> = ({
       <Balance expenses={expenses} revenues={revenues} userId={userId} />
       <Objective objective={objective} userId={userId} />
       <Transactions transactions={transactions} />
-      <Pets pets={pets} />
+      <Pets userPets={userPets} />
     </div>
   );
 };

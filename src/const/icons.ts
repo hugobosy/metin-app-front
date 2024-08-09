@@ -16,6 +16,8 @@ import Exit from "@/assets/svg/x.svg";
 import Edit from "@/assets/svg/edit.svg";
 import Accept from "@/assets/svg/accept.svg";
 import Trash from "@/assets/svg/trash.svg";
+import ArrowUp from "@/assets/svg/arrowUp.svg";
+import ArrowDown from "@/assets/svg/arrowDown.svg";
 
 export const icons = {
   Poland,
@@ -36,4 +38,6 @@ export const icons = {
   Edit,
   Accept,
   Trash,
+  ArrowUp,
+  ArrowDown,
 } as const;

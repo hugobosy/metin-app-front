@@ -16,6 +16,7 @@ import { useGetBalance } from "@/hooks/queries/useGetBalance";
 import Cookies from "universal-cookie";
 import { useGetTransactions } from "@/hooks/queries/useGetTransactions";
 import { useGetPets } from "@/hooks/queries/useGetPets";
+import { useGetUserPets } from "@/hooks/queries/useGetUserPets";
 
 export default function HomePage({ params }: { params: { locale: string } }) {
   const {
@@ -36,7 +37,9 @@ export default function HomePage({ params }: { params: { locale: string } }) {
   const { data: transactions, isLoading: transactionsLoading } =
     useGetTransactions(user && user.id);
 
-  const { data: pets, isLoading: petsLoading } = useGetPets(user && user.id);
+  const { data: userPets, isLoading: petsLoading } = useGetUserPets(
+    user && user.id,
+  );
 
   const { data: balance, isLoading: balanceLoading } = useGetBalance(
     user && user?.id,
@@ -47,7 +50,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
     return redirect(`/${params.locale}/login`);
   }
 
-  console.log(transactions?.data);
+  console.log(user?.id);
 
   const loading =
     expensesLoading ||
@@ -71,7 +74,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
         loading={loading}
         userId={user?.id}
         transactions={transactions?.data}
-        pets={pets?.data}
+        userPets={userPets?.data}
       />
     </Layout>
   );

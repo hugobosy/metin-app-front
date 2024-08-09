@@ -24,7 +24,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     z-index: 99;
     animation: ModalWrapper .4s forwards;
@@ -41,9 +41,11 @@
     justify-content: center;
     align-items: center;
     position: absolute;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
+    width: clamp(320px, 90%, 1000px);
+    max-height: 90%;
     padding: 50px;
     background-color: var(--color-blue-800);
     animation: ModalInner .3s forwards;

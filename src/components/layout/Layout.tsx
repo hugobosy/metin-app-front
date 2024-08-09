@@ -1,8 +1,8 @@
-import React, { ComponentPropsWithoutRef, FC } from "react";
+import React, { ComponentPropsWithoutRef, FC, useState } from "react";
 import { MenuUser } from "@/components/layout/menu-user/MenuUser";
 import styles from "./Layout.module.scss";
 import { MenuBase } from "@/components/layout/menu-base/MenuBase";
-import Cookies from "universal-cookie";
+import classNames from "classnames";
 
 export interface LayoutProps extends ComponentPropsWithoutRef<"div"> {
   children: React.ReactNode;

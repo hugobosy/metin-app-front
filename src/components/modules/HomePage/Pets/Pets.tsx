@@ -6,11 +6,11 @@ import { useTranslations } from "next-intl";
 import { FC } from "react";
 import { HomePageTemplateProps } from "@/components/templates/HomePageTemplate/HomePageTemplate";
 
-export interface PetsProps extends Pick<HomePageTemplateProps, "pets"> {}
+export interface PetsProps extends Pick<HomePageTemplateProps, "userPets"> {}
 
-export const Pets: FC<PetsProps> = ({ pets }) => {
+export const Pets: FC<PetsProps> = ({ userPets }) => {
   const t = useTranslations("Dashboard.pets");
-  console.log(pets);
+  console.log(userPets);
   return (
     <Tile className={styles.wrapper}>
       <Text

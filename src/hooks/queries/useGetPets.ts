@@ -3,7 +3,7 @@ import { apiService } from "@/services";
 
 export const getPets = (id: string) => ({
   queryKey: ["get-pets", id],
-  queryFn: () => apiService.getPets(id),
+  queryFn: () => apiService.getPets(),
 });
 
 export const useGetPets = (id: string) => {

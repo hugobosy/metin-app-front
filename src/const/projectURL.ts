@@ -31,4 +31,5 @@ export const END_POINT = {
   convertYangToWon: "/converter/yang-to-won",
   getTransactions: "/transactions",
   getPets: "/pets",
+  getUserPets: "/pets/get-user-pets",
 };

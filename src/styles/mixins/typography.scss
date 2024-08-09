@@ -51,7 +51,10 @@
 }
 
 @mixin xl-text {
-  font-size: 32px;
+    font-size: 18px;
+  @include media-from(md) {
+    font-size: 32px;
+  }
 }
 
 @mixin xxl-text {

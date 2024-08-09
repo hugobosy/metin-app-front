@@ -15,6 +15,7 @@
     "login-here": "Zaloguj się",
     "email-exists-in-the-database": "Ten e-mail istnieje już w bazie !",
     "connection-error": "Błąd połączenia",
+    "regulations": "Regulaminie",
 
     "validate": {
       "required": {
@@ -47,7 +48,9 @@
     "dont-have-already-an-account": "Nie posiadasz jeszcze konta?",
     "register-here": "Zarejestruj się",
     "error-connection": "Błąd połaczenia",
-    "incorrect-login-or-password": "Nieprawidłowy login lub hasło"
+    "incorrect-login-or-password": "Nieprawidłowy login lub hasło",
+    "required-email": "Musisz podać email",
+    "required-password": "Musisz podać swoje hasło"
   },
 
   "ErrorPage": {
