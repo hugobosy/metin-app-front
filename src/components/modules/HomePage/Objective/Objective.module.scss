@@ -1,3 +1,4 @@
+@import "@/styles/common";
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -5,6 +6,11 @@
 .header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
+
+  @include media-from(md) {
+    margin-bottom: 0;
+  }
 
   &-button {
     padding: 10px 30px;
