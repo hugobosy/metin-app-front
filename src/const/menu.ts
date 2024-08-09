@@ -8,7 +8,7 @@ type Menu = {
   icon: IconNames;
 };
 
-export const menu = (locale: string): Menu[] => {
+export const Menu = (locale: string): Menu[] => {
   const t = useTranslations("Layout");
   return [
     {
