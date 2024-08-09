@@ -12,11 +12,7 @@ export interface PetsProps extends Pick<HomePageTemplateProps, "userPets"> {}
 export const Pets: FC<PetsProps> = ({ userPets }) => {
   const t = useTranslations("Dashboard.pets");
   console.log(userPets);
-  const petsNames = userPets?.map((names) => {
-    return names.pets.name;
-  });
 
-  console.log(petsNames);
   return (
     <Tile className={styles.wrapper}>
       <Text
