@@ -19,7 +19,7 @@ export interface HomePageTemplateProps extends ComponentPropsWithoutRef<"div"> {
   userId?: string;
   transactions?: TransactionsValues[];
   userPets?: PetsValues[];
-  pets?: PetsName[];
+  pets?: PetsName[] & string[];
 }
 
 export const HomePageTemplate: FC<HomePageTemplateProps> = ({
