@@ -1,5 +1,5 @@
-import Monkey from "@/assets/img/pets/monkey.svg";
-import Spider from "@/assets/img/pets/spider.svg";
+import Monkey from "@/assets/img/pets/monkey.png";
+import Spider from "@/assets/img/pets/spider.png";
 import Exedyar from "@/assets/img/pets/spider.svg";
 import Baashidos from "@/assets/img/pets/spider.svg";
 import Razador from "@/assets/img/pets/spider.svg";
