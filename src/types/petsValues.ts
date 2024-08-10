@@ -23,3 +23,21 @@ export type PetsValues = {
       | "MiniBoss";
   };
 };
+
+export interface PetsName {
+  id: string;
+  name:
+    | "Monkey"
+    | "Spider"
+    | "Razador"
+    | "Nemere"
+    | "Dragon"
+    | "Meley"
+    | "Baashidos"
+    | "Kat"
+    | "Nessie"
+    | "Azrael"
+    | "Exedyar"
+    | "Alastor"
+    | "MiniBoss";
+}

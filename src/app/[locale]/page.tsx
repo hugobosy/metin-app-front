@@ -37,9 +37,11 @@ export default function HomePage({ params }: { params: { locale: string } }) {
   const { data: transactions, isLoading: transactionsLoading } =
     useGetTransactions(user && user.id);
 
-  const { data: userPets, isLoading: petsLoading } = useGetUserPets(
+  const { data: userPets, isLoading: petsUserLoading } = useGetUserPets(
     user && user.id,
   );
+
+  const { data: pets, isLoading: petsLoading } = useGetPets("");
 
   const { data: balance, isLoading: balanceLoading } = useGetBalance(
     user && user?.id,
@@ -50,13 +52,14 @@ export default function HomePage({ params }: { params: { locale: string } }) {
     return redirect(`/${params.locale}/login`);
   }
 
-  console.log(user?.id);
+  console.log(pets?.data);
 
   const loading =
     expensesLoading ||
     revenuesLoading ||
     objectiveLoading ||
     transactionsLoading ||
+    petsUserLoading ||
     petsLoading;
 
   return (
@@ -75,6 +78,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
         userId={user?.id}
         transactions={transactions?.data}
         userPets={userPets?.data}
+        pets={pets?.data}
       />
     </Layout>
   );

@@ -8,10 +8,13 @@ import { HomePageTemplateProps } from "@/components/templates/HomePageTemplate/H
 import { Pet } from "@/components/base/pet/Pet";
 import { Button } from "@/components/base/button/Button";
 import { ModalPets } from "@/components/modules/HomePage/Pets/ModalPets/ModalPets";
+import { PetsName } from "@/types/petsValues";
 
-export interface PetsProps extends Pick<HomePageTemplateProps, "userPets"> {}
+export interface PetsProps extends Pick<HomePageTemplateProps, "userPets"> {
+  pets?: PetsName[];
+}
 
-export const Pets: FC<PetsProps> = ({ userPets }) => {
+export const Pets: FC<PetsProps> = ({ userPets, pets }) => {
   const t = useTranslations("Dashboard.pets");
   const [showModal, setShowModal] = useState(false);
 
@@ -46,7 +49,11 @@ export const Pets: FC<PetsProps> = ({ userPets }) => {
           ))}
         </div>
       </Tile>
-      <ModalPets showModal={showModal} setShowModal={setShowModal} />
+      <ModalPets
+        showModal={showModal}
+        setShowModal={setShowModal}
+        pets={pets}
+      />
     </>
   );
 };
