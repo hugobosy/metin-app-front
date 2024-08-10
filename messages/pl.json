@@ -121,7 +121,8 @@
     },
     "pets": {
       "my-pets": "Moje zwierzaki",
-      "add-pet": "Dodaj zwierzaka"
+      "add-pet": "Dodaj zwierzaka",
+      "choose-pet": "Wybierz swojego peta"
     }
   },
   "Modal": {

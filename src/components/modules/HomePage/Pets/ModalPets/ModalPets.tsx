@@ -5,9 +5,10 @@ import { PetsName } from "@/types/petsValues";
 import { Text } from "@/components/base/text/Text";
 import { useTranslations } from "next-intl";
 import { Form, FormikProvider, useFormik } from "formik";
+import { Select } from "@/components/form/Select/Select";
 
 export interface ModalPetsProps extends ModalProps {
-  pets?: PetsName[];
+  pets?: PetsName[] & string[];
 }
 
 export const ModalPets: FC<ModalPetsProps> = ({
@@ -23,6 +24,8 @@ export const ModalPets: FC<ModalPetsProps> = ({
     validationSchema: {},
   });
 
+  console.log(pets);
+
   return (
     <Modal showModal={showModal} setShowModal={setShowModal}>
       <Text
@@ -34,7 +37,12 @@ export const ModalPets: FC<ModalPetsProps> = ({
         color="white"
       />
       <FormikProvider value={addPetForm}>
-        <Form className={styles.form}></Form>
+        <Form className={styles.form}>
+          <Select
+            options={pets?.map((pet) => ({ name: pet.name, id: pet.id }))}
+            label={t("choose-pet")}
+          />
+        </Form>
       </FormikProvider>
     </Modal>
   );

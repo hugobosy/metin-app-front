@@ -11,7 +11,7 @@ import { ModalPets } from "@/components/modules/HomePage/Pets/ModalPets/ModalPet
 import { PetsName } from "@/types/petsValues";
 
 export interface PetsProps extends Pick<HomePageTemplateProps, "userPets"> {
-  pets?: PetsName[];
+  pets?: PetsName[] & string[];
 }
 
 export const Pets: FC<PetsProps> = ({ userPets, pets }) => {
