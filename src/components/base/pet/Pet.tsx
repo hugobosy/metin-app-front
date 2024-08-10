@@ -1,5 +1,6 @@
 import { pets } from "@/const/pets";
 import React, { ComponentProps, FC, useMemo } from "react";
+import Image from "next/image";
 
 export type PetNames = keyof typeof pets;
 
@@ -8,7 +9,7 @@ interface PetProps extends ComponentProps<"svg"> {
 }
 
 export const Pet: FC<PetProps> = ({ name }) => {
-  const PetComponent = useMemo(() => pets[name] as () => JSX.Element, [name]);
+  const petName = useMemo(() => pets[name], [name]);
 
-  return <PetComponent />;
+  return <Image src={petName} alt={petName} />;
 };

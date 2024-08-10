@@ -120,7 +120,8 @@
       "last-transactions": "Ostatnie transakcje"
     },
     "pets": {
-      "my-pets": "Moje zwierzaki"
+      "my-pets": "Moje zwierzaki",
+      "add-pet": "Dodaj zwierzaka"
     }
   },
   "Modal": {
