@@ -40,7 +40,7 @@ export const HomePageTemplate: FC<HomePageTemplateProps> = ({
       <Balance expenses={expenses} revenues={revenues} userId={userId} />
       <Objective objective={objective} userId={userId} />
       <Transactions transactions={transactions} />
-      <Pets userPets={userPets} pets={pets} />
+      <Pets userPets={userPets} pets={pets} userId={userId} />
     </div>
   );
 };

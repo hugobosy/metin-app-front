@@ -2,6 +2,7 @@ import styles from "./Select.module.scss";
 import classNames from "classnames";
 import { FC, SelectHTMLAttributes } from "react";
 import { Text } from "@/components/base/text/Text";
+import { useTranslations } from "next-intl";
 
 export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   className?: string;
@@ -10,6 +11,7 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   required?: boolean;
   errorMessage?: string;
   state?: string;
+  optionHeader?: string;
 }
 
 export const Select: FC<SelectProps> = ({
@@ -19,11 +21,13 @@ export const Select: FC<SelectProps> = ({
   required,
   errorMessage,
   state,
+  optionHeader,
   ...rest
 }) => {
   return (
     <div className={classNames(styles.wrapper, className)}>
-      <select className={styles.select} {...rest}>
+      <select className={styles.select} {...rest} required={required}>
+        <option>{optionHeader}</option>
         {options?.map((option, index) => (
           <option key={index} value={option.id}>
             {option.name}

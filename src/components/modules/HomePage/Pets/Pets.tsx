@@ -12,9 +12,10 @@ import { PetsName } from "@/types/petsValues";
 
 export interface PetsProps extends Pick<HomePageTemplateProps, "userPets"> {
   pets?: PetsName[] & string[];
+  userId?: string;
 }
 
-export const Pets: FC<PetsProps> = ({ userPets, pets }) => {
+export const Pets: FC<PetsProps> = ({ userPets, userId, pets }) => {
   const t = useTranslations("Dashboard.pets");
   const [showModal, setShowModal] = useState(false);
 
@@ -53,6 +54,7 @@ export const Pets: FC<PetsProps> = ({ userPets, pets }) => {
         showModal={showModal}
         setShowModal={setShowModal}
         pets={pets}
+        userId={userId}
       />
     </>
   );

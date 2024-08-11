@@ -1,5 +1,6 @@
 @import "@/styles/common";
 .wrapper {
+  position: relative;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
@@ -8,7 +9,7 @@
 }
 
 .select {
-  width: 200px;
+  width: max-content;
   padding: 10px 20px;
   background-color: var(--color-blue-900);
   border: none;
@@ -35,6 +36,6 @@
 
 .error {
   position: absolute;
-  margin-left: 5px;
-  line-height: 1.4;
+  top: -15px;
+  left: 50%;
 }
