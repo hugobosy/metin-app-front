@@ -54,6 +54,7 @@ export const Pets: FC<PetsProps> = ({ userPets, userId, pets, locale }) => {
             }
             return (
               <PetComponent
+                key={pet.id}
                 name={pet.name}
                 id={pet.id}
                 level={pet.level}
