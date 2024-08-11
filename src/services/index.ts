@@ -7,6 +7,7 @@ import { ExpansesValues } from "@/types/expansesValues";
 import { ObjectiveValues } from "@/types/objectiveValues";
 import { BalanceValues } from "@/types/balanceValues";
 import { ConverterValues } from "@/types/converterValues";
+import { PetsValues } from "@/types/petsValues";
 
 export class ApiService {
   async register(values: RegisterValues) {
@@ -145,6 +146,14 @@ export class ApiService {
   async getUserPets(id: string) {
     return await axios.get(
       `http://localhost:5000${END_POINT.getUserPets}/${id}`,
+    );
+  }
+
+  async addUserPet(values: PetsValues) {
+    console.log(values);
+    return await axios.post(
+      `http://localhost:5000${END_POINT.addPets}`,
+      values,
     );
   }
 }

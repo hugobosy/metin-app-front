@@ -1,6 +1,6 @@
 import { apiService } from "@/services";
 import { useMutation } from "@tanstack/react-query";
 
-export const useAddObjectiveMutation = () => {
-  return useMutation(apiService.addObjective);
+export const useAddPetMutation = () => {
+  return useMutation(apiService.addUserPet);
 };

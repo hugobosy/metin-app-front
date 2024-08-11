@@ -9,6 +9,7 @@ import { Pet } from "@/components/base/pet/Pet";
 import { Button } from "@/components/base/button/Button";
 import { ModalPets } from "@/components/modules/HomePage/Pets/ModalPets/ModalPets";
 import { PetsName } from "@/types/petsValues";
+import { useAddPetMutation } from "@/hooks/mutations/useAddPet";
 
 export interface PetsProps extends Pick<HomePageTemplateProps, "userPets"> {
   pets?: PetsName[] & string[];
@@ -18,6 +19,8 @@ export interface PetsProps extends Pick<HomePageTemplateProps, "userPets"> {
 export const Pets: FC<PetsProps> = ({ userPets, userId, pets }) => {
   const t = useTranslations("Dashboard.pets");
   const [showModal, setShowModal] = useState(false);
+
+  const { mutate: addPet, isLoading: loadingAddPet } = useAddPetMutation();
 
   return (
     <>
@@ -44,7 +47,7 @@ export const Pets: FC<PetsProps> = ({ userPets, userId, pets }) => {
         </div>
         <div className={styles.pets}>
           {userPets?.map((pet) => (
-            <div key={pet.pets.name} className={styles["pets-pet"]}>
+            <div key={pet.id} className={styles["pets-pet"]}>
               <Pet name={pet.pets.name} />
             </div>
           ))}
@@ -55,6 +58,7 @@ export const Pets: FC<PetsProps> = ({ userPets, userId, pets }) => {
         setShowModal={setShowModal}
         pets={pets}
         userId={userId}
+        addPet={addPet}
       />
     </>
   );

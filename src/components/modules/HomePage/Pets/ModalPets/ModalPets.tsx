@@ -9,10 +9,12 @@ import { Select } from "@/components/form/Select/Select";
 import { Button } from "@/components/base/button/Button";
 import * as Yup from "yup";
 import { FormikInput } from "@/components/form/formikInput/FormikInput";
+import { toast } from "react-toastify";
 
 export interface ModalPetsProps extends ModalProps {
   pets?: PetsName[] & string[];
   userId?: string;
+  addPet?: any;
 }
 
 export const ModalPets: FC<ModalPetsProps> = ({
@@ -20,12 +22,13 @@ export const ModalPets: FC<ModalPetsProps> = ({
   setShowModal,
   pets,
   userId,
+  addPet,
 }) => {
   const t = useTranslations("Modal.pets");
 
   const addPetForm = useFormik({
     initialValues: {
-      userId: userId,
+      userId: userId ? userId : "",
       petId: "",
       name: "",
       level: 0,
@@ -34,7 +37,19 @@ export const ModalPets: FC<ModalPetsProps> = ({
       def: 0,
       he: 0,
     },
-    onSubmit: () => location.reload(),
+    onSubmit: async (values) => {
+      addPet(values, {
+        onSuccess: () => {
+          setShowModal(false);
+          location.reload();
+        },
+
+        onError: () => {
+          toast.error("Something went wrong");
+        },
+      });
+      console.log(values);
+    },
     validationSchema: Yup.object().shape({
       petId: Yup.string().required(t("choose-your-pet")),
       name: Yup.string().required(t("choose-your-pet-name")),

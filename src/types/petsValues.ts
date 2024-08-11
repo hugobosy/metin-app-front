@@ -5,7 +5,6 @@ export type PetsValues = {
   level: number;
   type: number;
   stats: string;
-  time: string;
   pets: {
     name:
       | "Monkey"
