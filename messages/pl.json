@@ -122,7 +122,11 @@
     "pets": {
       "my-pets": "Moje zwierzaki",
       "add-pet": "Dodaj zwierzaka",
-      "choose-pet": "Wybierz swojego peta"
+      "level": "Poziom",
+      "hit-points": "Punkty życia: ",
+      "defence": "Obrona: ",
+      "hit-energy": "Punkty energii: ",
+      "see-more": "Zobacz więcej"
     }
   },
   "Modal": {
@@ -154,6 +158,32 @@
       "label-objective-edit": "Twój aktualny cel",
       "label-amount": "Podaj jaką wartość ma określony cel",
       "label-amount-edit": "Twoja aktualna wartość celu"
+    },
+    "pets": {
+      "add-pet": "Dodaj zwierzaka",
+      "your-pet": "Twój zwierzak",
+      "choose-pet": "-- Wybierz swojego peta --",
+      "choose-your-pet": "Musisz wybrać zwierzaka",
+      "choose-your-pet-select-header": "--- Wybierz zwierzaka ---",
+      "choose-your-pet-name": "Wpisz nazwę zwierzaka",
+      "choose-your-pet-level": "Wpisz poziom zwierzaka",
+      "choose-your-pet-type": "Wpisz typ zwierzaka",
+      "choose-your-pet-hp": "Wpisz punkty życia zwierzaka",
+      "choose-your-pet-def": "Wpisz punkty obrony zwierzaka",
+      "choose-your-pet-he": "Wpisz punkty energii zwierzaka",
+      "level-must-be-min-0": "Poziom minimalny to 1",
+      "level-must-be-max-105": "Poziom może być maksymalnie 105",
+      "type-min-1": "Minimalny typ to 1",
+      "type-max-8": "Maksymalny typ to 8",
+      "hp-more-than-0": "Punkty życia muszą być większe od 0",
+      "def-more-than-0": "Punkty obrony muszą być większe od 0",
+      "he-more-than-0": "Punkty energii muszą być większe od 0",
+      "pet-name": "Nazwa zwierzaka",
+      "pet-level": "Poziom zwierzaka",
+      "pet-type": "Typ zwierzaka",
+      "pet-hp": "Punkty życia zwierzaka",
+      "pet-def": "Obrona zwierzaka",
+      "pet-he": "Punkty energii zwierzaka"
     }
   }
 }

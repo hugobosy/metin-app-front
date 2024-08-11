@@ -32,4 +32,5 @@ export const END_POINT = {
   getTransactions: "/transactions",
   getPets: "/pets",
   getUserPets: "/pets/get-user-pets",
+  addPets: "/pets/add",
 };

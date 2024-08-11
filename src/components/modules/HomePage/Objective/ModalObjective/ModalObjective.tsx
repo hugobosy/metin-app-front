@@ -44,7 +44,6 @@ export const ModalObjective: FC<ModalObjectiveProps> = ({
           },
         });
       } else {
-        console.log({ id: objective.id, values });
         editObjective(
           { id: objective.id, values },
           {
@@ -52,7 +51,7 @@ export const ModalObjective: FC<ModalObjectiveProps> = ({
               setShowModal(false);
               location.reload();
             },
-          }
+          },
         );
       }
     },
