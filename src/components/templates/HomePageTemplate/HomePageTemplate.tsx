@@ -20,6 +20,7 @@ export interface HomePageTemplateProps extends ComponentPropsWithoutRef<"div"> {
   transactions?: TransactionsValues[];
   userPets?: PetsValues[];
   pets?: PetsName[] & string[];
+  locale?: string;
 }
 
 export const HomePageTemplate: FC<HomePageTemplateProps> = ({
@@ -31,6 +32,7 @@ export const HomePageTemplate: FC<HomePageTemplateProps> = ({
   transactions,
   userPets,
   pets,
+  locale,
 }) => {
   if (loading) {
     return <Spinner className={styles.spinner} />;
@@ -40,7 +42,7 @@ export const HomePageTemplate: FC<HomePageTemplateProps> = ({
       <Balance expenses={expenses} revenues={revenues} userId={userId} />
       <Objective objective={objective} userId={userId} />
       <Transactions transactions={transactions} />
-      <Pets userPets={userPets} pets={pets} userId={userId} />
+      <Pets userPets={userPets} pets={pets} userId={userId} locale={locale} />
     </div>
   );
 };

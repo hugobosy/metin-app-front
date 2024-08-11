@@ -79,6 +79,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
         transactions={transactions?.data}
         userPets={userPets?.data}
         pets={pets?.data}
+        locale={params?.locale}
       />
     </Layout>
   );

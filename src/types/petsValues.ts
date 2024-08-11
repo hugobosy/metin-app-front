@@ -4,7 +4,9 @@ export type PetsValues = {
   name: string;
   level: number;
   type: number;
-  stats: string;
+  hp: number;
+  def: number;
+  he: number;
   pets: {
     name:
       | "Monkey"

@@ -121,7 +121,12 @@
     },
     "pets": {
       "my-pets": "Moje zwierzaki",
-      "add-pet": "Dodaj zwierzaka"
+      "add-pet": "Dodaj zwierzaka",
+      "level": "Poziom",
+      "hit-points": "Punkty życia: ",
+      "defence": "Obrona: ",
+      "hit-energy": "Punkty energii: ",
+      "see-more": "Zobacz więcej"
     }
   },
   "Modal": {
