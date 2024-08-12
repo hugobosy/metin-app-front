@@ -25,7 +25,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
     isLoading: loadingUser,
   } = useAuthQuery(getAccessTokenCookie());
   const { data: expenses, isLoading: expensesLoading } = useGetExpenses(
-    user && user.id,
+    user?.id,
   );
   const { data: revenues, isLoading: revenuesLoading } = useGetRevenues(
     user && user.id,
@@ -51,8 +51,6 @@ export default function HomePage({ params }: { params: { locale: string } }) {
     removeAccessTokenCookie();
     return redirect(`/${params.locale}/login`);
   }
-
-  console.log(pets?.data);
 
   const loading =
     expensesLoading ||
