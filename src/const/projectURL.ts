@@ -2,7 +2,7 @@ export const projectURL = (locale: string) => ({
   LOGIN: `/${locale}/login`,
   REGISTER: `/${locale}/register`,
   PROFILE: `/${locale}/profile`,
-  HOME: `/${locale}/`,
+  HOME: `/${locale}/home-page`,
   BOOKKEEPING: `/${locale}/bookkeeping`,
   MAGAZINE: `/${locale}/magazine`,
   ANIMALS: `/${locale}/my-animals`,

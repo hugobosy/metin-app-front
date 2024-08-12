@@ -33,12 +33,13 @@ export const HomePageTemplate: FC<HomePageTemplateProps> = ({
   userPets,
   pets,
   locale,
+  ...rest
 }) => {
   if (loading) {
     return <Spinner className={styles.spinner} />;
   }
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} {...rest}>
       <Balance expenses={expenses} revenues={revenues} userId={userId} />
       <Objective objective={objective} userId={userId} />
       <Transactions transactions={transactions} />
