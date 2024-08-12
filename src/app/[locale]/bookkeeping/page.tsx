@@ -7,6 +7,7 @@ import { BookkeepingTemplate } from "@/components/templates/BookkeepingTemplate/
 import { useGetExpenses } from "@/hooks/queries/useGetExpenses";
 import { useGetBalance } from "@/hooks/queries/useGetBalance";
 import { useGetRevenues } from "@/hooks/queries/useGetRevenues";
+import { useEffect } from "react";
 
 export default function BookkeepingPage({
   params,
@@ -16,24 +17,24 @@ export default function BookkeepingPage({
   const { data: user, isError: userError } = useAuthQuery(
     getAccessTokenCookie(),
   );
+
+  // const { data: expenses, isLoading: expensesLoading } = useGetExpenses(
+  //   user && user?.id,
+  // );
+  // const { data: revenues, isLoading: revenuesLoading } = useGetRevenues(
+  //   user && user.id,
+  // );
+
+  const { data: balance, isLoading: balanceLoading } = useGetBalance(
+    user && user?.id,
+  );
+
   if (userError) {
     removeAccessTokenCookie();
     return redirect(`/${params.locale}/login`);
   }
-  const { data: balance, isLoading: balanceLoading } = useGetBalance(
-    user && user?.id,
-  );
-  const {
-    data: expenses,
-    isError: expensesError,
-    isLoading: expensesLoading,
-  } = useGetExpenses(user?.id);
-  const {
-    data: revenues,
-    isError: revenuesError,
-    isLoading: revenuesLoading,
-  } = useGetRevenues(user?.id);
 
+  // const loading = expensesLoading || revenuesLoading;
   return (
     <Layout
       locale={params.locale}
@@ -43,8 +44,9 @@ export default function BookkeepingPage({
       userId={user?.id}
     >
       <BookkeepingTemplate
-        expenses={expenses?.data}
-        revenues={revenues?.data}
+      // loading={loading}
+      // expenses={expenses?.data}
+      // revenues={revenues?.data}
       />
     </Layout>
   );

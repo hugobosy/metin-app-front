@@ -25,7 +25,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
     isLoading: loadingUser,
   } = useAuthQuery(getAccessTokenCookie());
   const { data: expenses, isLoading: expensesLoading } = useGetExpenses(
-    user?.id,
+    user && user?.id,
   );
   const { data: revenues, isLoading: revenuesLoading } = useGetRevenues(
     user && user.id,
