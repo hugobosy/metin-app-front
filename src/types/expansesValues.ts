@@ -4,4 +4,5 @@ export type ExpansesValues = {
   count: number;
   priceYang: number;
   priceWon: number;
+  createdAt: string;
 };
