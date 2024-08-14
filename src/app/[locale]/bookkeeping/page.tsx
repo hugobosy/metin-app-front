@@ -18,12 +18,12 @@ export default function BookkeepingPage({
     getAccessTokenCookie(),
   );
 
-  // const { data: expenses, isLoading: expensesLoading } = useGetExpenses(
-  //   user && user?.id,
-  // );
-  // const { data: revenues, isLoading: revenuesLoading } = useGetRevenues(
-  //   user && user.id,
-  // );
+  const { data: expenses, isLoading: expensesLoading } = useGetExpenses(
+    user && user?.id,
+  );
+  const { data: revenues, isLoading: revenuesLoading } = useGetRevenues(
+    user && user.id,
+  );
 
   const { data: balance, isLoading: balanceLoading } = useGetBalance(
     user && user?.id,
@@ -34,7 +34,7 @@ export default function BookkeepingPage({
     return redirect(`/${params.locale}/login`);
   }
 
-  // const loading = expensesLoading || revenuesLoading;
+  const loading = expensesLoading || revenuesLoading;
   return (
     <Layout
       locale={params.locale}
@@ -44,9 +44,9 @@ export default function BookkeepingPage({
       userId={user?.id}
     >
       <BookkeepingTemplate
-      // loading={loading}
-      // expenses={expenses?.data}
-      // revenues={revenues?.data}
+        loading={loading}
+        expenses={expenses?.data}
+        revenues={revenues?.data}
       />
     </Layout>
   );
