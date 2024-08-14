@@ -4,4 +4,5 @@ export type RevenuesValues = {
   count: number;
   priceYang: number;
   priceWon: number;
+  createdAt?: Date;
 };
