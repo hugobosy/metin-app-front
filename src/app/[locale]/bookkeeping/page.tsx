@@ -7,7 +7,6 @@ import { BookkeepingTemplate } from "@/components/templates/BookkeepingTemplate/
 import { useGetExpenses } from "@/hooks/queries/useGetExpenses";
 import { useGetBalance } from "@/hooks/queries/useGetBalance";
 import { useGetRevenues } from "@/hooks/queries/useGetRevenues";
-import { useEffect } from "react";
 
 export default function BookkeepingPage({
   params,
@@ -47,6 +46,7 @@ export default function BookkeepingPage({
         loading={loading}
         expenses={expenses?.data}
         revenues={revenues?.data}
+        userId={user?.id}
       />
     </Layout>
   );
