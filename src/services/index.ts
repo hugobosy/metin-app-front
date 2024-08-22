@@ -9,6 +9,12 @@ import { BalanceValues } from "@/types/balanceValues";
 import { ConverterValues } from "@/types/converterValues";
 import { PetsValues } from "@/types/petsValues";
 
+export enum By {
+  "day",
+  "month",
+  "year",
+}
+
 export class ApiService {
   async register(values: RegisterValues) {
     return await axios.post(
@@ -150,10 +156,16 @@ export class ApiService {
   }
 
   async addUserPet(values: PetsValues) {
-    console.log(values);
     return await axios.post(
       `http://localhost:5000${END_POINT.addPets}`,
       values,
+    );
+  }
+
+  async getTransactionsResults(id?: string, by?: "day" | "month" | "year") {
+    console.log(id, by);
+    return await axios.get(
+      `http://localhost:5000${END_POINT.getTransactionResults}/${id}/${by}`,
     );
   }
 }
