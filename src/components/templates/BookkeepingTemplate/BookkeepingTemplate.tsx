@@ -25,19 +25,25 @@ export const BookkeepingTemplate: FC<BookkeepingTemplateProps> = ({
     return <Spinner className={styles.spinner} />;
   }
 
-  const [by, setBy] = useState<"day" | "month" | "year">("year");
+  const [by, setBy] = useState<"day" | "month" | "year">("day");
 
   const { data, isLoading } = useGetTransactionsResults(userId, by);
+
+  const labels = data && Object.keys(data?.data.revenues);
 
   return (
     <div className={styles.wrapper} {...rest}>
       <div className={styles.charts}>
         <BarChart
-          labels={data?.data.revenues}
+          labels={labels}
           datasets={[
             {
               label: "Moje wydatki",
-              data: data?.data.revenues.map((revenue: any) => revenue["2024"]),
+              data: data ? Object.values(data?.data.expenses) : [0],
+            },
+            {
+              label: "Moje przychody",
+              data: data ? Object.values(data?.data.revenues) : [0],
             },
           ]}
         />
