@@ -7,6 +7,8 @@ import { BookkeepingTemplate } from "@/components/templates/BookkeepingTemplate/
 import { useGetExpenses } from "@/hooks/queries/useGetExpenses";
 import { useGetBalance } from "@/hooks/queries/useGetBalance";
 import { useGetRevenues } from "@/hooks/queries/useGetRevenues";
+import { useState } from "react";
+import { useGetTransactionsResults } from "@/hooks/queries/useGetTransactionsResults";
 
 export default function BookkeepingPage({
   params,
@@ -28,6 +30,11 @@ export default function BookkeepingPage({
     user && user?.id,
   );
 
+  const [by, setBy] = useState<"day" | "month" | "year">("day");
+
+  const { data: transactionResults, isLoading: transactionResultsLoading } =
+    useGetTransactionsResults(user && user?.id, by);
+
   if (userError) {
     removeAccessTokenCookie();
     return redirect(`/${params.locale}/login`);
@@ -46,7 +53,7 @@ export default function BookkeepingPage({
         loading={loading}
         expenses={expenses?.data}
         revenues={revenues?.data}
-        userId={user?.id}
+        results={transactionResults?.data}
       />
     </Layout>
   );

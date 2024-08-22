@@ -1,40 +1,29 @@
 import styles from "./Charts.module.scss";
-import { Bar, Line, Chart } from "react-chartjs-2";
-import "chart.js/auto";
-import { FC } from "react";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
+import { BarChart } from "@/components/base/Charts/Charts";
+import { ComponentPropsWithoutRef, FC } from "react";
+import { ResultsType } from "@/components/templates/BookkeepingTemplate/BookkeepingTemplate";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-);
-
-export interface ChartProps<TDatasets, TLabel> {
-  labels?: TLabel;
-  datasets: TDatasets[];
+export interface ChartsProps extends ComponentPropsWithoutRef<"div"> {
+  labels?: string[];
+  data?: ResultsType;
 }
 
-export interface datasets<TData> {
-  label: string;
-  data: TData | undefined;
-}
-
-export const BarChart: FC<
-  ChartProps<datasets<(string | number)[]>, string[] | undefined[]>
-> = (data, options) => {
-  return <Bar data={data} options={options} />;
+export const Charts: FC<ChartsProps> = ({ labels, data }) => {
+  return (
+    <div className={styles.wrapper}>
+      <BarChart
+        labels={labels}
+        datasets={[
+          {
+            label: "Moje wydatki",
+            data: data ? Object.values(data.expenses) : [0],
+          },
+          {
+            label: "Moje przychody",
+            data: data ? Object.values(data.revenues) : [0],
+          },
+        ]}
+      />
+    </div>
+  );
 };
