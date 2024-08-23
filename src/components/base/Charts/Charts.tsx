@@ -1,5 +1,4 @@
-import styles from "./Charts.module.scss";
-import { Bar, Line, Chart } from "react-chartjs-2";
+import { Bar, Line, Chart, Doughnut } from "react-chartjs-2";
 import "chart.js/auto";
 import { FC } from "react";
 import {
@@ -37,4 +36,14 @@ export const BarChart: FC<
   ChartProps<datasets<(string | number)[]>, string[] | undefined[]>
 > = (data, options) => {
   return <Bar data={data} options={options} />;
+};
+export const LineChart: FC<
+  ChartProps<datasets<(string | number)[]>, string[] | undefined[]>
+> = (data, options) => {
+  return <Line data={data} options={options} />;
+};
+export const CircleChart: FC<
+  ChartProps<datasets<(string | number)[]>, string[] | undefined[]>
+> = (data, options) => {
+  return <Doughnut data={data} options={options} />;
 };
