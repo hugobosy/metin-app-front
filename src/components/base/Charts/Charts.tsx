@@ -1,6 +1,6 @@
 import { Bar, Line, Chart, Doughnut } from "react-chartjs-2";
 import "chart.js/auto";
-import { FC } from "react";
+import { ComponentProps, FC } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -22,7 +22,7 @@ ChartJS.register(
   Legend,
 );
 
-export interface ChartProps<TDatasets, TLabel> {
+export interface ChartProps<TDatasets, TLabel> extends ComponentProps<"div"> {
   labels?: TLabel;
   datasets: TDatasets[];
 }
@@ -34,16 +34,16 @@ export interface datasets<TData> {
 
 export const BarChart: FC<
   ChartProps<datasets<(string | number)[]>, string[] | undefined[]>
-> = (data, options) => {
-  return <Bar data={data} options={options} />;
+> = (data, options, ...rest) => {
+  return <Bar data={data} options={options} {...rest} />;
 };
 export const LineChart: FC<
   ChartProps<datasets<(string | number)[]>, string[] | undefined[]>
-> = (data, options) => {
-  return <Line data={data} options={options} />;
+> = (data, options, ...rest) => {
+  return <Line data={data} options={options} {...rest} />;
 };
 export const CircleChart: FC<
   ChartProps<datasets<(string | number)[]>, string[] | undefined[]>
-> = (data, options) => {
-  return <Doughnut data={data} options={options} />;
+> = (data, options, ...rest) => {
+  return <Doughnut data={data} options={options} {...rest} />;
 };

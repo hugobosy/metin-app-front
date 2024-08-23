@@ -1,3 +1,4 @@
+import styles from "./Charts.module.scss";
 import {
   BarChart,
   CircleChart,
@@ -22,31 +23,37 @@ export const Charts: FC<ChartsProps> = ({
   switch (type) {
     case "BarChart":
       return (
-        <BarChart
-          labels={labels}
-          datasets={data.map((item) => {
-            return { label: item.label, data: item.data };
-          })}
-        />
+        <div className={styles.wrapper}>
+          <BarChart
+            labels={labels}
+            datasets={data.map((item) => {
+              return { label: item.label, data: item.data };
+            })}
+          />
+        </div>
       );
     case "LineChart":
       return (
-        <LineChart
-          labels={labels}
-          datasets={data.map((item) => {
-            return { label: item.label, data: item.data };
-          })}
-        />
+        <div className={styles.wrapper}>
+          <LineChart
+            labels={labels}
+            datasets={data.map((item) => {
+              return { label: item.label, data: item.data };
+            })}
+          />
+        </div>
       );
 
     case "CircleChart":
       return (
-        <CircleChart
-          labels={labels}
-          datasets={data.map((item) => {
-            return { label: item.label, data: item.data };
-          })}
-        />
+        <div className={styles.wrapper}>
+          <CircleChart
+            labels={labels}
+            datasets={data.map((item) => {
+              return { label: item.label, data: item.data };
+            })}
+          />
+        </div>
       );
   }
 };
