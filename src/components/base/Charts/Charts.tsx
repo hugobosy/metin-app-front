@@ -1,6 +1,6 @@
-import { Bar, Line, Chart, Doughnut } from "react-chartjs-2";
+import { Bar, Line, Doughnut } from "react-chartjs-2";
 import "chart.js/auto";
-import { ComponentProps, FC } from "react";
+import { ComponentProps, ComponentPropsWithoutRef, FC } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -22,9 +22,11 @@ ChartJS.register(
   Legend,
 );
 
-export interface ChartProps<TDatasets, TLabel> extends ComponentProps<"div"> {
+export interface ChartProps<TDatasets, TLabel>
+  extends ComponentPropsWithoutRef<"div"> {
   labels?: TLabel;
   datasets: TDatasets[];
+  options?: any;
 }
 
 export interface datasets<TData> {

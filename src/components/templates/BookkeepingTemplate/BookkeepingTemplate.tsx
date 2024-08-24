@@ -48,7 +48,6 @@ export const BookkeepingTemplate: FC<BookkeepingTemplateProps> = ({
 
   return (
     <div className={styles.wrapper} {...rest}>
-      <Charts labels={labels} data={dataResults} type="CircleChart" />
       <Charts labels={labels} data={dataResults} type="BarChart" />
       <Charts labels={labels} data={dataResults} type="LineChart" />
     </div>
