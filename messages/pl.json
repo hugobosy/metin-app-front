@@ -139,7 +139,7 @@
       "values-price-cannot-null": "Musisz podać przynajmniej jedną z cen"
     },
     "expenses": {
-      "add": "Dodad wydatek",
+      "add": "Dodaj wydatek",
       "item-label": "Przedmiot",
       "count": "Ilość",
       "price-yang": "Cena Yang",

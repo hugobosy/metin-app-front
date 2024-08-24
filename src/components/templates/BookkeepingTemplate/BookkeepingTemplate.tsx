@@ -35,10 +35,21 @@ export const BookkeepingTemplate: FC<BookkeepingTemplateProps> = ({
   }
 
   const labels = results && Object.keys(results.revenues);
+  const dataResults = [
+    {
+      label: "Moje wydatki",
+      data: results ? Object.values(results.expenses) : [0],
+    },
+    {
+      label: "Moje przychody",
+      data: results ? Object.values(results.revenues) : [0],
+    },
+  ];
 
   return (
     <div className={styles.wrapper} {...rest}>
-      <Charts labels={labels} data={results} />
+      <Charts labels={labels} data={dataResults} type="BarChart" />
+      <Charts labels={labels} data={dataResults} type="LineChart" />
     </div>
   );
 };
