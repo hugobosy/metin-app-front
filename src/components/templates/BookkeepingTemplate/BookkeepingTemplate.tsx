@@ -3,7 +3,7 @@ import { FC } from "react";
 import { RevenuesValues } from "@/types/revenuesValues";
 import { ExpansesValues } from "@/types/expansesValues";
 import { Spinner } from "@/components/base/spinner/Spinner";
-import { Charts } from "@/components/modules/Bookkeeping/Charts/Charts";
+import { ChartsModule } from "@/components/modules/Bookkeeping/ChartsModule/ChartsModule";
 
 export type ResultsType = {
   revenues: {
@@ -34,22 +34,5 @@ export const BookkeepingTemplate: FC<BookkeepingTemplateProps> = ({
     return <Spinner className={styles.spinner} />;
   }
 
-  const labels = results && Object.keys(results.revenues);
-  const dataResults = [
-    {
-      label: "Moje wydatki",
-      data: results ? Object.values(results.expenses) : [0],
-    },
-    {
-      label: "Moje przychody",
-      data: results ? Object.values(results.revenues) : [0],
-    },
-  ];
-
-  return (
-    <div className={styles.wrapper} {...rest}>
-      <Charts labels={labels} data={dataResults} type="BarChart" />
-      <Charts labels={labels} data={dataResults} type="LineChart" />
-    </div>
-  );
+  return <ChartsModule results={results} />;
 };
